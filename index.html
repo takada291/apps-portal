@@ -36,7 +36,7 @@
             padding: 2rem;
         }
 
-        /* アプリ紹介カードのデザイン */
+        /* アプリ紹介カードのデザイン修正 */
         .app-card {
             background: white;
             border-radius: 8px;
@@ -44,6 +44,37 @@
             padding: 1.5rem;
             margin-bottom: 2rem;
             transition: transform 0.3s;
+            /* Flexboxを追加 */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        /* カード内のテキスト部分 */
+        .app-info {
+            flex: 1;
+        }
+
+        /* QRコードのコンテナ */
+        .qr-code {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .qr-label {
+            font-size: 0.7rem;
+            color: #888;
+            margin-top: 4px;
+            display: block;
         }
 
         .app-card:hover {
@@ -89,6 +120,18 @@
             font-size: 0.9rem;
             color: #777;
         }
+
+        /* スマホ向けの表示調整 */
+        @media (max-width: 600px) {
+            .app-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .qr-code {
+                align-self: flex-end; /* スマホでもQRは右下に */
+                margin-top: -40px; /* ボタンの横に回り込ませる工夫 */
+            }
+        }
     </style>
 </head>
 <body>
@@ -104,19 +147,31 @@
             <h2>公開中のWEBアプリ</h2>
 
             <article class="app-card">
-                <h3 class="app-title">立木調査v1.0</h3>
-                <p>胸高直径、樹高等を入力し保存、CSV出力する立木調査アプリです。</p>
-                <p>オフライン環境でも動作するようPWAとして公開しています。</p>
-                <p>リンク先をchrome等で開き、ホーム画面へショートカットを追加して下さい。</p>
-                <a href="https://takada291.github.io/tree-survey/" class="btn">アプリを開く</a>
+                <div class="app-info">
+                    <h3 class="app-title">立木調査v1.0</h3>
+                    <p>胸高直径、樹高等を入力し保存、CSV出力する立木調査アプリです。</p>
+                    <p>オフライン環境でも動作するようPWAとして公開しています。</p>
+                    <p>リンク先をChrome等で開き、ホーム画面へ追加して下さい。</p>
+                    <a href="https://takada291.github.io/tree-survey/" class="btn">アプリを開く</a>
+                </div>
+                <div class="qr-code">
+                    <img src="qr_tree-survey.png" alt="立木調査アプリ QRコード">
+                    <span class="qr-label">スマホで読取</span>
+                </div>
             </article>
 
             <article class="app-card">
-                <h3 class="app-title">座標変換v2.1（地図表示対応）</h3>
-                <p>端末のGPSで取得した緯度経度を直交座標へ変換し保存、CSV出力するアプリです。</p>
-                <p>オフライン環境でも動作するようPWAとして公開しています。</p>
-                <p>リンク先をchrome等で開き、ホーム画面へショートカットを追加して下さい。</p>
-                <a href="https://takada291.github.io/geo-location/" class="btn">アプリを開く</a>
+                <div class="app-info">
+                    <h3 class="app-title">座標変換v2.1（地図表示対応）</h3>
+                    <p>端末のGPSで取得した緯度経度を直交座標へ変換し保存、CSV出力するアプリです。</p>
+                    <p>オフライン環境でも動作するようPWAとして公開しています。</p>
+                    <p>リンク先をChrome等で開き、ホーム画面へ追加して下さい。</p>
+                    <a href="https://takada291.github.io/geo-location/" class="btn">アプリを開く</a>
+                </div>
+                <div class="qr-code">
+                    <img src="qr_geo-locatin.png" alt="座標変換アプリ QRコード">
+                    <span class="qr-label">スマホで読取</span>
+                </div>
             </article>
         </section>
 
@@ -147,15 +202,4 @@
     </footer>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-

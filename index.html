@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takada291's WebApps</title>
-    <meta name="description" content="生成AIを活用して開発した各種森林調査アプリの紹介と更新情報をお届けします。">
+    <title>林業DX・スマート林業ツール集 | Takada291's WebApps</title>
+    <meta name="description" content="現場で使える林業DXツールを公開中。樹木調査アプリや位置情報変換、AI立木評価など、スマート林業を支援するインストール不要のPWAアプリを紹介します。">
+    <meta name="keywords" content="林業DX,スマート林業,樹木調査,PWA,位置情報,森林管理,無料アプリ">
     
     <style>
         :root {
@@ -12,10 +13,11 @@
             --accent-color: #3498db;
             --bg-color: #f4f7f6;
             --text-color: #333;
+            --white: #ffffff;
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
@@ -26,8 +28,18 @@
         header {
             background: var(--primary-color);
             color: white;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
             text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.9;
         }
 
         .container {
@@ -36,27 +48,44 @@
             padding: 2rem;
         }
 
-        /* アプリ紹介カードのデザイン修正 */
+        h2 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        /* アプリ紹介カード */
         .app-card {
-            background: white;
+            background: var(--white);
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             padding: 1.5rem;
             margin-bottom: 2rem;
             transition: transform 0.3s;
-            /* Flexboxを追加 */
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
             gap: 20px;
         }
 
-        /* カード内のテキスト部分 */
         .app-info {
             flex: 1;
         }
 
-        /* QRコードのコンテナ */
+        .app-title {
+            color: var(--accent-color);
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+
+        .app-card p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* QRコード部分 */
         .qr-code {
             text-align: center;
             min-width: 100px;
@@ -81,76 +110,124 @@
             transform: translateY(-5px);
         }
 
-        .app-title {
-            color: var(--accent-color);
-            margin-top: 0;
-        }
-
         .btn {
             display: inline-block;
             background: var(--accent-color);
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             text-decoration: none;
             border-radius: 4px;
             margin-top: 1rem;
+            font-weight: bold;
         }
 
-        /* 更新情報のセクション */
+        /* 注意事項の画像 */
+        .instruction-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* FAQセクション */
+        .faq-container {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            padding-left: 1rem;
+            border-left: 3px solid #eee;
+        }
+
+        /* 更新情報 */
         .updates {
-            background: #fff;
+            background: var(--white);
             padding: 1.5rem;
             border-left: 5px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
         }
 
         .update-item {
             border-bottom: 1px dotted #ccc;
             padding: 0.5rem 0;
+            display: flex;
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
         }
 
         .date {
             font-weight: bold;
             color: #666;
-            margin-right: 1rem;
+            min-width: 100px;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
             font-size: 0.9rem;
             color: #777;
         }
 
-        /* スマホ向けの表示調整 */
+        /* レスポンシブ対応 */
         @media (max-width: 600px) {
             .app-card {
                 flex-direction: column;
                 align-items: flex-start;
             }
             .qr-code {
-                align-self: flex-end; /* スマホでもQRは右下に */
-                margin-top: -40px; /* ボタンの横に回り込ませる工夫 */
+                align-self: flex-end;
+                margin-top: -50px;
+            }
+            .update-item {
+                flex-direction: column;
+            }
+            .date {
+                font-size: 0.8rem;
+                margin-bottom: 2px;
             }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>森林調査アプリの紹介と更新情報</h1>
-        <p>生成AIで開発したWEBアプリ</p>
+        <h1>林業DX・スマート林業ツール集</h1>
+        <p>現場の「困った」を生成AI×Web技術で解決する</p>
     </header>
 
     <div class="container">
         
-        <section id="apps">
-            <h2>公開中のWEBアプリ（オンライン・オフライン）</h2>
+        <section id="intro">
+            <p>本サイトでは、<strong>スマート林業</strong>の推進を目指し、現場で手軽に使えるWebアプリ（PWA）を公開しています。高価な専用端末は不要。スマホやタブレット一つで<strong>林業DX</strong>を体験してください。</p>
+        </section>
+
+        <section id="apps-offline">
+            <h2>オフライン対応ツール（PWA形式）</h2>
+            <p>電波の届かない山奥でも動作し、現場でのデータ収集を効率化します。</p>
 
             <article class="app-card">
                 <div class="app-info">
-                    <h3 class="app-title">立木調査v1.1</h3>
-                    <p>胸高直径、樹高等を入力し保存、CSV出力する立木調査アプリです。</p>
-                    <p>オフライン環境でも動作するようPWAとして公開しています。</p>
-                    <p>リンク先をChrome等で開き、ホーム画面へ追加して下さい。</p>
+                    <h3 class="app-title">立木調査 v1.1</h3>
+                    <p>胸高直径、樹高等を入力し保存、CSV出力する毎木・プロット調査用アプリです。紙の野帳をデジタル化し、集計作業を大幅に削減します。</p>
+                    <p><strong>使い方：</strong>Chrome等で開き「ホーム画面へ追加」して使用してください。</p>
                     <a href="https://takada291.github.io/tree-survey/" class="btn">アプリを開く</a>
                 </div>
                 <div class="qr-code">
@@ -161,10 +238,9 @@
 
             <article class="app-card">
                 <div class="app-info">
-                    <h3 class="app-title">座標変換v2.1</h3>
-                    <p>端末のGPSで取得した緯度経度を直交座標へ変換し保存、CSV出力するアプリです。</p>
-                    <p>オフライン環境でも動作するようPWAとして公開しています。</p>
-                    <p>リンク先をChrome等で開き、ホーム画面へ追加して下さい。</p>
+                    <h3 class="app-title">座標変換 v2.1</h3>
+                    <p>端末GPSの緯度経度を直交座標（平面直角座標系）へ変換。境界確認や位置記録に最適です。地図表示にも対応しています。</p>
+                    <p><strong>使い方：</strong>Chrome等で開き「ホーム画面へ追加」して使用してください。</p>
                     <a href="https://takada291.github.io/geo-location/" class="btn">アプリを開く</a>
                 </div>
                 <div class="qr-code">
@@ -172,13 +248,12 @@
                     <span class="qr-label">スマホで読取</span>
                 </div>
             </article>
-            
+
             <article class="app-card">
                 <div class="app-info">
-                    <h3 class="app-title">簡易ナビv2.0</h3>
-                    <p>境界杭等の直交座標を入力し、現在地から目標地へ簡易的にナビするアプリです。</p>
-                    <p>オフライン環境でも動作するようPWAとして公開しています。</p>
-                    <p>リンク先をChrome等で開き、ホーム画面へ追加して下さい。</p>
+                    <h3 class="app-title">簡易ナビ v2.0</h3>
+                    <p>境界杭等の座標を入力し、現在地から目標地点へナビゲート。電子コンパス連動により、不慣れな現場での移動をサポートします。</p>
+                    <p><strong>使い方：</strong>Chrome等で開き「ホーム画面へ追加」して使用してください。</p>
                     <a href="https://takada291.github.io/simple-navi/" class="btn">アプリを開く</a>
                 </div>
                 <div class="qr-code">
@@ -187,22 +262,23 @@
                 </div>
             </article>
 
-            <h2>使用上の注意点</h2>
-            <p>・調査直前にオンライン環境でアプリを起動しておくとオフライン環境で動作が安定します。</p>
-            <p>・アプリで保存したデータは調査後すぐCSV出力→別途PC等で保存後に削除して下さい。</p>
-            <p>・アプリを更新した場合は、起動時にお知らせするので、アップデートして下さい。</p>
-            <p>・使用していてバージョン番号が古いままの場合、ショートカットを削除して、再設定して下さい。</p>
-            
-        <hr>
-            
-            <h2>公開中のWEBアプリ（オンラインのみ）</h2>
+            <div class="faq-container">
+                <strong>【PWA共通の注意点】</strong>
+                <ul>
+                    <li>調査直前に電波のある場所で一度起動しておくと、オフライン動作が安定します。</li>
+                    <li>保存データは調査後すぐにCSV出力し、PC等へ保存してください。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="apps-online">
+            <h2>オンライン専用ツール（AI診断）</h2>
             
             <article class="app-card">
                 <div class="app-info">
-                    <h3 class="app-title">立木評価v0.2（試行版）</h3>
-                    <p>主伐を迎えたスギ等人工林の林内写真（縦長）をAI診断し、その評価値を保存、CSV出力するアプリです。</p>
-                    <p>オフライン環境では動作しませんので、注意して下さい。</p>
-                    <p>リンク先をChrome等で開き、お気に入りに登録して下さい。</p>
+                    <h3 class="app-title">立木評価 v0.2（試行版）</h3>
+                    <p>AIが林内写真から「用材割合」を自動診断。ティーチャブルマシンを活用した<strong>スマート林業</strong>の実験的ツールです。</p>
+                    <p>※本機能はAI解析のため、インターネット接続が必要です。</p>
                     <a href="https://takada291.github.io/forest-eval/" class="btn">アプリを開く</a>
                 </div>
                 <div class="qr-code">
@@ -210,47 +286,46 @@
                     <span class="qr-label">スマホで読取</span>
                 </div>
             </article>
-            
-            <h2>使用上の注意点</h2>
-            <p>・”用材割合が多い・少ない”で仕分けたスギ人工林の林内写真で機械学習したグーグルのティーチャブルマシンのモデルを使用しています。</p>
-            <p>・機械学習した写真は数十枚と少なくAIの精度向上にあたり、林内写真の情報収集にご協力をお願いいたします。（アプリを開いた際にきかれます）</p>
-            <p>・林内写真は多めに撮影し、その平均値について、おおまかな用材割合の目安程度にとらえ、最終的にはご自身で評価して下さい。</p>
-            <p>・アプリで保存した評価値のデータは診断後すみやかにCSV出力→別途PC等で保存後に削除して下さい。</p>
-            <p>・PWAではないことから、アプリ更新のお知らせはありません。</p>
-            <p>・林内写真ですが、以下のイメージのように縦長（高アスペクト比、16：9等）で樹幹上部まで写るように撮影して下さい。</p>
-            <img src="forest-photo_before.jpg" alt="林内写真イメージ　もとの状態">
-            <p>・AI診断では、以下のイメージのようにリサイズされます。なお情報収集に同意いただいた場合、リサイズ後の（位置情報が消去された）写真データを管理者のグーグルドライブへ転送させて頂きます。</p>
-            <img src="forest-photo_after.jpeg" alt="林内写真イメージ　リサイズ後">  
+
+            <div class="faq-container">
+                <strong>【撮影のコツ】</strong>
+                <p>樹幹上部まで写るように縦長（16:9等）で撮影してください。</p>
+                <img src="forest-photo_before.jpg" alt="撮影イメージ" class="instruction-img">
+            </div>
         </section>
 
-        <hr>
+        <section id="faq">
+            <h2>よくある質問（FAQ）</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <span class="faq-question">Q. なぜ無料で使えるのですか？</span>
+                    <p class="faq-answer">生成AIを活用した個人開発プロジェクトであり、林業現場のデジタル化（林業DX）に貢献することを目的に公開しているためです。</p>
+                </div>
+                <div class="faq-item">
+                    <span class="faq-question">Q. 電波のない場所（圏外）でも本当に動きますか？</span>
+                    <p class="faq-answer">PWA（Progressive Web Apps）という技術を使用しているため、一度読み込めば圏外でも動作可能です。ただし、初回起動や更新時は通信が必要です。</p>
+                </div>
+                <div class="faq-item">
+                    <span class="faq-question">Q. データのセキュリティは大丈夫ですか？</span>
+                    <p class="faq-answer">入力した調査データはブラウザ内のローカルストレージにのみ保存され、外部サーバーに送信されることはありません（AI診断の写真提供に同意いただいた場合を除きますが、写真データから位置情報は削除した上で提供いただきます）。</p>
+                </div>
+            </div>
+        </section>
 
         <section id="news">
             <h2>更新状況</h2>
-            <div class="updates">
-                <div class="update-item">
-                    <span class="date">2026.01.11</span>
-                    <span>簡易ナビアプリで電子コンパスに対応しました。</span>
-                </div>
+            <div class="updates">                
                 <div class="update-item">
                     <span class="date">2026.01.10</span>
-                    <span>簡易ナビアプリを公開しました。</span>
-                </div>
-                <div class="update-item">
-                    <span class="date">2026.01.10</span>
-                    <span>立木評価アプリを公開しました。</span>
-                </div>              
-                <div class="update-item">
-                    <span class="date">2026.01.09</span>
-                    <span>当サイトを開設しました。</span>
+                    <span>立木評価、簡易ナビアプリを公開。</span>
                 </div>
                 <div class="update-item">
                     <span class="date">2026.01.09</span>
-                    <span>座標変換アプリで地図表示に対応しました。</span>
-                </div>              
-                <div class="update-item">
+                    <span>紹介サイト「林業DXツール集」を開設。</span>
+                </div>
+		<div class="update-item">
                     <span class="date">2026.01.05</span>
-                    <span>立木調査、座標変換アプリを公開しました。</span>
+                    <span>立木調査、座標変換アプリを公開。</span>
                 </div>
             </div>
         </section>
@@ -258,27 +333,9 @@
     </div>
 
     <footer>
-        <p>&copy; takada291. Created with the help of AI.</p>
+        <p>&copy; takada291. 林業DXを支えるWebアプリ集</p>
+        <p style="font-size: 0.7rem;">Created with the help of AI.</p>
     </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

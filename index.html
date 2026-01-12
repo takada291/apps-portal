@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>林業DX・スマート林業ツール集 | Takada291's WebApps</title>
     <meta name="description" content="現場で使える林業DXツールを公開中。樹木調査アプリや位置情報変換、AI立木評価など、スマート林業を支援するインストール不要のPWAアプリを紹介します。">
-    <meta name="keywords" content="林業DX,スマート林業,樹木調査,PWA,位置情報,森林管理,立木評価,AI,画像認識,無料アプリ">
+    <meta name="keywords" content="林業DX,スマート林業,立木調査,PWA,位置情報,森林管理,立木評価,AI,画像認識,無料アプリ">
     
     <style>
         :root {
@@ -65,9 +65,20 @@
             margin-bottom: 2rem;
             transition: transform 0.3s;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+            /* justify-content: space-between; を削除 */
+            /* align-items: flex-end; を削除 */
+            align-items: flex-start; /* アイコンとテキストの上端を揃える */
             gap: 20px;
+        }
+
+        /* アイコン画像のスタイルを追加 */
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px; /* 少し丸みをつける */
+            flex-shrink: 0; /* 画像が縮まないようにする */
+            object-fit: cover; /* 枠に合わせてトリミング */
+            border: 1px solid #eee;
         }
 
         .app-info {
@@ -89,6 +100,7 @@
         .qr-code {
             text-align: center;
             min-width: 100px;
+            align-self: flex-end; /* QRコードだけ下揃えにする */
         }
 
         .qr-code img {
@@ -190,11 +202,15 @@
         @media (max-width: 600px) {
             .app-card {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center; /* スマホでは中央揃え */
+                text-align: center;
+            }
+            .app-info {
+                width: 100%; /* 幅を一杯に使う */
             }
             .qr-code {
-                align-self: flex-end;
-                margin-top: -50px;
+                align-self: center; /* QRコードも中央揃え */
+                margin-top: 1rem; /* 少し間隔を空ける */
             }
             .update-item {
                 flex-direction: column;
@@ -224,6 +240,7 @@
             <p>電波の届かない山奥でも動作し、現場でのデータ収集を効率化します。</p>
 
             <article class="app-card">
+                <img src="icon-192_tree-survey.png" alt="立木調査アイコン" class="app-icon">
                 <div class="app-info">
                     <h3 class="app-title">立木調査 v1.1</h3>
                     <p>胸高直径、樹高等を入力し保存、CSV出力する毎木・プロット調査用アプリです。紙の野帳をデジタル化し、集計作業を大幅に削減します。</p>
@@ -237,6 +254,7 @@
             </article>
 
             <article class="app-card">
+                <img src="icon-192_geo-location.png" alt="座標変換アイコン" class="app-icon">
                 <div class="app-info">
                     <h3 class="app-title">座標変換 v2.1</h3>
                     <p>端末GPSの緯度経度を平面直角座標系へ変換。境界確認や位置記録に最適です。地図表示にも対応しています。</p>
@@ -250,6 +268,7 @@
             </article>
 
             <article class="app-card">
+                <img src="icon-192_simple-navi.png" alt="簡易ナビアイコン" class="app-icon">
                 <div class="app-info">
                     <h3 class="app-title">簡易ナビ v2.0</h3>
                     <p>境界杭等の座標を入力し、現在地から目標地点へナビゲート。電子コンパス連動により、不慣れな現場での移動をサポートします。</p>
@@ -267,8 +286,8 @@
                 <ul>
                     <li>調査直前に電波のある場所で一度起動しておくと、オフライン動作が安定します。</li>
                     <li>保存データは調査後すぐにCSV出力してPC等へ保存後、データを削除してください。</li>
-					<li>スマホ等のGPS精度は10m以上ズレる場合がありますので取り扱いに注意して下さい。</li>
-					<li>緯度経度から換算した直角座標は概算値であり精度を保証するものではありません。</li>
+                    <li>スマホ等のGPS精度は10m以上ズレる場合がありますので取り扱いに注意して下さい。</li>
+                    <li>緯度経度から変換した直角座標は概算値であり精度を保証するものではありません。</li>
                 </ul>
             </div>
         </section>
@@ -277,6 +296,7 @@
             <h2>オンライン専用ツール（AI診断）</h2>
             
             <article class="app-card">
+                <img src="icon-192_forest-eval.png" alt="立木評価アイコン" class="app-icon">
                 <div class="app-info">
                     <h3 class="app-title">立木評価 v0.2（試行版）</h3>
                     <p>AIが林内写真からおおまかな「用材割合」を自動診断。ティーチャブルマシンを活用したスマート林業の<strong>実験的ツール</strong>ですので、用材割合の最終的な判断は<strong>皆さまの目</strong>でお願いします。</p>
@@ -325,7 +345,7 @@
                     <span class="date">2026.01.09</span>
                     <span>紹介サイト「林業DXツール集」を開設。</span>
                 </div>
-		<div class="update-item">
+                <div class="update-item">
                     <span class="date">2026.01.05</span>
                     <span>立木調査、座標変換アプリを公開。</span>
                 </div>
@@ -341,10 +361,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-

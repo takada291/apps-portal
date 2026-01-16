@@ -430,9 +430,43 @@
             <span id="busuanzi_container_site_uv" style="display:none">
                 UV数：<span id="busuanzi_value_site_uv"></span> 回
             </span>
-        </p>        
+        </p>
+
+        <script>
+            // ★UV回数をリセットしたい場合、ここに今現在のUV回数を入れてください（例: UV回数25なら ”25”）
+            const offset = 25; 
+
+            const counterSpan = document.getElementById('busuanzi_value_site_uv');
+            
+            // カウンターの数字がサーバーから届いて表示された瞬間に動く監視役
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    // 数字がセットされたら
+                    if (mutation.target.innerText) {
+                        // 現在の表示数を取得
+                        let currentCount = parseInt(mutation.target.innerText);
+                        // 計算（現在数 - オフセット値）
+                        let fixedCount = currentCount - offset;
+                        // もしマイナスになったら0にする
+                        if (fixedCount < 0) fixedCount = 0;
+                        
+                        // 計算結果で上書きする
+                        mutation.target.innerText = fixedCount;
+                        
+                        // 監視を終了（ループ防止）
+                        observer.disconnect();
+                    }
+                });
+            });
+
+            // 監視スタート
+            if(counterSpan) {
+                observer.observe(counterSpan, { childList: true });
+            }
+        </script>        
         
     </footer>
 
 </body>
 </html>
+

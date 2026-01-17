@@ -199,7 +199,7 @@
             min-width: 100px;
         }
 
-        /* 免責事項セクション（新規追加） */
+        /* 免責事項セクション */
         .disclaimer-section {
             background: var(--warning-bg);
             border: 1px solid var(--warning-border);
@@ -447,9 +447,9 @@
             <div class="disclaimer-content">
                 <p>本サイトで公開しているアプリケーション（以下、本アプリ）のご利用にあたり、以下の事項をご確認・ご同意ください。</p>
                 <ul>
-                    <li><strong>動作環境について：</strong>開発者は手持ちのAndroidタブレット、iPhone、およびWindowsパソコンにて動作確認を行っておりますが、個人の環境でのテストであり、全ての端末やOSバージョンでの完全な動作を保証するものではありません。</li>
-                    <li><strong>データの正確性について：</strong>本アプリで表示・算出される数値（座標、材積、AI診断値など）は、業務の補助を目的とした目安です。商用利用は可能ですが、最終的な判断や境界確定等においては、必ず測量機器や専門家の判断を優先してください。</li>
-                    <li><strong>責任の所在：</strong>本アプリの利用によって生じた、いかなる損害（データの消失、業務の遅延、金銭的損失、現場での事故・怪我等）について開発者は一切の責任を負いかねます。</li>
+                    <li><strong>動作環境について：</strong>開発者は手持ちのAndroidタブレット、iPhone、およびWindowsパソコン等にて動作確認を行っておりますが、個人の環境でのテストであり、全ての端末やOSバージョンでの完全な動作を保証するものではありません。</li>
+                    <li><strong>データの正確性について：</strong>本アプリで表示・算出される数値（座標、材積、AI診断値など）は、業務の補助を目的とした目安です。商用利用は可能ですが、最終的な判断や境界の確定等においては、必ず測量機器や専門家の判断を優先してください。</li>
+                    <li><strong>責任の所在：</strong>本アプリの利用によって生じた、いかなる損害（データの消失、業務の遅延、金銭的損失、現場での事故・怪我等）についても、開発者は一切の責任を負いかねます。</li>
                     <li><strong>安全確保：</strong>林内での移動中の画面操作（歩きスマホ）は大変危険です。必ず安全な場所で立ち止まってから操作を行ってください。</li>
                 </ul>
             </div>
@@ -475,7 +475,7 @@
         </p>
 
         <script>
-            // ★UV回数をリセットしたい場合、ここに今現在のUV回数を入れてください（例: UV回数25なら ”25”）
+            // ★UV回数をリセットしたい場合、ここに今現在のUV回数を入れてください
             const offset = 25; 
 
             const counterSpan = document.getElementById('busuanzi_value_site_uv');
@@ -483,30 +483,20 @@
             // カウンターの数字がサーバーから届いて表示された瞬間に動く監視役
             const observer = new MutationObserver((mutations) => {
                 mutations.forEach((mutation) => {
-                    // 数字がセットされたら
                     if (mutation.target.innerText) {
-                        // 現在の表示数を取得
                         let currentCount = parseInt(mutation.target.innerText);
-                        // 計算（現在数 - オフセット値）
                         let fixedCount = currentCount - offset;
-                        // もしマイナスになったら0にする
                         if (fixedCount < 0) fixedCount = 0;
-                        
-                        // 計算結果で上書きする
                         mutation.target.innerText = fixedCount;
-                        
-                        // 監視を終了（ループ防止）
                         observer.disconnect();
                     }
                 });
             });
 
-            // 監視スタート
             if(counterSpan) {
                 observer.observe(counterSpan, { childList: true });
             }
         </script>        
-        
     </footer>
 
 </body>

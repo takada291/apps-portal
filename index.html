@@ -7,7 +7,6 @@
     <meta name="description" content="立木調査や位置情報、AI立木評価など、スマート林業を支援するインストール不要で無料のWEBアプリ（PWA）を紹介します。">
     <meta name="keywords" content="林業DX,スマート林業,森林管理,立木調査,丸太検知,位置情報,平面直角座標,GPS,GNSS,CSV,ドラッグドロップ,立木評価,丸太配送,運送会社,トラック手配,丸太荷受,荷受手配,簡易GIS,画像認識,AI,WEBアプリ,PWA,無料アプリ,音声入力,合成音声">
     
-    <!-- JSON-LDをヘッダー内に配置、更新したら「"dateModified":」右横の更新日を書き換える、更新日時分→2026.01.17 21:03-->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -23,6 +22,9 @@
             --bg-color: #f4f7f6;
             --text-color: #333;
             --white: #ffffff;
+            --warning-bg: #fff5f5; /* 免責事項用の淡い赤背景 */
+            --warning-border: #fc8181; /* 免責事項用の枠線 */
+            --warning-text: #c53030; /* 免責事項の見出し色 */
         }
 
         body {
@@ -74,19 +76,16 @@
             margin-bottom: 2rem;
             transition: transform 0.3s;
             display: flex;
-            /* justify-content: space-between; を削除 */
-            /* align-items: flex-end; を削除 */
-            align-items: flex-start; /* アイコンとテキストの上端を揃える */
+            align-items: flex-start;
             gap: 20px;
         }
 
-        /* アイコン画像のスタイルを追加 */
         .app-icon {
             width: 80px;
             height: 80px;
-            border-radius: 12px; /* 少し丸みをつける */
-            flex-shrink: 0; /* 画像が縮まないようにする */
-            object-fit: cover; /* 枠に合わせてトリミング */
+            border-radius: 12px;
+            flex-shrink: 0;
+            object-fit: cover;
             border: 1px solid #eee;
         }
 
@@ -109,7 +108,7 @@
         .qr-code {
             text-align: center;
             min-width: 100px;
-            align-self: flex-end; /* QRコードだけ下揃えにする */
+            align-self: flex-end;
         }
 
         .qr-code img {
@@ -200,6 +199,37 @@
             min-width: 100px;
         }
 
+        /* 免責事項セクション（新規追加） */
+        .disclaimer-section {
+            background: var(--warning-bg);
+            border: 1px solid var(--warning-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .disclaimer-title {
+            color: var(--warning-text);
+            margin-top: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .disclaimer-content {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .disclaimer-content ul {
+            padding-left: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .disclaimer-content li {
+            margin-bottom: 0.5rem;
+        }
+
         footer {
             text-align: center;
             padding: 3rem 2rem;
@@ -211,15 +241,15 @@
         @media (max-width: 600px) {
             .app-card {
                 flex-direction: column;
-                align-items: center; /* スマホでは中央揃え */
+                align-items: center;
                 text-align: center;
             }
             .app-info {
-                width: 100%; /* 幅を一杯に使う */
+                width: 100%;
             }
             .qr-code {
-                align-self: center; /* QRコードも中央揃え */
-                margin-top: 1rem; /* 少し間隔を空ける */
+                align-self: center;
+                margin-top: 1rem;
             }
             .update-item {
                 flex-direction: column;
@@ -251,21 +281,6 @@
             <p>・Android端末；各リンクを「chrome」で開く→「ホーム画面に追加」→「インストール」→ホーム画面のショートカット（アイコン画像）から起動</p>
             <p>・ios端末；各リンクを「Safari」で開く→「共有」→「ホーム画面に追加」→ホーム画面のショートカット（アイコン画像）から起動</p>
             
-        <!--　※20260116以降は立木調査（音声入力版）をメンテ
-            <article class="app-card">
-                <img src="icon-192_tree-survey.png" alt="立木調査アイコン" class="app-icon">
-                <div class="app-info">
-                    <h3 class="app-title">立木調査 v1.1</h3>
-                    <p>胸高直径、樹高等を入力し保存、CSV出力する毎木・プロット調査用アプリ。紙の野帳をデジタル化し、集計作業を大幅に削減します。</p>
-                    <p><strong>使い方：</strong>Android端末はChrome、ios端末はSafari等で開き「ホーム画面へ追加」して使用してください。</p>
-                    <a href="https://takada291.github.io/tree-survey/" class="btn">アプリを開く</a>
-                </div>
-                <div class="qr-code">
-                    <img src="qr_tree-survey.png" alt="立木調査アプリ QRコード">
-                    <span class="qr-label">スマホで読取</span>
-                </div>                                    
-            </article>
-        -->
             <article class="app-card">
                 <img src="icon-192_tree-survey.png" alt="立木調査アイコン" class="app-icon">
                 <div class="app-info">
@@ -277,7 +292,7 @@
                 <div class="qr-code">
                     <img src="qr_tree-survey-test.png" alt="立木調査アプリ音声入力版 QRコード">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                     
             </article>
             
             <article class="app-card">
@@ -317,7 +332,7 @@
                 <div class="qr-code">
                     <img src="qr_timber-measur.png" alt="丸太検知アプリ音声入力版 QRコード">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                     
             </article>
 
             <article class="app-card">
@@ -330,7 +345,7 @@
                 <div class="qr-code">
                     <img src="qr_log-delivery.png" alt="山の配送 QRコード">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                     
             </article>
             
             <div class="faq-container">
@@ -341,7 +356,7 @@
                     <li>スマホやタブレットのGPSですが10m以上ズレる場合がありますので注意して下さい。</li>
                     <li>緯度経度から変換した直角座標は概算値であり精度を保証するものではありません。</li>
                     <li>お使いの地域の直角座標が何系になるかリンク先で確認して下さい。→<a href="https://www.gsi.go.jp/sokuchikijun/jpc.html" target="_blank">平面直角座標系</a></li>
-                　　<li>アプリは自動更新されますが、もしバージョン番号が古いままの場合は一度ショートカットを削除した上で追加し直して下さい。</li>
+                    <li>アプリは自動更新されますが、もしバージョン番号が古いままの場合は一度ショートカットを削除した上で追加し直して下さい。</li>
                 </ul>
             </div>
         </section>
@@ -427,14 +442,22 @@
             </div>
         </section>
 
+        <section id="disclaimer" class="disclaimer-section">
+            <h3 class="disclaimer-title">⚠️ 免責事項（ご利用前に必ずお読みください）</h3>
+            <div class="disclaimer-content">
+                <p>本サイトで公開しているアプリケーション（以下、本アプリ）のご利用にあたり、以下の事項をご確認・ご同意ください。</p>
+                <ul>
+                    <li><strong>動作環境について：</strong>開発者は手持ちのAndroidタブレット、iPhone、およびWindowsパソコンにて動作確認を行っておりますが、個人の環境でのテストであり、全ての端末やOSバージョンでの完全な動作を保証するものではありません。</li>
+                    <li><strong>データの正確性について：</strong>本アプリで表示・算出される数値（座標、材積、AI診断値など）は、業務の補助を目的とした目安です。商用利用は可能ですが、最終的な判断や境界確定等においては、必ず測量機器や専門家の判断を優先してください。</li>
+                    <li><strong>責任の所在：</strong>本アプリの利用によって生じた、いかなる損害（データの消失、業務の遅延、金銭的損失、現場での事故・怪我等）について開発者は一切の責任を負いかねます。</li>
+                    <li><strong>安全確保：</strong>林内での移動中の画面操作（歩きスマホ）は大変危険です。必ず安全な場所で立ち止まってから操作を行ってください。</li>
+                </ul>
+            </div>
+        </section>
+
     </div>
-    <!--
-    <div class="qr-code">
-        <img src="qr_apps-portal.png" alt="紹介サイト「林業DXツール集」 QRコード">
-        <span class="qr-label">スマホで読取</span>
-    </div>
-    -->
-    <div class="qr-code" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+
+    <div class="qr-code" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 2rem;">
         <img src="qr_apps-portal.png" alt="紹介サイト「林業DXツール集」 QRコード" style="display: block; margin: 0 auto;">
         <span class="qr-label" style="display: block; margin-top: 8px;">スマホで読取</span>
     </div>
@@ -488,11 +511,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-

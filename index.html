@@ -11,7 +11,7 @@
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "dateModified": "2026-01-20" /* ←更新したら日付を書換え、2026.01.20 04:08 */
+        "dateModified": "2026-01-20" /* ←更新したら日付を書換え、2026.01.20 15:43 */
       }
     </script>
     
@@ -25,6 +25,8 @@
             --warning-bg: #fff5f5; /* 免責事項用の淡い赤背景 */
             --warning-border: #fc8181; /* 免責事項用の枠線 */
             --warning-text: #c53030; /* 免責事項の見出し色 */
+            --download-bg: #e8f4f8; /* ダウンロードセクションの背景色 */
+            --download-border: #bee3f8; /* ダウンロードセクションの枠線 */
         }
 
         body {
@@ -174,6 +176,35 @@
             padding-left: 1rem;
             border-left: 3px solid #eee;
         }
+        
+        /* ダウンロードセクション */
+        .download-section {
+            background: var(--download-bg);
+            border: 1px solid var(--download-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .download-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+        
+        .download-content {
+            flex: 1;
+        }
+
+        .download-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
 
         /* 更新情報 */
         .updates {
@@ -258,6 +289,11 @@
                 font-size: 0.8rem;
                 margin-bottom: 2px;
             }
+            .download-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
@@ -292,7 +328,7 @@
                 <div class="qr-code">
                     <img src="qr_tree-survey-test.png" alt="立木調査アプリ音声入力版 QRコード">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                     
+                </div>                                          
             </article>
             
             <article class="app-card">
@@ -333,7 +369,7 @@
                 <div class="qr-code">
                     <img src="qr_timber-measur.png" alt="丸太検知アプリ音声入力版 QRコード">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                     
+                </div>                                          
             </article>
 
             <article class="app-card">
@@ -347,7 +383,7 @@
                 <div class="qr-code">
                     <img src="qr_timber-measur-doubsta.png" alt="丸太検知アプリ音声入力版 QRコード">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                     
+                </div>                                          
             </article>
             
             <article class="app-card">
@@ -360,9 +396,19 @@
                 <div class="qr-code">
                     <img src="qr_log-delivery.png" alt="山の配送 QRコード">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                     
+                </div>                                          
             </article>
             
+            <div class="download-section">
+                <div class="download-icon">💻</div>
+                <div class="download-content">
+                    <span class="download-title">【PC用】Excel連携ツール</span>
+                    <p style="font-size: 0.9rem; margin-top: 0; margin-bottom: 0.8rem;">
+                        各アプリから出力したCSVデータを、ドラッグ＆ドロップで一括読み込み。ボタン一つで帳票への転記・集計を自動化するExcelマクロツールです。
+                    </p>
+                    <a href="https://drive.google.com/uc?export=download&id=1JVIpizwfwr4x4aLt5xfpLq29YpuQOBRx" class="btn" style="margin-top: 0;">連携ツールをダウンロード (xlsm)</a>
+                </div>
+            </div>
             <div class="faq-container">
                 <strong>【オフライン対応ツール共通の注意点】</strong>
                 <ul>
@@ -529,21 +575,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

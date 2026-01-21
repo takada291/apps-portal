@@ -45,14 +45,14 @@
         header {
             background: var(--header-bg);
             color: var(--header-text);
-            padding: 1.5rem 1rem; /* 上下幅を狭く変更 */
+            padding: 1.5rem 1rem;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
             font-size: 1.8rem;
-            text-shadow: 0 1px 1px rgba(255,255,255,0.5); /* 視認性向上のための微細な影 */
+            text-shadow: 0 1px 1px rgba(255,255,255,0.5);
         }
 
         header p {
@@ -61,7 +61,6 @@
             opacity: 0.9;
         }
 
-        /* SEO対策: div.container を main.container に変更するためのスタイル適用 */
         main.container {
             max-width: 800px;
             margin: 0 auto;
@@ -422,7 +421,7 @@
                     <p style="font-size: 0.9rem; margin-top: 0; margin-bottom: 0.8rem;">
                         ※ダウンロード後、右クリックで「プロパティ」→「全般」→「許可する」にチェック。
                     </p>
-                    <a href="https://drive.google.com/uc?export=download&id=1JVIpizwfwr4x4aLt5xfpLq29YpuQOBRx" class="btn" style="margin-top: 0;" target="_blank" rel="noopener noreferrer">連携ツールをダウンロード (xlsm)</a>
+                    <a href="https://drive.google.com/uc?export=download&id=1JVIpizwfwr4x4aLt5xfpLq29YpuQOBRx" class="btn" style="margin-top: 0;">連携ツールをダウンロード (xlsm)</a>
                 </div>
             </div>
             <div class="faq-container">
@@ -572,7 +571,6 @@
             // ★PV回数をリセットしたい場合、ここに今現在のPV回数を入れてください
             const offset = 25; 
 
-            // UV用IDからPV用IDへ変更
             const counterSpan = document.getElementById('busuanzi_value_site_pv');
             
             // カウンターの数字がサーバーから届いて表示された瞬間に動く監視役

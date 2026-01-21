@@ -11,7 +11,9 @@
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "dateModified": "2026-01-21" /* ←更新したら日付を書換え、2026.01.21 22:15 */
+        "name": "スマート林業・林業DXツール集",
+        "description": "立木調査や地図情報、丸太検知、AI立木評価などスマート林業を支援するWEBアプリ集",
+        "dateModified": "2026-01-22"
       }
     </script>
     
@@ -22,11 +24,13 @@
             --bg-color: #f4f7f6;
             --text-color: #333;
             --white: #ffffff;
-            --warning-bg: #fff5f5; /* 免責事項用の淡い赤背景 */
-            --warning-border: #fc8181; /* 免責事項用の枠線 */
-            --warning-text: #c53030; /* 免責事項の見出し色 */
-            --download-bg: #e8f4f8; /* ダウンロードセクションの背景色 */
-            --download-border: #bee3f8; /* ダウンロードセクションの枠線 */
+            --header-bg: #a5d6a7; /* 新緑のパステルグリーン */
+            --header-text: #1b5e20; /* ヘッダー文字用の濃い緑 */
+            --warning-bg: #fff5f5;
+            --warning-border: #fc8181;
+            --warning-text: #c53030;
+            --download-bg: #e8f4f8;
+            --download-border: #bee3f8;
         }
 
         body {
@@ -39,26 +43,30 @@
         }
 
         header {
-            background: var(--primary-color);
-            color: white;
-            padding: 3rem 1rem;
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 1.5rem 1rem; /* 上下幅を狭く変更 */
             text-align: center;
         }
 
         header h1 {
             margin: 0;
             font-size: 1.8rem;
+            text-shadow: 0 1px 1px rgba(255,255,255,0.5); /* 視認性向上のための微細な影 */
         }
 
         header p {
-            margin-top: 10px;
+            margin-top: 5px;
+            font-weight: bold;
             opacity: 0.9;
         }
 
-        .container {
+        /* SEO対策: div.container を main.container に変更するためのスタイル適用 */
+        main.container {
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
+            display: block;
         }
 
         h2 {
@@ -141,6 +149,11 @@
             border-radius: 4px;
             margin-top: 1rem;
             font-weight: bold;
+            transition: opacity 0.2s;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
         }
 
         /* 注意事項の画像 */
@@ -304,7 +317,7 @@
         <p>現場の課題を”生成AI”×”Web技術”で解決！</p>
     </header>
 
-    <div class="container">
+    <main class="container">
         
         <section id="intro">
             <p>本サイトでは、<strong>スマート林業</strong>の推進を目指し、現場で手軽に使えるWebアプリを公開しています。手元のスマホやタブレットで<strong>林業DX</strong>を体験してください。</p>
@@ -318,85 +331,85 @@
             <p>・ios端末；各リンクを「Safari」で開く→「共有」→「ホーム画面に追加」→ホーム画面のショートカット（アイコン画像）から起動</p>
             
             <article class="app-card">
-                <img src="icon-192_tree-survey.png" alt="立木調査アイコン" class="app-icon">
+                <img src="icon-192_tree-survey.png" alt="立木調査アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
-                    <h3 class="app-title">立木調査 v2.4</h3>                 
+                    <h3 class="app-title">立木調査 v2.4</h3>                  
                     <p>胸高直径等を入力し保存、CSV出力する毎木・プロット調査用アプリ。紙野帳をデジタル化。音声入力に対応。</p> 
                     <p><strong>注意！：</strong>オフラインでの音声入力は<strong>ios端末だけ</strong>使用できます。</p>
-                    <a href="https://takada291.github.io/apps-test/" class="btn">アプリを開く</a>
+                    <a href="https://takada291.github.io/apps-test/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                 </div>
                 <div class="qr-code">
-                    <img src="qr_tree-survey-test.png" alt="立木調査アプリ音声入力版 QRコード">
+                    <img src="qr_tree-survey-test.png" alt="立木調査アプリ音声入力版 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                          
+                </div>                                  
             </article>
             
             <article class="app-card">
-                <img src="icon-192_geo-location.png" alt="座標変換アイコン" class="app-icon">
+                <img src="icon-192_geo-location.png" alt="座標変換アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">座標変換 v2.5</h3>
                     <p>GPSで取得した緯度経度を直角座標へ変換し保存、CSV出力する地図アプリ。CSVドラッグドロップでPCアプリ管理。GeoJSON、KML出力でGIS連携。</p>
-                    <a href="https://takada291.github.io/geo-location/" class="btn">アプリを開く</a>
+                    <a href="https://takada291.github.io/geo-location/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                 </div>
                 <div class="qr-code">
-                    <img src="qr_geo-location.png" alt="座標変換アプリ QRコード">
+                    <img src="qr_geo-location.png" alt="座標変換アプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
                 </div>
             </article>
 
             <article class="app-card">
-                <img src="icon-192_simple-navi.png" alt="簡易ナビアイコン" class="app-icon">
+                <img src="icon-192_simple-navi.png" alt="簡易ナビアイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">簡易ナビ v2.1</h3>
                     <p>杭等座標を入力し現在地から目標地点へナビゲート。電子コンパス連動の”矢印”を目印に移動。</p>
-                    <a href="https://takada291.github.io/simple-navi/" class="btn">アプリを開く</a>
+                    <a href="https://takada291.github.io/simple-navi/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                 </div>
                 <div class="qr-code">
-                    <img src="qr_simple-navi.png" alt="簡易ナビアプリ QRコード">
+                    <img src="qr_simple-navi.png" alt="簡易ナビアプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
                 </div>
             </article>
 
             <article class="app-card">
-                <img src="icon-192_timber-measur.png" alt="丸太検知アイコン" class="app-icon">
+                <img src="icon-192_timber-measur.png" alt="丸太検知アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
-                    <h3 class="app-title">丸太検知 v1.5</h3>                 
+                    <h3 class="app-title">丸太検知 v1.5</h3>                  
                     <p><font color="red">※下の”丸太検知 v2.2”をお使いください。（このアプリは近日中に閉鎖）</font></p>
                     <p>末口直径等を入力し保存、CSV出力する丸太検知用アプリ。紙野帳をデジタル化。音声入力に対応。</p>
                     <p><strong>注意！：</strong>オフラインでの音声入力は<strong>ios端末だけ</strong>使用できます。</p>
-                    <a href="https://takada291.github.io/timber-measur/" class="btn">アプリを開く</a>
+                    <a href="https://takada291.github.io/timber-measur/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                 </div>
                 <div class="qr-code">
-                    <img src="qr_timber-measur.png" alt="丸太検知アプリ音声入力版 QRコード">
+                    <img src="qr_timber-measur.png" alt="丸太検知アプリ音声入力版 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                          
+                </div>                                  
             </article>
 
             <article class="app-card">
-                <img src="icon-192_timber-measur-doubsta.png" alt="丸太検知アイコン" class="app-icon">
+                <img src="icon-192_timber-measur-doubsta.png" alt="丸太検知アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
-                    <h3 class="app-title">丸太検知 v2.2</h3>                 
+                    <h3 class="app-title">丸太検知 v2.2</h3>                  
                     <p>末口直径等を入力し保存、CSV出力する丸太検知用アプリ。紙野帳をデジタル化。利用時の状況に応じて音声入力、電卓入力を切替可。</p>
                     <p><strong>注意！：</strong>オフラインでの音声入力は<strong>ios端末だけ</strong>使用できます。</p>
-                    <a href="https://takada291.github.io/timber-measur-doubsta/" class="btn">アプリを開く</a>
+                    <a href="https://takada291.github.io/timber-measur-doubsta/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                 </div>
                 <div class="qr-code">
-                    <img src="qr_timber-measur-doubsta.png" alt="丸太検知アプリ音声入力版 QRコード">
+                    <img src="qr_timber-measur-doubsta.png" alt="丸太検知アプリ音声入力版 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                          
+                </div>                                  
             </article>
             
             <article class="app-card">
-                <img src="icon_log-delivery.png" alt="山の配送アイコン" class="app-icon">
+                <img src="icon_log-delivery.png" alt="山の配送アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
-                    <h3 class="app-title">山の配送 v1.8</h3>                 
+                    <h3 class="app-title">山の配送 v1.8</h3>                  
                     <p>土場丸太の配送管理アプリ。ボタン一つで運送会社等へメール、荷受進捗を地図で可視化。CSVドラッグドロップでPCアプリ管理。</p>
-                    <a href="https://takada291.github.io/log-delivery/" class="btn">アプリを開く</a>
+                    <a href="https://takada291.github.io/log-delivery/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                 </div>
                 <div class="qr-code">
-                    <img src="qr_log-delivery.png" alt="山の配送 QRコード">
+                    <img src="qr_log-delivery.png" alt="山の配送 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                          
+                </div>                                  
             </article>
             
             <div class="download-section">
@@ -409,7 +422,7 @@
                     <p style="font-size: 0.9rem; margin-top: 0; margin-bottom: 0.8rem;">
                         ※ダウンロード後、右クリックで「プロパティ」→「全般」→「許可する」にチェック。
                     </p>
-                    <a href="https://drive.google.com/uc?export=download&id=1JVIpizwfwr4x4aLt5xfpLq29YpuQOBRx" class="btn" style="margin-top: 0;">連携ツールをダウンロード (xlsm)</a>
+                    <a href="https://drive.google.com/uc?export=download&id=1JVIpizwfwr4x4aLt5xfpLq29YpuQOBRx" class="btn" style="margin-top: 0;" target="_blank" rel="noopener noreferrer">連携ツールをダウンロード (xlsm)</a>
                 </div>
             </div>
             <div class="faq-container">
@@ -419,7 +432,7 @@
                     <li>保存データは使用後にCSV出力してPC等へ保存した後で消去してください。※スマホ等で確保される保存容量は5MB程です。またブラウザで履歴等消去すると保存データも一緒に消去されます。</li>
                     <li>スマホやタブレットのGPSですが10m以上ズレる場合がありますので注意してください。</li>
                     <li>緯度経度から変換した直角座標は概算値であり精度を保証するものではありません。</li>
-                    <li>お使いの地域の直角座標が何系になるかリンク先で確認してください。→<a href="https://www.gsi.go.jp/sokuchikijun/jpc.html" target="_blank">平面直角座標系</a></li>
+                    <li>お使いの地域の直角座標が何系になるかリンク先で確認してください。→<a href="https://www.gsi.go.jp/sokuchikijun/jpc.html" target="_blank" rel="noopener noreferrer">平面直角座標系</a></li>
                     <li>インストールしたアプリは自動でアップデートされますが、もしバージョン番号が古いままの場合は一度ショートカットを消去した上で追加し直してください。</li>
                 </ul>
             </div>
@@ -429,17 +442,17 @@
             <h2>オンライン専用ツール</h2>
             
             <article class="app-card">
-                <img src="icon-192_forest-eval.png" alt="立木評価アイコン" class="app-icon">
+                <img src="icon-192_forest-eval.png" alt="立木評価アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">立木評価 v0.2</h3>
                     <p>AIが林内写真からおおまかな「用材割合」を自動診断。グーグルのティーチャブルマシンで機械学習したモデルを活用しています。</p>
                     <p><strong>使い方：</strong>お使いのブラウザで開き、そのまま使用してください。</p>
                     <p><strong>注意！：</strong>実験的なツールです。最終的な用材割合の判断は「皆さまの目」でお願いします。</p>
                     <p><strong>お願い：</strong>AIの精度を向上するため、ぜひ林内写真の提供をお願いします！※位置情報は事前に消去します。</p>
-                    <a href="https://takada291.github.io/forest-eval/" class="btn">アプリを開く</a>
+                    <a href="https://takada291.github.io/forest-eval/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                 </div>
                 <div class="qr-code">
-                    <img src="qr_forest-eval.png" alt="立木評価アプリ QRコード">
+                    <img src="qr_forest-eval.png" alt="立木評価アプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
                 </div>
             </article>
@@ -448,9 +461,9 @@
                 <strong>【撮影のコツ等】</strong>
                 <p>樹幹上部まで写るように縦長（16:9等）で撮影してください。また曲りやクマ剝ぎ等が写るよう山側から撮影してください。（以下、撮影例）</p>
                 <p>あらかじめ撮影した複数枚の林内写真を一枚ずつアプリでAI診断し”評価値の平均”を用材割合の目安にしてください。</p>
-                <img src="forest-photo_01.jpg" alt="撮影イメージその１" class="instruction-img">
-                <img src="forest-photo_02.jpg" alt="撮影イメージその２" class="instruction-img">
-                <img src="forest-photo_03.jpg" alt="撮影イメージその３" class="instruction-img">
+                <img src="forest-photo_01.jpg" alt="撮影イメージその１" class="instruction-img" loading="lazy">
+                <img src="forest-photo_02.jpg" alt="撮影イメージその２" class="instruction-img" loading="lazy">
+                <img src="forest-photo_03.jpg" alt="撮影イメージその３" class="instruction-img" loading="lazy">
             </div>
         </section>
 
@@ -520,7 +533,7 @@
                 「現場でこんな風に使えた」「ここが使いにくい」「こんな機能が欲しい」など、皆さまの声が開発のモチベーションになります。<br>
                 返信はできませんが、いただいたご意見は必ず読み、今後の改良・開発の参考にさせていただきます。
             </p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVcJ2a4wRBr1oRdckXMXOX40NXUVBQhG0jCBe7QWQOv6031A/viewform?usp=publish-editor" target="_blank" class="btn" style="background: #7f8c8d;">ご意見・リクエストを送る（Googleフォーム）</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVcJ2a4wRBr1oRdckXMXOX40NXUVBQhG0jCBe7QWQOv6031A/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="btn" style="background: #7f8c8d;">ご意見・リクエストを送る（Googleフォーム）</a>
         </section>
         
         <section id="disclaimer" class="disclaimer-section">
@@ -536,10 +549,10 @@
             </div>
         </section>
 
-    </div>
+    </main>
 
     <div class="qr-code" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 2rem;">
-        <img src="qr_apps-portal.png" alt="紹介サイト「林業DXツール集」 QRコード" style="display: block; margin: 0 auto;">
+        <img src="qr_apps-portal.png" alt="紹介サイト「林業DXツール集」 QRコード" style="display: block; margin: 0 auto;" loading="lazy">
         <span class="qr-label" style="display: block; margin-top: 8px;">スマホで読取</span>
     </div>
     
@@ -550,16 +563,17 @@
         <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">
             <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
             
-            <span id="busuanzi_container_site_uv" style="display:none">
-                UV数：<span id="busuanzi_value_site_uv"></span> 回
+            <span id="busuanzi_container_site_pv" style="display:none">
+                PV数：<span id="busuanzi_value_site_pv"></span> 回
             </span>
         </p>
 
         <script>
-            // ★UV回数をリセットしたい場合、ここに今現在のUV回数を入れてください
+            // ★PV回数をリセットしたい場合、ここに今現在のPV回数を入れてください
             const offset = 25; 
 
-            const counterSpan = document.getElementById('busuanzi_value_site_uv');
+            // UV用IDからPV用IDへ変更
+            const counterSpan = document.getElementById('busuanzi_value_site_pv');
             
             // カウンターの数字がサーバーから届いて表示された瞬間に動く監視役
             const observer = new MutationObserver((mutations) => {
@@ -582,15 +596,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

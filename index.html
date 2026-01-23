@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スマート林業・林業DXツール集</title>
-    <meta name="description" content="立木調査や地図情報、丸太検知、作業日報、AI立木評価などスマート林業を支援する簡単インストールで無料の入門編WEBアプリを紹介します。">
-    <meta name="keywords" content="林業DX,スマート林業,森林管理,立木調査,毎木調査,プロット調査,丸太検知,木材検収,位置情報,平面直角座標,緯度経度,GPS,GNSS,CSV,ドラッグドロップ,立木評価,丸太配送,運送会社,トラック手配,丸太荷受,荷受手配,作業日報,地図情報,路網踏査,電子黒板,簡易GIS,GeoJSON,KML,用材割合,画像認識,AI,WEBアプリ,PWA,無料アプリ,音声入力,電卓入力,合成音声,エクセルマクロ">
+    <meta name="description" content="立木調査や地図情報、路網踏査、丸太検知、作業日報、AI立木評価などスマート林業を支援する簡単インストールで無料の入門編WEBアプリを紹介します。">
+    <meta name="keywords" content="林業DX,スマート林業,森林管理,立木調査,毎木調査,プロット調査,丸太検知,木材検収,位置情報,林小班図,平面直角座標,緯度経度,GPS,GNSS,CSV,ドラッグドロップ,立木評価,丸太配送,運送会社,トラック手配,丸太荷受,荷受手配,作業日報,地図情報,路網踏査,電子黒板,簡易GIS,GeoJSON,KML,用材割合,画像認識,AI,WEBアプリ,PWA,無料アプリ,音声入力,電卓入力,合成音声,エクセルマクロ">
     
     <script type="application/ld+json">
       {
@@ -13,7 +13,7 @@
         "@type": "WebPage",
         "name": "スマート林業・林業DXツール集",
         "description": "立木調査や地図情報、路網踏査、丸太検知、作業日報、AI立木評価などスマート林業を支援するWEBアプリ集",
-        "dateModified": "2026-01-24" /* 更新2026.01.24-05:31 */
+        "dateModified": "2026-01-24" /* 更新2026.01.24-08:30 */
       }
     </script>
     
@@ -383,6 +383,20 @@
             </article>
 
             <article class="app-card">
+                <img src="icon_map-viewer.png" alt="林小班図アイコン" class="app-icon" loading="lazy">
+                <div class="app-info">
+                    <h3 class="app-title">林小班図 v1.0</h3>
+                    <p>林小班図等を重ね合わせGPSで図面上位置を閲覧地図アプリ。</p>
+                    <a href="https://takada291.github.io/map-viewer/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
+                    <p><strong>準備！：</strong>GISで図面をJPGで出力し左下・右上の緯度経度をファイル名に付して端末へメール後写真フォルダに保存しておいてください。</p>
+                </div>
+                <div class="qr-code">
+                    <img src="qr_map-viewer.png" alt="林小班図アプリ QRコード" loading="lazy">
+                    <span class="qr-label">スマホで読取</span>
+                </div>
+            </article>
+
+            <article class="app-card">
                 <img src="icon-192_timber-measur-doubsta.png" alt="丸太検知アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">丸太検知 v2.2</h3>                  
@@ -496,15 +510,15 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <span class="faq-question">Q. なぜ無料で使えるのですか？</span>
-                    <p class="faq-answer">一林業普及指導員が現場ニーズを踏まえ生成AIを使用して個人開発したツール集であり、林業現場のデジタル化（林業DX）に貢献することを目的に入門編として公開しています。<br>まずは無料で林業DXを体験していただき、次は各社が提供している高機能で保守管理されたアプリ・システムへステップアップしてください。</p>
+                    <p class="faq-answer">一林業普及指導員が現場ニーズを踏まえ生成AIを使用して個人開発したツール集であり林業現場のデジタル化（林業DX）に貢献することを目的に入門編として公開しています。<br>まずは無料で林業DXを体験していただき、次は各社が提供している高機能で保守管理されたアプリ・システムへステップアップしてください。</p>
                 </div>
                 <div class="faq-item">
                     <span class="faq-question">Q. 電波のない場所（圏外）でも本当に動きますか？</span>
-                    <p class="faq-answer">PWA（Progressive Web Apps）という技術を使用しているため、一度読み込めば圏外でも動作可能です。ただし、初回起動や更新時は通信が必要です。</p>
+                    <p class="faq-answer">PWA（Progressive Web Apps）という技術を使用しているため一度読み込めば圏外でも動作可能です。ただし初回起動や更新時は通信が必要です。</p>
                 </div>
                 <div class="faq-item">
                     <span class="faq-question">Q. データのセキュリティは大丈夫ですか？</span>
-                    <p class="faq-answer">入力したデータはブラウザ内のローカルストレージにのみ保存され、外部サーバーに送信されることはありません。なおAI診断の精度向上のため、（位置情報を消去した）林内写真の提供に同意いただいた場合を除きます。</p>
+                    <p class="faq-answer">入力したデータはブラウザ内のローカルストレージにのみ保存され外部サーバーに送信されることはありません。<br>なおAI診断の精度向上のため（位置情報を消去した）林内写真の提供に同意いただいた場合を除きます。</p>
                 </div>
             </div>
         </section>
@@ -512,6 +526,10 @@
         <section id="news">
             <h2>更新状況</h2>
             <div class="updates">
+                <div class="update-item">
+                    <span class="date">2026.01.24</span>
+                    <span>林小班図アプリを公開。</span>
+                </div>
                 <div class="update-item">
                     <span class="date">2026.01.24</span>
                     <span>電子黒板アプリを公開。</span>
@@ -565,7 +583,7 @@
             </div>
         </section>
         
-        <!--　入門編として位置付けのためユーザの声は吸い上げない
+        <!--　入門編アプリとしての位置付けのためユーザの声は吸い上げない、でも機能は残しとく
         <section id="feedback" style="background: #eef2f5; padding: 1.5rem; border-radius: 8px; margin-top: 3rem; text-align: center;">
             <h3 style="margin-top: 0; color: var(--primary-color);">💡 開発者へのメッセージ</h3>
             <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: 0 auto 1.5rem;">
@@ -583,7 +601,7 @@
                 <ul>
                     <li><strong>動作環境について：</strong>開発者は手持ちのAndroidタブレット、iPhone、およびWindowsパソコン等にて動作確認を行っておりますが、個人の環境でのテストであり、全ての端末やOSバージョンでの完全な動作を保証するものではありません。</li>
                     <li><strong>データの正確性について：</strong>本アプリで表示・算出される数値（座標、材積、AI診断値など）は、業務の補助を目的とした目安です。最終的な判断や境界の確定等においては、必ず測量機器や専門家の判断を優先してください。</li>
-                    <li><strong>責任の所在：</strong>本アプリの利用によって生じた、いかなる損害（データの消失、業務の遅延、金銭的損失、現場での事故・怪我等）についても、開発者は一切の責任を負いかねます。</li>
+                    <li><strong>責任の所在：</strong>本アプリの利用によって生じた、いかなる損害（データの消失、業務の遅延、金銭的損失、現場での事故・怪我等）について開発者は一切の責任を負いかねます。</li>
                     <li><strong>安全確保：</strong>林内での移動中の画面操作（歩きスマホ）は大変危険です。必ず安全な場所で立ち止まってから操作を行ってください。</li>
                 </ul>
             </div>
@@ -635,20 +653,4 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

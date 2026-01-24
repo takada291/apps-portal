@@ -164,7 +164,7 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
-        /* ★追加：画像を横並びにするためのコンテナスタイル */
+        /* 画像を横並びにするためのコンテナスタイル */
         .photo-gallery {
             display: flex;
             justify-content: space-between;
@@ -172,11 +172,64 @@
             margin-top: 1rem;
         }
         
-        /* ★追加：横並び時の画像サイズ調整 */
+        /* 横並び時の画像サイズ調整 */
         .photo-gallery .instruction-img {
             width: 32%; /* 3枚並べるので約33% */
             margin: 0; /* 個別の上下マージンをリセット */
             object-fit: cover;
+        }
+
+        /* ★追加：アプリ画面イメージ用スタイル */
+        .gallery-container {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-title {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            max-height: 250px; /* 縦長画像が大きくなりすぎないように制限 */
+            object-fit: contain;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            background-color: #fafafa;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            font-size: 0.8rem;
+            margin-top: 5px;
+            color: #555;
+            text-align: center;
         }
 
         /* FAQセクション */
@@ -464,6 +517,48 @@
                 </div>                                      
             </article>
 
+            <div class="gallery-container">
+                <h3 class="gallery-title">アプリ画面のイメージ</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="IMG_立木調査.png" alt="立木調査 画面" class="gallery-img" loading="lazy">
+                        <span class="gallery-caption">立木調査</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_座標変換.png" alt="座標変換 画面" class="gallery-img" loading="lazy">
+                        <span class="gallery-caption">座標変換</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_簡易ナビ.png" alt="簡易ナビ 画面" class="gallery-img" loading="lazy">
+                        <span class="gallery-caption">簡易ナビ</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_路網踏査.png" alt="路網踏査 画面" class="gallery-img" loading="lazy">
+                        <span class="gallery-caption">路網踏査</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_林小班図.png" alt="林小班図 画面" class="gallery-img" loading="lazy">
+                        <span class="gallery-caption">林小班図</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_丸太検知.png" alt="丸太検知 画面" class="gallery-img" loading="lazy">
+                        <span class="gallery-caption">丸太検知</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_山の配送.png" alt="山の配送 画面" class="gallery-img" loading="lazy">
+                        <span class="gallery-caption">山の配送</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_作業日報.png" alt="作業日報 画面" class="gallery-img" loading="lazy">
+                        <span class="gallery-caption">作業日報</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_電子黒板.png" alt="電子黒板 画面" class="gallery-img" loading="lazy">
+                        <span class="gallery-caption">電子黒板</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="download-section">
                 <div class="download-icon">💻</div>
                 <div class="download-content">
@@ -485,7 +580,7 @@
                     <li>スマホやタブレットのGPSですが10m以上ズレる場合がありますので注意してください。</li>
                     <li>緯度経度から変換した直角座標は概算値であり精度を保証するものではありません。</li>
                     <li>お使いの地域の直角座標が何系になるかリンク先で確認してください。<br>→<a href="https://www.gsi.go.jp/sokuchikijun/jpc.html" target="_blank" rel="noopener noreferrer">平面直角座標系</a></li>
-                    <li>作業日報の入力内容はリンク先を参考に設定しています。<br>→<a href="https://www.rinya.maff.go.jp/chubu/policy/business/sigoto/seisansei-pg/" target="_blank" rel="noopener noreferrer">生産性向上実現プログラム</a></li>                      
+                    <li>作業日報の入力内容はリンク先を参考に設定しています。<br>→<a href="https://www.rinya.maff.go.jp/chubu/policy/business/sigoto/seisansei-pg/" target="_blank" rel="noopener noreferrer">生産性向上実現プログラム</a></li>                       
                     <li>アプリは自動でアップデートされますが、もしバージョン番号が古いままの場合は一度ショートカットを消去した上で追加し直してください。</li>
                 </ul>
             </div>
@@ -653,6 +748,3 @@
 
 </body>
 </html>
-
-
-

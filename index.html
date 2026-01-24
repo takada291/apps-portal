@@ -179,7 +179,7 @@
             object-fit: cover;
         }
 
-        /* ★追加・修正：アプリ画面イメージ用スタイル */
+        /* アプリ画面イメージ用スタイル */
         .gallery-container {
             background: var(--white);
             border-radius: 8px;
@@ -207,7 +207,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* アイテム全体に枠線をつける形に調整 */
             border: 1px solid #eee;
             border-radius: 4px;
             padding: 5px;
@@ -216,12 +215,9 @@
 
         .gallery-img {
             width: 100%;
-            /* 修正：高さを固定して縦長画像も確実に表示領域を確保 */
-            height: 250px; 
-            /* 修正：枠内に画像を収める */
-            object-fit: contain;
+            height: 250px; /* 画像の高さを固定 */
+            object-fit: contain; /* 枠内に画像を収める */
             border-radius: 2px;
-            /* 画像自体の枠線は削除し親要素に任せる */
             border: none;
             box-shadow: none;
             background-color: transparent;
@@ -229,7 +225,17 @@
         }
 
         .gallery-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); /* ホバー時の拡大 */
+        }
+
+        /* 画像を左に90度回転させるクラス */
+        .gallery-img.rotate-vertical {
+            transform: rotate(-90deg);
+        }
+        
+        /* 回転した画像にホバーした時の挙動調整 */
+        .gallery-img.rotate-vertical:hover {
+            transform: rotate(-90deg) scale(1.05);
         }
 
         .gallery-caption {
@@ -549,7 +555,7 @@
                         <span class="gallery-caption">路網踏査</span>
                     </div>
                     <div class="gallery-item">
-                        <img src="IMG_林小班図.png" alt="林小班図 画面" class="gallery-img" loading="lazy">
+                        <img src="IMG_林小班図.png" alt="林小班図 画面" class="gallery-img rotate-vertical" loading="lazy">
                         <span class="gallery-caption">林小班図</span>
                     </div>
                     <div class="gallery-item">
@@ -565,7 +571,7 @@
                         <span class="gallery-caption">作業日報</span>
                     </div>
                     <div class="gallery-item">
-                        <img src="IMG_電子黒板.png" alt="電子黒板 画面" class="gallery-img" loading="lazy">
+                        <img src="IMG_電子黒板.png" alt="電子黒板 画面" class="gallery-img rotate-vertical" loading="lazy">
                         <span class="gallery-caption">電子黒板</span>
                     </div>
                 </div>

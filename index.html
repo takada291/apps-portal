@@ -179,7 +179,7 @@
             object-fit: cover;
         }
 
-        /* ★追加：アプリ画面イメージ用スタイル */
+        /* ★追加・修正：アプリ画面イメージ用スタイル */
         .gallery-container {
             background: var(--white);
             border-radius: 8px;
@@ -207,18 +207,25 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            /* アイテム全体に枠線をつける形に調整 */
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 5px;
+            background: #fafafa;
         }
 
         .gallery-img {
             width: 100%;
-            height: auto;
-            max-height: 250px; /* 縦長画像が大きくなりすぎないように制限 */
+            /* 修正：高さを固定して縦長画像も確実に表示領域を確保 */
+            height: 250px; 
+            /* 修正：枠内に画像を収める */
             object-fit: contain;
-            border: 1px solid #eee;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 2px;
+            /* 画像自体の枠線は削除し親要素に任せる */
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
             transition: transform 0.2s;
-            background-color: #fafafa;
         }
 
         .gallery-img:hover {
@@ -230,6 +237,7 @@
             margin-top: 5px;
             color: #555;
             text-align: center;
+            font-weight: bold;
         }
 
         /* FAQセクション */
@@ -455,7 +463,11 @@
                 <div class="app-info">
                     <h3 class="app-title">林小班図 v1.0</h3>
                     <p>手持ちの林小班図等を重ね合わせGPSで図面上位置を確認する地図アプリ。</p>
-                    <p><strong>準備！：</strong>事前にGISで閲覧図面をJPGで出力し”左下・右上”の緯度経度をファイル名に付して端末へ保存してください。<br>例）test_36.060717_136.279386_36.066139_136.288754.jpg<br>※緯度経度は度表記</p>
+                    <p><strong>準備！：</strong>事前にGISで閲覧図面をJPGで出力し”左下・右上”の緯度経度をファイル名に付して端末へ保存してください。<br>
+                    <span style="display:block; overflow-wrap: break-word; word-break: break-all;">
+                    例）test_36.060717_136.279386_36.066139_136.288754.jpg
+                    </span>
+                    ※緯度経度は度表記</p>
                     <a href="https://takada291.github.io/map-viewer/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                 </div>
                 <div class="qr-code">

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>木取り図シミュレーター Ver5.0 (CAD出力)</title>
+    <style>
+        /* 画面表示用のスタイル */
+        body { font-family: "Helvetica Neue", Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; color: #333; }
+        h1 { font-size: 1.2rem; color: #5d4037; border-bottom: 2px solid #5d4037; padding-bottom: 10px; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .input-group { margin-bottom: 15px; padding: 10px; background-color: #fafafa; border: 1px solid #ddd; border-radius: 4px; }
+        label { display: inline-block; font-weight: bold; font-size: 0.9rem; margin-right: 5px;}
+        input[type="number"] { width: 70px; padding: 5px; margin-right: 10px; margin-bottom: 5px; border:1px solid #ccc; border-radius:3px;}
+        button { cursor: pointer; padding: 8px 12px; border: none; border-radius: 4px; font-weight: bold; color: white; margin: 5px 5px 0 0; font-size: 0.9rem;}
+        
+        .btn-add { background-color: #4CAF50; }
+        .btn-calc { background-color: #2196F3; width: 100%; font-size: 1.1rem; margin-top: 10px; padding: 12px;}
+        .btn-clear { background-color: #999; }
+        .btn-preset { background-color: #FF9800; }
+        
+        /* 印刷・出力ボタン群 */
+        .action-buttons { margin-top: 20px; text-align: right; border-top: 1px solid #eee; padding-top: 10px; }
+        .btn-print { background-color: #607D8B; padding: 10px 20px; font-size: 1rem; }
+        .btn-dxf { background-color: #E91E63; padding: 10px 20px; font-size: 1rem; }
+
+        .list-area { max-height: 150px; overflow-y: auto; border: 1px solid #eee; margin-top:10px; padding:5px; font-size: 0.9rem;}
+        .list-item { display: flex; justify-content: space-between; border-bottom: 1px solid #f0f0f0; padding: 2px 0;}
+        .result-stats { display: flex; justify-content: space-between; background: #e3f2fd; padding: 10px; border-radius: 4px; margin-top: 15px; font-weight: bold;}
+        .stat-value { color: #d32f2f; font-size: 1.2rem; }
+        .canvas-container { margin-top: 10px; overflow-x: auto; border: 1px solid #ccc; text-align: center; background: #eee;}
+        canvas { background-color: #f3e5ab; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); }
+        
+        .option-area { margin: 10px 0; background:#fff3e0; padding:10px; border-radius:4px; border-left: 4px solid #FF9800; }
+
+        /* ★印刷時のスタイル設定（ここが重要） */
+        @media print {
+            body { background-color: white; padding: 0; }
+            .container { box-shadow: none; max-width: 100%; width: 100%; margin: 0; padding: 0; }
+            /* 入力フォームやボタンを隠す */
+            .input-group, .btn-calc, .action-buttons, h1, .option-area { display: none; }
+            /* 必要なものだけ表示 */
+            .result-stats { border: 1px solid #ccc; background: none; margin-bottom: 20px; }
+            .canvas-container { border: none; background: none; overflow: visible; }
+            canvas { box-shadow: none; border: 1px solid #000; }
+            /* タイトルを印刷用に強制表示 */
+            .print-title { display: block !important; font-size: 1.5rem; font-weight: bold; margin-bottom: 10px; text-align: center;}
+        }
+        .print-title { display: none; } /* 通常時は非表示 */
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌲 木取り図シミュレーター Ver5.0</h1>
+    <div class="print-title">木取り図面 (板取り計画書)</div>
+
+    <div class="input-group">
+        <label>🛠 材料サイズ (mm)</label><br>
+        幅(W): <input type="number" id="boardWidth" value="1820">
+        高さ(H): <input type="number" id="boardHeight" value="910">
+    </div>
+    
+    <div class="input-group" style="background-color: #e8eaf6;">
+        <label>⚙️ カット設定</label><br>
+        <label>ノコ刃厚(mm):</label>
+        <input type="number" id="sawThickness" value="5" min="0" style="width:50px;">
+        <span style="font-size:0.8rem; color:#666;">※子供用設定:5mm推奨</span>
+    </div>
+
+    <div class="input-group">
+        <label>🪚 部材を追加</label><br>
+        <div style="margin-bottom:5px;">
+            <span style="font-size:0.8rem; font-weight:bold;">プリセット: </span>
+            <button class="btn-preset" onclick="setPreset(89, null)">1x4</button>
+            <button class="btn-preset" onclick="setPreset(140, null)">2x4</button>
+            <button class="btn-preset" onclick="setPreset(300, 450)">300x450</button>
+        </div>
+        幅: <input type="number" id="partWidth" placeholder="幅">
+        高さ: <input type="number" id="partHeight" placeholder="長さ">
+        個数: <input type="number" id="partCount" value="1">
+        <br>
+        <button class="btn-add" onclick="addPart()">＋ 追加</button>
+        <button class="btn-clear" onclick="clearList()">クリア</button>
+
+        <div class="list-area" id="partsList">
+            <div style="color:#999; text-align:center;">(まだ部材がありません)</div>
+        </div>
+    </div>
+
+    <div class="option-area">
+        <label><input type="checkbox" id="sortOpt" checked> 高さで並び替える</label><br>
+        <label><input type="checkbox" id="rotateOpt" checked> 自動回転を許可する</label>
+    </div>
+
+    <button class="btn-calc" onclick="drawLayout()">📐 配置計算 & 描画</button>
+
+    <div class="result-stats">
+        <div>部材面積: <span id="usedArea">0</span> cm²</div>
+        <div>歩留まり: <span id="yieldRate" class="stat-value">0.0</span> %</div>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="myCanvas"></canvas>
+    </div>
+    <p id="msg" style="color:red; font-weight:bold; padding:10px;"></p>
+
+    <div class="action-buttons">
+        <button class="btn-print" onclick="window.print()">🖨 印刷する</button>
+        <button class="btn-dxf" onclick="exportDXF()">💾 CAD出力 (.dxf)</button>
+    </div>
+</div>
+
+<script>
+    let parts = []; 
+    // CAD出力用に配置結果を保存しておく変数
+    let calculatedLayout = []; 
+
+    function setPreset(w, h) {
+        if(w) document.getElementById('partWidth').value = w;
+        if(h) document.getElementById('partHeight').value = h;
+    }
+
+    function addPart() {
+        const w = parseInt(document.getElementById('partWidth').value);
+        const h = parseInt(document.getElementById('partHeight').value);
+        const count = parseInt(document.getElementById('partCount').value);
+        if (!w || !h || !count) { alert("数値を正しく入力してください"); return; }
+        for (let i = 0; i < count; i++) { parts.push({ w: w, h: h, isRotated: false }); }
+        updateListDisplay();
+    }
+
+    function updateListDisplay() {
+        const list = document.getElementById('partsList');
+        if(parts.length === 0) { list.innerHTML = '<div style="color:#999; text-align:center;">(部材なし)</div>'; return; }
+        list.innerHTML = "";
+        parts.forEach((p, idx) => {
+            const div = document.createElement('div');
+            div.className = 'list-item';
+            div.innerHTML = `<span>#${idx+1}</span> <span><b>${p.w}</b> x <b>${p.h}</b></span>`;
+            list.appendChild(div);
+        });
+    }
+
+    function clearList() {
+        parts = []; calculatedLayout = [];
+        updateListDisplay(); resetResults();
+    }
+    function resetResults(){
+        document.getElementById('msg').textContent = "";
+        document.getElementById('yieldRate').textContent = "0.0";
+        document.getElementById('usedArea').textContent = "0";
+        const ctx = document.getElementById('myCanvas').getContext('2d');
+        ctx.clearRect(0,0,10,10); // 簡易クリア
+    }
+
+    // ★メイン計算処理
+    function drawLayout() {
+        const boardW = parseInt(document.getElementById('boardWidth').value);
+        const boardH = parseInt(document.getElementById('boardHeight').value);
+        const sawThick = parseInt(document.getElementById('sawThickness').value) || 0;
+        const doSort = document.getElementById('sortOpt').checked;
+        const doRotate = document.getElementById('rotateOpt').checked;
+        
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        const msg = document.getElementById('msg');
+        msg.textContent = "";
+
+        // 配置計算用リセット
+        calculatedLayout = []; // ここにCAD用データを貯める
+
+        let layoutParts = JSON.parse(JSON.stringify(parts));
+        if (doSort) layoutParts.sort((a, b) => b.h - a.h);
+
+        const scale = Math.min(800 / boardW, 1.0); 
+        canvas.width = boardW * scale;
+        canvas.height = boardH * scale;
+
+        ctx.fillStyle = "#f3e5ab"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = "#8b4513"; ctx.lineWidth = 2; ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+        let curX = 0; let curY = 0; let rowH = 0; let usedAreaMm = 0;
+        ctx.font = "12px Arial"; ctx.lineWidth = 1;
+
+        layoutParts.forEach((p) => {
+            let currentW = p.w; let currentH = p.h;
+
+            if (curX + currentW > boardW) {
+                curX = 0; curY += (rowH + sawThick); rowH = 0; 
+            }
+
+            if (doRotate && (curY + currentH > boardH)) {
+                if (curY + p.w <= boardH && curX + p.h <= boardW) {
+                     currentW = p.h; currentH = p.w; p.isRotated = true;
+                }
+            }
+
+            let isOverflow = false;
+            if (curY + currentH > boardH || curX + currentW > boardW) {
+                isOverflow = true;
+                msg.textContent = `⚠️ ノコ代(${sawThick}mm)込みで入りきらない部材があります！`;
+            } else {
+                usedAreaMm += (currentW * currentH);
+                // CAD用に成功した配置を保存（座標はmm単位）
+                calculatedLayout.push({
+                    x: curX, y: curY, w: currentW, h: currentH, 
+                    isRotated: p.isRotated, originalW: p.w, originalH: p.h
+                });
+            }
+
+            // 描画
+            const dX = curX * scale; const dY = curY * scale;
+            const dW = currentW * scale; const dH = currentH * scale;
+            const dSaw = sawThick * scale;
+
+            if (isOverflow) {
+                ctx.strokeStyle = "red"; ctx.lineWidth = 3; ctx.fillStyle = "rgba(255, 200, 200, 0.5)";
+            } else {
+                ctx.strokeStyle = "#333"; ctx.lineWidth = 1;
+                ctx.fillStyle = p.isRotated ? "rgba(200, 200, 255, 0.9)" : "rgba(255, 255, 255, 0.9)";
+            }
+            
+            ctx.fillRect(dX, dY, dW, dH);
+            ctx.strokeRect(dX, dY, dW, dH);
+
+            if(sawThick > 0 && !isOverflow){
+                 ctx.fillStyle = "#999"; 
+                 if(dX + dW + dSaw <= canvas.width) ctx.fillRect(dX + dW, dY, dSaw, dH);
+                 if(dY + dH + dSaw <= canvas.height) ctx.fillRect(dX, dY + dH, dW + dSaw, dSaw);
+            }
+
+            ctx.fillStyle = "#000";
+            if (dW > 40 && dH > 20) {
+                let text = `${p.w}x${p.h}`; if(p.isRotated) text += " (↻)";
+                ctx.fillText(text, dX + 5, dY + 15);
+            }
+
+            curX += (currentW + sawThick);
+            if (currentH > rowH) rowH = currentH;
+        });
+
+        const totalAreaMm = boardW * boardH;
+        const rate = (usedAreaMm / totalAreaMm) * 100;
+        document.getElementById('usedArea').textContent = Math.floor(usedAreaMm / 100).toLocaleString();
+        document.getElementById('yieldRate').textContent = rate.toFixed(1);
+    }
+
+    // ★CAD出力(DXF)機能
+    function exportDXF() {
+        if (calculatedLayout.length === 0) { alert("まずは「配置計算」を行ってください"); return; }
+        
+        const boardW = parseInt(document.getElementById('boardWidth').value);
+        const boardH = parseInt(document.getElementById('boardHeight').value);
+        
+        // DXFヘッダー部分（最小限）
+        let dxf = "0\nSECTION\n2\nHEADER\n0\nENDSEC\n0\nSECTION\n2\nENTITIES\n";
+
+        // 外枠（板）を描画 (Layer: BOARD)
+        dxf += rectToDxf(0, 0, boardW, boardH, "BOARD", 1); // 1:Red
+
+        // 部材を描画 (Layer: PARTS)
+        calculatedLayout.forEach(p => {
+            // Y軸をCADに合わせて反転させるか？ 
+            // ここではシンプルに「左上原点(0,0)から下にYが増える」という画面座標系のまま出力します。
+            // 多くのCADはそれでも読めますが、上下反転して見える場合があります。
+            // 必要なら y を -y にするなどの変換を行いますが、今回はそのままで。
+            dxf += rectToDxf(p.x, -p.y, p.w, p.h, "PARTS", 7); // 7:White/Black, Yをマイナスにして重なりを防ぐ
+            
+            // テキストを入れるのは複雑になるので今回は省略し、矩形データのみとします
+        });
+
+        dxf += "0\nENDSEC\n0\nEOF\n";
+
+        // ファイルダウンロード処理
+        const blob = new Blob([dxf], { type: "application/dxf" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "wood_layout.dxf";
+        link.click();
+    }
+
+    // 四角形をLWPOLYLINEとしてDXF文字列にする関数
+    function rectToDxf(x, y, w, h, layer, color) {
+        // 時計回りに頂点を定義 (Yはマイナス方向へ伸ばす形で調整)
+        // ここでは左上(x,y) -> 右上(x+w, y) -> 右下(x+w, y-h) -> 左下(x, y-h) -> 閉じる
+        // ※CAD上ではY軸プラスが上なので、画面座標のYを下(-Y)に対応させています
+        return `0\nLWPOLYLINE\n8\n${layer}\n62\n${color}\n90\n4\n70\n1\n` + 
+               `10\n${x}\n20\n${y}\n` + 
+               `10\n${x+w}\n20\n${y}\n` + 
+               `10\n${x+w}\n20\n${y-h}\n` + 
+               `10\n${x}\n20\n${y-h}\n`;
+    }
+</script>
+</body>
+</html>

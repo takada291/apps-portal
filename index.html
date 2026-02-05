@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スマート林業・林業DXツール集</title>
     <meta name="description" content="立木調査やGPS地図、丸太検知、作業日報、AI日報、AI立木評価、AI木工などスマート林業を支援する簡単インストールで無料の入門編WEBアプリを紹介します。">
-    <meta name="keywords" content="林業DX,スマート林業,森林管理,立木調査,毎木調査,プロット調査,樹高測定,胸高直径測定,樹冠疎密度測定,丸太検知,木材検収,位置情報,林小班図,林班,森林計画図,平面直角座標,緯度経度,GPS,GNSS,CSV,ドラッグドロップ,立木評価,丸太配送,運送会社,トラック手配,丸太荷受,荷受手配,作業日報,地図情報,路網踏査,電子黒板,簡易GIS,GeoJSON,KML,用材割合,画像認識,AI,WEBアプリ,PWA,無料アプリ,音声入力,電卓入力,合成音声,エクセルマクロ,写真台帳,木取り,DIY,木工,github">
+    <meta name="keywords" content="林業DX,スマート林業,森林管理,立木調査,毎木調査,プロット調査,樹高測定,胸高直径測定,樹冠疎密度測定,林冠被覆測定,丸太検知,木材検収,位置情報,林小班図,林班,森林計画図,平面直角座標,緯度経度,GPS,GNSS,CSV,ドラッグドロップ,立木評価,丸太配送,運送会社,トラック手配,丸太荷受,荷受手配,作業日報,地図情報,路網踏査,電子黒板,簡易GIS,GeoJSON,KML,用材割合,画像認識,AI,WEBアプリ,PWA,無料アプリ,音声入力,電卓入力,合成音声,エクセルマクロ,写真台帳,木取り,DIY,木工,github">
     
     <script type="application/ld+json">
       {
@@ -13,7 +13,7 @@
         "@type": "WebPage",
         "name": "スマート林業・林業DXツール集",
         "description": "立木調査や地図情報、路網踏査、丸太検知、作業日報、AI立木評価などスマート林業を支援するWEBアプリ集",
-        "dateModified": "2026-02-05" /* 更新2026.02.05-15:06 */
+        "dateModified": "2026-02-05" /* 更新2026.02.05-20:29 */
       }
     </script>
     
@@ -480,6 +480,20 @@
                     <span class="qr-label">スマホで読取</span>
                 </div>                              
             </article>
+
+            <article class="app-card">
+                <img src="icon-192_canopy-density-byAI.png" alt="AI林冠アイコン" class="app-icon" loading="lazy">
+                <div class="app-info">
+                    <h3 class="app-title">AI林冠 v1.0</h3>                  
+                    <p>林内上空を撮影した写真から林冠被覆率を測定するアプリ。</p>
+                    <p><strong>コツ！：</strong>できるだけ真上に向けて撮影し複数個所の被覆率を平均してください。</p>
+                    <a href="https://takada291.github.io/canopy-density-byAI/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
+                </div>
+                <div class="qr-code">
+                    <img src="qr_canopy-density-byAI.png" alt="AI林冠アプリ QRコード" loading="lazy">
+                    <span class="qr-label">スマホで読取</span>
+                </div>                              
+            </article>
             
             <article class="app-card">
                 <img src="icon-192_geo-location.png" alt="座標変換アイコン" class="app-icon" loading="lazy">
@@ -732,6 +746,10 @@
                         <span class="gallery-caption">樹冠疎密</span>
                     </div>
                     <div class="gallery-item">
+                        <img src="IMG_AI林冠.PNG" alt="AI林冠 画面" class="gallery-img" loading="lazy">
+                        <span class="gallery-caption">AI林冠</span>
+                    </div>
+                    <div class="gallery-item">
                         <img src="IMG_座標変換.PNG" alt="座標変換 画面" class="gallery-img" loading="lazy">
                         <span class="gallery-caption">座標変換</span>
                     </div>
@@ -819,7 +837,7 @@
             <div class="updates">
                 <div class="update-item">
                     <span class="date">2026.02.05</span>
-                    <span>樹冠疎密アプリを公開。</span>
+                    <span>樹冠疎密、AI林冠アプリを公開。</span>
                 </div>
                 <div class="update-item">
                     <span class="date">2026.02.04</span>
@@ -965,24 +983,5 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

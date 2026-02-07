@@ -255,13 +255,72 @@
             font-weight: bold;
         }
 
+        /* ▼▼▼ 追加：活用事例（ワンポイントアドバイス）用スタイル ▼▼▼ */
+        .advice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .advice-card {
+            background: var(--white);
+            border-top: 4px solid #f39c12; /* アクセントのオレンジ */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        .advice-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .advice-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .advice-icon {
+            font-size: 1.8rem;
+            margin-right: 10px;
+        }
+
+        .advice-title {
+            color: #d35400; /* 濃いオレンジ */
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .advice-body {
+            font-size: 0.95rem;
+            color: #555;
+        }
+        
+        .advice-tag {
+            display: inline-block;
+            background: #ffe0b2;
+            color: #e65100;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        /* ▲▲▲ 追加ここまで ▲▲▲ */
+
         /* FAQセクション */
         .faq-container {
             background: var(--white);
             border-radius: 8px;
             padding: 1rem 1.5rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 2rem; /* ★ここを修正：下の要素とのスキマを追加 */
+            margin-bottom: 2rem;
         }
 
         .faq-item {
@@ -433,7 +492,7 @@
                 <div class="qr-code">
                     <img src="qr_tree-survey-test.png" alt="立木調査アプリ音声入力版 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                              
+                </div>                           
             </article>
 
             <article class="app-card">
@@ -448,7 +507,7 @@
                 <div class="qr-code">
                     <img src="qr_tree-height.png" alt="樹高測定アプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                              
+                </div>                           
             </article>            
             
             <article class="app-card">
@@ -463,7 +522,7 @@
                 <div class="qr-code">
                     <img src="qr_Breast-diameter.png" alt="直径測定アプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                              
+                </div>                           
             </article>
 
             <article class="app-card">
@@ -478,7 +537,7 @@
                 <div class="qr-code">
                     <img src="qr_canopy-density.png" alt="樹冠疎密アプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                              
+                </div>                           
             </article>
 
             <article class="app-card">
@@ -493,7 +552,7 @@
                 <div class="qr-code">
                     <img src="qr_canopy-density-byAI.png" alt="AI林冠アプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                              
+                </div>                           
             </article>
             
             <article class="app-card">
@@ -566,7 +625,7 @@
                 <div class="qr-code">
                     <img src="qr_timber-measur-doubsta.png" alt="丸太検知アプリ音声入力版 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                              
+                </div>                           
             </article>
             
             <article class="app-card">
@@ -579,7 +638,7 @@
                 <div class="qr-code">
                     <img src="qr_log-delivery.png" alt="山の配送 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                              
+                </div>                           
             </article>
 
             <article class="app-card">
@@ -592,7 +651,7 @@
                 <div class="qr-code">
                     <img src="qr_daily-report.png" alt="作業日報 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                              
+                </div>                           
             </article>
 
             <article class="app-card">
@@ -607,7 +666,7 @@
                 <div class="qr-code">
                     <img src="qr_daily-report-byAI.png" alt="AI日報 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                              
+                </div>                           
             </article>
             
             <article class="app-card">
@@ -621,7 +680,7 @@
                 <div class="qr-code">
                     <img src="qr_White-board.png" alt="電子黒板 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                              
+                </div>                           
             </article>
 
             <div class="download-section">
@@ -778,7 +837,7 @@
                     <div class="gallery-item">
                         <img src="IMG_立木評価.PNG" alt="立木評価 画面" class="gallery-img" loading="lazy">
                         <span class="gallery-caption">立木評価</span>
-                    </div>                    
+                    </div>                   
                 </div>
             </div>
 
@@ -792,7 +851,7 @@
                     <div class="gallery-item">
                         <img src="IMG_AI日報.png" alt="AI日報 画面" class="gallery-img-wide" loading="lazy">
                         <span class="gallery-caption">AI日報（解析サイト）</span>
-                    </div>                    
+                    </div>                   
                     <div class="gallery-item">
                         <img src="IMG_電子黒板.png" alt="電子黒板 画面" class="gallery-img-wide" loading="lazy">
                         <span class="gallery-caption">電子黒板</span>
@@ -812,10 +871,70 @@
                     <div class="gallery-item">
                         <img src="IMG_Excel連携ツール_写真貼付.png" alt="Excel連携ツール（写真台帳） 画面" class="gallery-img-wide" loading="lazy">
                         <span class="gallery-caption">Excel連携ツール（写真台帳）</span>
-                    </div>                    
+                    </div>                   
                 </div>
             </div>
 
+        <section id="advice">
+            <h2>現場での活用事例（ワンポイントアドバイス）</h2>
+            <p>「このアプリ、どう使う？」現場作業がもっと楽になる、具体的な活用シーンをご紹介します。</p>
+
+            <div class="advice-grid">
+                
+                <article class="advice-card">
+                    <div class="advice-header">
+                        <span class="advice-icon">🗣️</span>
+                        <div>
+                            <span class="advice-tag">立木調査</span>
+                            <h3 class="advice-title">一人でも高速に毎木調査</h3>
+                        </div>
+                    </div>
+                    <div class="advice-body">
+                        <p>野帳係がいない時でも大丈夫。<strong>「立木調査アプリ（音声入力版）」</strong>を使えば、スマホに向かって「スギ、24」と話しかけるだけで記録完了。両手が空くので、ノギス操作もスムーズです。</p>
+                    </div>
+                </article>
+
+                <article class="advice-card">
+                    <div class="advice-header">
+                        <span class="advice-icon">🚚</span>
+                        <div>
+                            <span class="advice-tag">山の配送</span>
+                            <h3 class="advice-title">「今どこ？」電話をゼロに</h3>
+                        </div>
+                    </div>
+                    <div class="advice-body">
+                        <p>土場での出荷待ち時間、運転手さんへの電話確認...。<strong>「山の配送アプリ」</strong>なら、集材場所からボタン一つで現在地と出荷状況をメール送信。事務所も運送会社もリアルタイムで状況を共有できます。</p>
+                    </div>
+                </article>
+
+                <article class="advice-card">
+                    <div class="advice-header">
+                        <span class="advice-icon">📸</span>
+                        <div>
+                            <span class="advice-tag">電子黒板</span>
+                            <h3 class="advice-title">重たい黒板はもう不要</h3>
+                        </div>
+                    </div>
+                    <div class="advice-body">
+                        <p>急な現場確認や、足場の悪い場所での撮影に。<strong>「電子黒板アプリ」</strong>ならスマホだけで施工管理写真が撮れます。黒板の書き換えも画面上で一瞬。GPS情報も自動で付与されるので整理も楽々です。</p>
+                    </div>
+                </article>
+
+                <article class="advice-card">
+                    <div class="advice-header">
+                        <span class="advice-icon">🗺️</span>
+                        <div>
+                            <span class="advice-tag">林小班図</span>
+                            <h3 class="advice-title">境界確認をスマートに</h3>
+                        </div>
+                    </div>
+                    <div class="advice-body">
+                        <p>図面を持って山に入ったけど、自分が今どこにいるか分からない...。<strong>「林小班図アプリ」</strong>に普段お使いの図面画像を読み込めば、GPSで現在地が図面上に表示されます。施業区域の概略確認に最適です。</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
         <section id="faq">
             <h2>よくある質問（FAQ）</h2>
             <div class="faq-container">
@@ -887,7 +1006,7 @@
                 <div class="update-item">
                     <span class="date">2026.01.19</span>
                     <span>電卓入力に対応した丸太検知アプリを公開。</span>
-                </div>              
+                </div>               
                 <div class="update-item">
                     <span class="date">2026.01.16</span>
                     <span>山の配送アプリを公開。</span>
@@ -981,15 +1100,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

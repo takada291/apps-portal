@@ -32,6 +32,9 @@
             --warning-text: #c53030;
             --download-bg: #e8f4f8;
             --download-border: #bee3f8;
+            --note-bg: #ffffff;
+            --note-border: #2ecc71;
+            --note-text: #27ae60;
         }
 
         body {
@@ -62,11 +65,11 @@
             opacity: 0.9;
         }
 
-        /* ▼▼▼ 追加：ナビゲーションバー ▼▼▼ */
+        /* ナビゲーションバー（横スクロール対応済み） */
         .nav-bar {
             background-color: var(--nav-bg);
             padding: 0;
-            position: sticky; /* スクロール時に上部に固定 */
+            position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -94,29 +97,26 @@
             font-weight: bold;
             transition: background-color 0.3s;
             border-right: 1px solid rgba(255,255,255,0.2);
-            white-space: nowrap; /* 文字の折り返しを禁止 */
+            white-space: nowrap;
         }
 
         .nav-list a:hover {
             background-color: rgba(255,255,255,0.2);
         }
 
-        /* スマホ向け：横スクロール対応（改良版） */
         @media (max-width: 768px) {
             .nav-list {
                 justify-content: flex-start;
-                overflow-x: auto; /* 横スクロールを許可 */
+                overflow-x: auto;
                 white-space: nowrap;
-                -webkit-overflow-scrolling: touch; /* iOSでのスクロールを滑らかに */
-                flex-wrap: nowrap; /* ★ここ重要：折り返しを禁止して横並びを強制 */
-                padding-bottom: 5px; /* スクロールバーとの干渉を防ぐ */
+                -webkit-overflow-scrolling: touch;
+                flex-wrap: nowrap;
+                padding-bottom: 5px;
             }
-            /* スクロールバーを非表示にする（見た目をスッキリさせる場合） */
             .nav-list::-webkit-scrollbar {
                 display: none; 
             }
         }
-        /* ▲▲▲ 追加ここまで ▲▲▲ */
 
         main.container {
             max-width: 800px;
@@ -133,7 +133,39 @@
             font-size: 1.5rem;
         }
 
-        /* ▼▼▼ 追加：カテゴライズ表 ▼▼▼ */
+        /* ▼▼▼ 追加：noteリンクボタン ▼▼▼ */
+        .note-link-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .note-btn {
+            display: inline-block;
+            background-color: var(--note-bg);
+            color: var(--note-text);
+            border: 2px solid var(--note-border);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .note-btn:hover {
+            background-color: var(--note-border);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .note-icon {
+            margin-right: 5px;
+        }
+        /* ▲▲▲ 追加ここまで ▲▲▲ */
+
+        /* カテゴライズ表（リンク機能付き） */
         .category-table {
             width: 100%;
             border-collapse: collapse;
@@ -153,14 +185,13 @@
         }
 
         .category-table th {
-            background-color: #e8f5e9; /* 薄い緑 */
+            background-color: #e8f5e9;
             color: var(--primary-color);
             font-weight: bold;
             width: 30%;
             min-width: 100px;
         }
         
-        /* 表内のリンクスタイル調整 */
         .category-table a {
             color: var(--accent-color);
             text-decoration: none;
@@ -170,7 +201,6 @@
             color: #2980b9;
             border-bottom: 1px solid #2980b9;
         }
-        /* ▲▲▲ 追加ここまで ▲▲▲ */
 
         /* アプリ紹介カード */
         .app-card {
@@ -183,7 +213,7 @@
             display: flex;
             align-items: flex-start;
             gap: 20px;
-            scroll-margin-top: 100px; /* ★リンクで飛んだ時にヘッダーに隠れないよう余白を設定 */
+            scroll-margin-top: 100px;
         }
 
         .app-icon {
@@ -210,7 +240,6 @@
             font-size: 0.95rem;
         }
 
-        /* QRコード部分 */
         .qr-code {
             text-align: center;
             min-width: 100px;
@@ -252,7 +281,6 @@
             opacity: 0.9;
         }
 
-        /* 注意事項の画像 */
         .instruction-img {
             max-width: 100%;
             height: auto;
@@ -261,7 +289,6 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
-        /* 画像を横並びにするためのコンテナスタイル */
         .photo-gallery {
             display: flex;
             justify-content: space-between;
@@ -269,14 +296,12 @@
             margin-top: 1rem;
         }
         
-        /* 横並び時の画像サイズ調整 */
         .photo-gallery .instruction-img {
-            width: 32%; /* 3枚並べるので約33% */
-            margin: 0; /* 個別の上下マージンをリセット */
+            width: 32%;
+            margin: 0;
             object-fit: cover;
         }
 
-        /* アプリ画面イメージ用スタイル */
         .gallery-container {
             background: var(--white);
             border-radius: 8px;
@@ -295,14 +320,12 @@
             margin-bottom: 1rem;
         }
 
-        /* 縦長画像用のグリッド（既存） */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
             gap: 15px;
         }
 
-        /* ★追加：横長画像用のワイドグリッド */
         .gallery-grid-wide {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -319,7 +342,6 @@
             background: #fafafa;
         }
 
-        /* 縦長画像用スタイル */
         .gallery-img {
             width: 100%;
             height: 250px;
@@ -331,10 +353,9 @@
             transition: transform 0.2s;
         }
 
-        /* ★追加：横長画像用スタイル（高さを固定せず幅いっぱいに表示） */
         .gallery-img-wide {
             width: 100%;
-            height: auto; /* 高さは自動調整 */
+            height: auto;
             object-fit: contain;
             border-radius: 2px;
             transition: transform 0.2s;
@@ -353,7 +374,6 @@
             font-weight: bold;
         }
 
-        /* ▼▼▼ 追加：活用事例（ワンポイントアドバイス）用スタイル ▼▼▼ */
         .advice-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -364,7 +384,7 @@
 
         .advice-card {
             background: var(--white);
-            border-top: 4px solid #f39c12; /* アクセントのオレンジ */
+            border-top: 4px solid #f39c12;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             padding: 1.5rem;
@@ -390,7 +410,7 @@
         }
 
         .advice-title {
-            color: #d35400; /* 濃いオレンジ */
+            color: #d35400;
             font-weight: bold;
             font-size: 1.1rem;
             margin: 0;
@@ -411,9 +431,7 @@
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
-        /* ▲▲▲ 追加ここまで ▲▲▲ */
 
-        /* FAQセクション */
         .faq-container {
             background: var(--white);
             border-radius: 8px;
@@ -440,7 +458,6 @@
             border-left: 3px solid #eee;
         }
         
-        /* ダウンロードセクション */
         .download-section {
             background: var(--download-bg);
             border: 1px solid var(--download-border);
@@ -470,7 +487,6 @@
             display: block;
         }
 
-        /* 更新情報 */
         .updates {
             background: var(--white);
             padding: 1.5rem;
@@ -495,7 +511,6 @@
             min-width: 100px;
         }
 
-        /* 免責事項セクション */
         .disclaimer-section {
             background: var(--warning-bg);
             border: 1px solid var(--warning-border);
@@ -534,7 +549,6 @@
             color: #777;
         }
 
-        /* レスポンシブ対応 */
         @media (max-width: 600px) {
             .app-card {
                 flex-direction: column;
@@ -586,6 +600,11 @@
         <section id="intro">
             <p>本サイトでは、<strong>スマート林業</strong>の推進を目指し、現場で手軽に使えるWebアプリを公開しています。手元のスマホやタブレットで<strong>林業DX</strong>を体験してください。</p>
 
+            <div class="note-link-container">
+                <a href="https://note.com/xxxx" class="note-btn" target="_blank" rel="noopener noreferrer">
+                    <span class="note-icon">📝</span> 詳しい使い方や開発秘話は note で公開中！
+                </a>
+            </div>
             <table class="category-table">
                 <tbody>
                     <tr>
@@ -631,6 +650,12 @@
                             <a href="#app-excel-tools">Excel連携ツール</a>
                         </td>
                     </tr>
+                    /*
+                    <tr>
+                        <th>渋谷系</th>
+                        <td style="color: #999; font-style: italic;">※冗談です、ごめんなさい</td>
+                    </tr>
+                    */
                 </tbody>
             </table>
             </section>
@@ -1205,62 +1230,4 @@
                 <ul>
                     <li><strong>動作環境について：</strong>開発者は手持ちのAndroidタブレット、iPhone、およびWindowsパソコン等にて動作確認を行っておりますが、個人の環境でのテストであり、全ての端末やOSバージョンでの完全な動作を保証するものではありません。</li>
                     <li><strong>データの正確性について：</strong>本アプリで表示・算出される数値（座標、材積、AI診断値など）は、業務の補助を目的とした目安です。最終的な判断や境界の確定等においては、必ず測量機器や専門家の判断を優先してください。</li>
-                    <li><strong>責任の所在：</strong>本アプリの利用によって生じた、いかなる損害（データの消失、業務の遅延、金銭的損失、現場での事故・怪我等）も開発者は一切の責任を負いかねます。</li>
-                    <li><strong>安全確保：</strong>林内での移動中の画面操作（歩きスマホ）は大変危険です。必ず安全な場所で立ち止まってから操作を行ってください。</li>
-                    <li><strong>著作権とオープンソース：</strong>
-                        本アプリ群のソースコードは、<strong>MIT License</strong> の下で公開しています。著作権表示を行えば、どなたでも無償で自由に使用、改変、再配布が可能です。
-                        <ul>
-                            <li><strong>ソースコード（GitHub）：</strong> <a href="https://github.com/takada291" target="_blank" rel="noopener noreferrer">https://github.com/takada291</a></li>
-                            <li><strong>使用ライブラリ：</strong> Leaflet (BSD-2-Clause), Proj4js (MIT License) 他</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-    </main>
-
-    <div class="qr-code" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 2rem;">
-        <img src="qr_apps-portal.png" alt="紹介サイト「林業DXツール集」 QRコード" style="display: block; margin: 0 auto;" loading="lazy">
-        <span class="qr-label" style="display: block; margin-top: 8px;">スマホで読取</span>
-    </div>
-    
-    <footer>
-        <p>&copy; 2026.takada291.スマート林業・林業DXツール集</p>
-        <p style="font-size: 0.7rem;">Created with the help of AI.</p>
-        
-        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">
-            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            
-            <span id="busuanzi_container_site_pv" style="display:none">
-                PV数：<span id="busuanzi_value_site_pv"></span> 回
-            </span>
-        </p>
-
-        <script>
-            // ★PV回数をリセットしたい場合、ここに今現在のPV回数を入れてください
-            const offset = 25; 
-
-            const counterSpan = document.getElementById('busuanzi_value_site_pv');
-            
-            // カウンターの数字がサーバーから届いて表示された瞬間に動く監視役
-            const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    if (mutation.target.innerText) {
-                        let currentCount = parseInt(mutation.target.innerText);
-                        let fixedCount = currentCount - offset;
-                        if (fixedCount < 0) fixedCount = 0;
-                        mutation.target.innerText = fixedCount;
-                        observer.disconnect();
-                    }
-                });
-            });
-
-            if(counterSpan) {
-                observer.observe(counterSpan, { childList: true });
-            }
-        </script>        
-    </footer>
-
-</body>
-</html>
+                    <li>

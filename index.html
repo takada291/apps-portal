@@ -1227,6 +1227,62 @@
                 <ul>
                     <li><strong>動作環境について：</strong>開発者は手持ちのAndroidタブレット、iPhone、およびWindowsパソコン等にて動作確認を行っておりますが、個人の環境でのテストであり、全ての端末やOSバージョンでの完全な動作を保証するものではありません。</li>
                     <li><strong>データの正確性について：</strong>本アプリで表示・算出される数値（座標、材積、AI診断値など）は、業務の補助を目的とした目安です。最終的な判断や境界の確定等においては、必ず測量機器や専門家の判断を優先してください。</li>
-                    <li>
+                    <li><strong>責任の所在：</strong>本アプリの利用によって生じた、いかなる損害（データの消失、業務の遅延、金銭的損失、現場での事故・怪我等）も開発者は一切の責任を負いかねます。</li>
+                    <li><strong>安全確保：</strong>林内での移動中の画面操作（歩きスマホ）は大変危険です。必ず安全な場所で立ち止まってから操作を行ってください。</li>
+                    <li><strong>著作権とオープンソース：</strong>
+                        本アプリ群のソースコードは、<strong>MIT License</strong> の下で公開しています。著作権表示を行えば、どなたでも無償で自由に使用、改変、再配布が可能です。
+                        <ul>
+                            <li><strong>ソースコード（GitHub）：</strong> <a href="https://github.com/takada291" target="_blank" rel="noopener noreferrer">https://github.com/takada291</a></li>
+                            <li><strong>使用ライブラリ：</strong> Leaflet (BSD-2-Clause), Proj4js (MIT License) 他</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
+    </main>
 
+    <div class="qr-code" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 2rem;">
+        <img src="qr_apps-portal.png" alt="紹介サイト「林業DXツール集」 QRコード" style="display: block; margin: 0 auto;" loading="lazy">
+        <span class="qr-label" style="display: block; margin-top: 8px;">スマホで読取</span>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026.takada291.スマート林業・林業DXツール集</p>
+        <p style="font-size: 0.7rem;">Created with the help of AI.</p>
+        
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            
+            <span id="busuanzi_container_site_pv" style="display:none">
+                PV数：<span id="busuanzi_value_site_pv"></span> 回
+            </span>
+        </p>
+
+        <script>
+            // ★PV回数をリセットしたい場合、ここに今現在のPV回数を入れてください
+            const offset = 25; 
+
+            const counterSpan = document.getElementById('busuanzi_value_site_pv');
+            
+            // カウンターの数字がサーバーから届いて表示された瞬間に動く監視役
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.target.innerText) {
+                        let currentCount = parseInt(mutation.target.innerText);
+                        let fixedCount = currentCount - offset;
+                        if (fixedCount < 0) fixedCount = 0;
+                        mutation.target.innerText = fixedCount;
+                        observer.disconnect();
+                    }
+                });
+            });
+
+            if(counterSpan) {
+                observer.observe(counterSpan, { childList: true });
+            }
+        </script>        
+    </footer>
+
+</body>
+</html>

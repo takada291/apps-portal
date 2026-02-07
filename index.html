@@ -94,19 +94,26 @@
             font-weight: bold;
             transition: background-color 0.3s;
             border-right: 1px solid rgba(255,255,255,0.2);
+            white-space: nowrap; /* 文字の折り返しを禁止 */
         }
 
         .nav-list a:hover {
             background-color: rgba(255,255,255,0.2);
         }
 
-        /* スマホ向け：横スクロール対応 */
+        /* スマホ向け：横スクロール対応（改良版） */
         @media (max-width: 768px) {
             .nav-list {
                 justify-content: flex-start;
-                overflow-x: auto;
+                overflow-x: auto; /* 横スクロールを許可 */
                 white-space: nowrap;
-                -webkit-overflow-scrolling: touch;
+                -webkit-overflow-scrolling: touch; /* iOSでのスクロールを滑らかに */
+                flex-wrap: nowrap; /* ★ここ重要：折り返しを禁止して横並びを強制 */
+                padding-bottom: 5px; /* スクロールバーとの干渉を防ぐ */
+            }
+            /* スクロールバーを非表示にする（見た目をスッキリさせる場合） */
+            .nav-list::-webkit-scrollbar {
+                display: none; 
             }
         }
         /* ▲▲▲ 追加ここまで ▲▲▲ */
@@ -152,6 +159,17 @@
             width: 30%;
             min-width: 100px;
         }
+        
+        /* 表内のリンクスタイル調整 */
+        .category-table a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-color);
+        }
+        .category-table a:hover {
+            color: #2980b9;
+            border-bottom: 1px solid #2980b9;
+        }
         /* ▲▲▲ 追加ここまで ▲▲▲ */
 
         /* アプリ紹介カード */
@@ -165,6 +183,7 @@
             display: flex;
             align-items: flex-start;
             gap: 20px;
+            scroll-margin-top: 100px; /* ★リンクで飛んだ時にヘッダーに隠れないよう余白を設定 */
         }
 
         .app-icon {
@@ -264,6 +283,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             padding: 1.5rem;
             margin-bottom: 2rem;
+            scroll-margin-top: 100px;
         }
 
         .gallery-title {
@@ -349,6 +369,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             padding: 1.5rem;
             transition: transform 0.2s;
+            scroll-margin-top: 100px;
         }
 
         .advice-card:hover {
@@ -399,6 +420,7 @@
             padding: 1rem 1.5rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
+            scroll-margin-top: 100px;
         }
 
         .faq-item {
@@ -428,6 +450,7 @@
             display: flex;
             align-items: center;
             gap: 1.5rem;
+            scroll-margin-top: 100px;
         }
 
         .download-icon {
@@ -453,6 +476,7 @@
             padding: 1.5rem;
             border-left: 5px solid var(--primary-color);
             border-radius: 0 8px 8px 0;
+            scroll-margin-top: 100px;
         }
 
         .update-item {
@@ -478,6 +502,7 @@
             border-radius: 8px;
             padding: 1.5rem;
             margin-top: 3rem;
+            scroll-margin-top: 100px;
         }
 
         .disclaimer-title {
@@ -565,23 +590,46 @@
                 <tbody>
                     <tr>
                         <th>森林調査系</th>
-                        <td>立木調査、樹高測定、直径測定、樹冠疎密、AI林冠、立木評価</td>
+                        <td>
+                            <a href="#app-tree-survey">立木調査</a>、
+                            <a href="#app-tree-height">樹高測定</a>、
+                            <a href="#app-breast-diameter">直径測定</a>、
+                            <a href="#app-canopy-density">樹冠疎密</a>、
+                            <a href="#app-canopy-density-ai">AI林冠</a>、
+                            <a href="#app-forest-eval">立木評価</a>
+                        </td>
                     </tr>
                     <tr>
                         <th>GPS地図系</th>
-                        <td>座標変換、簡易ナビ、路網踏査、林小班図</td>
+                        <td>
+                            <a href="#app-geo-location">座標変換</a>、
+                            <a href="#app-simple-navi">簡易ナビ</a>、
+                            <a href="#app-road-survey">路網踏査</a>、
+                            <a href="#app-map-viewer">林小班図</a>
+                        </td>
                     </tr>
                     <tr>
                         <th>現場作業系</th>
-                        <td>丸太検知、山の配送、作業日報、AI日報（＆解析サイト）、電子黒板</td>
+                        <td>
+                            <a href="#app-timber-measurement">丸太検知</a>、
+                            <a href="#app-log-delivery">山の配送</a>、
+                            <a href="#app-daily-report">作業日報</a>、
+                            <a href="#app-daily-report-ai">AI日報（＆解析サイト）</a>、
+                            <a href="#app-white-board">電子黒板</a>
+                        </td>
                     </tr>
                     <tr>
                         <th>DIY木工系</th>
-                        <td>板の木取、AI木工</td>
+                        <td>
+                            <a href="#app-wood-layout">板の木取</a>、
+                            <a href="#app-woodwork-ai">AI木工</a>
+                        </td>
                     </tr>
                     <tr>
                         <th>アプリ連携系</th>
-                        <td>Excel連携ツール</td>
+                        <td>
+                            <a href="#app-excel-tools">Excel連携ツール</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -595,7 +643,7 @@
             <p>・ios端末；各リンクを「Safari」で開く→「共有」→「ホーム画面に追加」→ホーム画面のショートカット（アイコン画像）から起動</p>
             <p>※現場で一番使いそうな’電子黒板アプリ’の使い方をまとめたので参考にしてください。<br>→<a href="manual.pdf" target="_blank">こちらから</a></p>
             
-            <article class="app-card">
+            <article class="app-card" id="app-tree-survey">
                 <img src="icon-192_tree-survey.png" alt="立木調査アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">立木調査 v2.4</h3>                  
@@ -609,7 +657,7 @@
                 </div>                                    
             </article>
 
-            <article class="app-card">
+            <article class="app-card" id="app-tree-height">
                 <img src="icon-192_tree-height.png" alt="樹高測定アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">樹高測定 v1.1</h3>                  
@@ -624,7 +672,7 @@
                 </div>                                    
             </article>            
             
-            <article class="app-card">
+            <article class="app-card" id="app-breast-diameter">
                 <img src="icon-192_Breast-diameter.png" alt="直径測定アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">直径測定 v1.1</h3>                  
@@ -639,7 +687,7 @@
                 </div>                                    
             </article>
 
-            <article class="app-card">
+            <article class="app-card" id="app-canopy-density">
                 <img src="icon-192_canopy-density.png" alt="樹冠疎密アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">樹冠疎密 v1.1</h3>                  
@@ -654,7 +702,7 @@
                 </div>                                    
             </article>
 
-            <article class="app-card">
+            <article class="app-card" id="app-canopy-density-ai">
                 <img src="icon-192_canopy-density-byAI.png" alt="AI林冠アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">AI林冠 v2.0</h3>                  
@@ -669,7 +717,7 @@
                 </div>                                    
             </article>
             
-            <article class="app-card">
+            <article class="app-card" id="app-geo-location">
                 <img src="icon-192_geo-location.png" alt="座標変換アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">座標変換 v2.5</h3>
@@ -682,7 +730,7 @@
                 </div>
             </article>
 
-            <article class="app-card">
+            <article class="app-card" id="app-simple-navi">
                 <img src="icon-192_simple-navi.png" alt="簡易ナビアイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">簡易ナビ v2.2</h3>
@@ -695,7 +743,7 @@
                 </div>
             </article>
 
-            <article class="app-card">
+            <article class="app-card" id="app-road-survey">
                 <img src="icon-192_road-survey.png" alt="路網踏査アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">路網踏査 v1.2</h3>
@@ -709,7 +757,7 @@
                 </div>
             </article>
 
-            <article class="app-card">
+            <article class="app-card" id="app-map-viewer">
                 <img src="icon_map-viewer.png" alt="林小班図アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">林小班図 v1.1</h3>
@@ -728,7 +776,7 @@
                 </div>
             </article>
 
-            <article class="app-card">
+            <article class="app-card" id="app-timber-measurement">
                 <img src="icon-192_timber-measur-doubsta.png" alt="丸太検知アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">丸太検知 v2.2</h3>                  
@@ -742,7 +790,7 @@
                 </div>                                    
             </article>
             
-            <article class="app-card">
+            <article class="app-card" id="app-log-delivery">
                 <img src="icon_log-delivery.png" alt="山の配送アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">山の配送 v1.8</h3>                  
@@ -755,7 +803,7 @@
                 </div>                                    
             </article>
 
-            <article class="app-card">
+            <article class="app-card" id="app-daily-report">
                 <img src="icon-192_daily-report.png" alt="作業日報アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">作業日報 v1.0</h3>                  
@@ -768,7 +816,7 @@
                 </div>                                    
             </article>
 
-            <article class="app-card">
+            <article class="app-card" id="app-daily-report-ai">
                 <img src="icon-192_daily-report-byAI.png" alt="AI日報アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">AI日報 v2.1</h3>                  
@@ -783,7 +831,7 @@
                 </div>                                    
             </article>
             
-            <article class="app-card">
+            <article class="app-card" id="app-white-board">
                 <img src="icon-192_White-board.png" alt="電子黒板アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">電子黒板 v1.9</h3>                  
@@ -797,7 +845,7 @@
                 </div>                                    
             </article>
 
-            <div class="download-section">
+            <div class="download-section" id="app-excel-tools">
                 <div class="download-icon">💻</div>
                 <div class="download-content">
                     <span class="download-title">【PC用】Excel連携ツール　No1</span>
@@ -842,7 +890,7 @@
         <section id="apps-online">
             <h2>オンライン専用ツール</h2>
             
-            <article class="app-card">
+            <article class="app-card" id="app-forest-eval">
                 <img src="icon-192_forest-eval.png" alt="立木評価アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">立木評価 v0.2</h3>
@@ -869,7 +917,7 @@
                 </div>
             </div>
 
-            <article class="app-card">
+            <article class="app-card" id="app-wood-layout">
                 <img src="icon-192_wood_layout.png" alt="板の木取アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">板の木取 v1.0</h3>
@@ -883,7 +931,7 @@
                 </div>
             </article>
 
-            <article class="app-card">
+            <article class="app-card" id="app-woodwork-ai">
                 <img src="icon-192_woodwork-byAI.png" alt="AI木工アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">AI木工 v0.3</h3>
@@ -990,6 +1038,7 @@
                 </div>
             </div>
         </section>
+
         <section id="advice">
             <h2>現場での使いどころ（ワンポイントアドバイス）</h2>
             <p>とくに’何に使うか分かりづらい’アプリの具体的な活用シーンをアドバイスします。</p>
@@ -1215,6 +1264,3 @@
 
 </body>
 </html>
-
-
-

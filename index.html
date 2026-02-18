@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スマート林業・林業DXツール集</title>
     <meta name="description" content="森林調査系、GPS地図系、現場作業系、DIY木工系など簡単インストール・無料のWEBアプリ（PWA）を紹介します。">
-    <meta name="keywords" content="立木調査,毎木調査,プロット調査,樹高,胸高直径,樹冠疎密度,林冠被覆率,全天空写真,相対照度,魚眼レンズ,丸太検知,木材検収,林小班図,林班,小班,森林計画図,平面直角座標,緯度経度,画像認識,AI,音声入力,エクセルマクロ,木取り,DIY,木工">
+    <meta name="keywords" content="毎木調査,プロット調査,樹高,樹冠疎密度,全天空写真,相対照度,開空率,丸太検知,木材検収,林班,小班,森林計画図,平面直角座標,画像認識,AI,音声入力,木取り,DIY,木工">
     
     <script type="application/ld+json">
       {
@@ -588,7 +588,9 @@
             <li><a href="https://takada291.github.io/apps-portal/">TOP</a></li>
             <li><a href="#apps-offline">オフライン対応ツール</a></li>
             <li><a href="#apps-online">オンライン対応ツール</a></li>
+            <!--
             <li><a href="#gallery">アプリ画面のイメージ</a></li>
+            -->
             <li><a href="#advice">現場での使いどころ</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#news">更新状況</a></li>
@@ -667,7 +669,7 @@
                 <img src="icon-192_tree-survey.png" alt="立木調査アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">立木調査 v2.4</h3>                  
-                    <p>胸高直径等を入力し保存、CSV出力する毎木・プロット調査用アプリ。紙野帳をデジタル化。</p> 
+                    <p>スマホを毎木調査やプロット調査の電子野帳化します。</p> 
                     <p>使用する機能：音声入力</p>
                     <p><strong>注意！：</strong>オフラインでの音声入力は<strong>ios端末だけ</strong>使用できます。</p>
                     <a href="https://takada291.github.io/apps-test/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -683,9 +685,9 @@
                 <img src="icon-192_tree-height.png" alt="樹高測定アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">樹高測定 v1.1</h3>                  
-                    <p>根元に立てたポールの下部・上部、樹頂を視準した角度から樹高を測定するアプリ。</p>
+                    <p>スマホとポールで樹高を測定します。</p>
                     <p>使用する機能：カメラ、ジャイロ</p>
-                    <p><strong>コツ！：</strong>腕をピンと伸ばして肩を回転軸にして視準してください。</p>
+                    <p><strong>コツ！：</strong>腕をピンと伸ばし肩を回転軸にして視準してください。</p>
                     <a href="https://takada291.github.io/tree-height/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/nec558eaeff65" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
                 </div>
@@ -730,9 +732,9 @@
                 <img src="icon-192_canopy-density-byAI.png" alt="AI林冠アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">AI林冠 v2.2</h3>                  
-                    <p>林内上空を撮影した写真から林冠被覆率を測定するアプリ。</p>
+                    <p>スマホで下から撮った林冠の写真から間伐計画を判断します。</p>
                     <p>使用する機能：カメラ、ジャイロ</p>
-                    <p><strong>コツ！：</strong>水平を保つため’水準器’小円に目印を入れ緑円にした状態で写真を撮影してください。</p>
+                    <p><strong>コツ！：</strong>水平を保つため’水準器’小円に目印を入れてください。</p>
                     <a href="https://takada291.github.io/canopy-density-byAI/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/ncc1c8590de56" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
                 </div>
@@ -746,10 +748,10 @@
                 <img src="icon-192_fisheye-skyview-byAI.png" alt="AI魚眼アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">AI魚眼 v3.3</h3>                  
-                    <p>非皆伐跡地上空を撮影した全天空写真から相対照度等を測定するアプリ。</p>
+                    <p>スマホに付けた魚眼レンズで上空を撮って植林地の光環境を測定します。</p>
                     <p>使用する機能：カメラ、ジャイロ</p>
-                    <p><strong>準備！：</strong>事前にスマホ等に付ける簡易的な魚眼レンズを購入してください。※必ず視野角が’180度のレンズ’にしてください。<br>
-                    <p><strong>コツ！：</strong>水平を保つため’水準器’小円に目印を入れ緑円にした状態で写真を撮影してください。</p>
+                    <p><strong>準備！：</strong>スマホに付ける魚眼レンズ（視野角180度）が必要です。<br>
+                    <p><strong>コツ！：</strong>水平を保つため’水準器’小円に目印を入れてください。</p>
                     <a href="https://takada291.github.io/fisheye-skyview-byAI/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/nb06d5122b57c" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
                 </div>
@@ -763,9 +765,9 @@
                 <img src="icon-192_circle-plot-byAR.png" alt="AR釣竿アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">AR釣竿 v1.5</h3>                  
-                    <p>間伐等のプロットで’AR釣竿’から立木本数を測定するアプリ。</p>
+                    <p>釣竿の替わりにスマホでプロット内の本数を調査します。</p>
                     <p>使用する機能：カメラ、電子コンパス、ジャイロ</p>
-                    <p><strong>コツ！：</strong>端末を動かさないよう’目の前’に固定して向きだけ上・下へ振ってください。</p>
+                    <p><strong>コツ！：</strong>端末を’目の前’で固定して上・下へ向けてください。</p>
                     <a href="https://takada291.github.io/circle-plot-byAR/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/na72f67f61303" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
                 </div>
@@ -779,7 +781,7 @@
                 <img src="icon-192_geo-location.png" alt="座標変換アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">座標変換 v2.5</h3>
-                    <p>GPS取得の緯度経度を直角座標へ変換し保存、CSV出力する地図アプリ。CSVドラッグドロップでPCアプリ管理。GeoJSON、KML出力でGIS連携。</p>
+                    <p>スマホでGPSの緯度経度を平面直角座標系へ変換します。</p>
                     <p>使用する機能：GPS</p>
                     <a href="https://takada291.github.io/geo-location/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/nf3da59c0425a" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -794,7 +796,7 @@
                 <img src="icon-192_simple-navi.png" alt="簡易ナビアイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">簡易ナビ v2.2</h3>
-                    <p>杭等座標を入力し現在地から目標地点へナビゲート。電子コンパスと連動した”矢印”を目印に移動。</p>
+                    <p>スマホで緯度経度等を入力し電子コンパス連動”矢印”でナビします。</p>
                     <p>使用する機能：GPS、電子コンパス</p>
                     <a href="https://takada291.github.io/simple-navi/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/n2e096e432cb2" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -809,9 +811,9 @@
                 <img src="icon-192_road-survey.png" alt="路網踏査アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">路網踏査 v1.2</h3>
-                    <p>踏査等GPSで連続取得した座標データをラインデータへ変換し保存、出力する地図アプリ。GeoJSON、KML出力でGIS連携。</p>
+                    <p>スマホでGPSログを取りラインデータで出力しGISに重ねます。</p>
                     <p>使用する機能：GPS</p>
-                    <p><strong>注意！：</strong>GPS連続取得のため（自動ロックを外し）<strong>常時アプリを画面表示</strong>してください。また使用前に<strong>バッテリーを十分に充電</strong>してください。</p>
+                    <p><strong>注意！：</strong>GPSログを取るため自動ロックを外し<strong>常にアプリを画面表示</strong>してください。使用前に<strong>バッテリーを十分に充電</strong>してください。</p>
                     <a href="https://takada291.github.io/road-survey/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/n3b3ed0af1964" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
                 </div>
@@ -825,14 +827,14 @@
                 <img src="icon_map-viewer.png" alt="林小班図アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">林小班図 v2.0</h3>
-                    <p>手持ちの林小班図等を重ね合わせGPSで図面上位置を確認する地図アプリ。</p>
+                    <p>手持ちの森林計画図、地理院地図等をスマホに載せて現地確認します。</p>
                     <p>使用する機能：GPS</p>
-                    <p><strong>準備！：</strong>事前にGISで閲覧図面をJPGで出力し”左下・右上”の緯度経度をファイル名に付して端末へ保存してください。<br>
+                    <p><strong>準備！：</strong>スマホに載せる図面をJPGで出力し”左下・右上”の緯度経度（度表記）をファイル名に付し端末に保存してください。<br>
                     <span style="display:block; overflow-wrap: break-word; word-break: break-all;">
                     例）test_36.060717_136.279386_36.066139_136.288754.jpg
                     </span>
-                    ※緯度経度は度表記</p>                    
-                    <p><strong>参考！：</strong>衛星画像や傾斜量図などを<a href="https://takada291.github.io/map-clip/" target="_blank" rel="noopener noreferrer">地図切出サイト</a>で左上の青いボタンを押すと閲覧図面として切り出します。</p>
+                    </p>                    
+                    <p><strong>参考！：</strong>衛星画像や傾斜量図などを<a href="https://takada291.github.io/map-clip/" target="_blank" rel="noopener noreferrer">地図切出サイト</a>でJPGとして切り出せます。</p>
                     <p><strong>注意！：</strong>ファイル名に付した緯度経度が読み込めない場合は左上の設定画面で緯度経度を手入力し再描画してください。<br>
                     <a href="https://takada291.github.io/map-viewer/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/n48f417293468" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -847,7 +849,7 @@
                 <img src="icon-192_timber-measur-doubsta.png" alt="丸太検知アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">丸太検知 v2.2</h3>                  
-                    <p>末口直径等を入力し保存、CSV出力する丸太検知用アプリ。紙野帳をデジタル化。状況により音声・電卓入力を切替。</p>
+                    <p>スマホを丸太検知の電子野帳化します。</p>
                     <p>使用する機能：音声入力</p>
                     <p><strong>注意！：</strong>オフラインでの音声入力は<strong>ios端末だけ</strong>使用できます。</p>
                     <a href="https://takada291.github.io/timber-measur-doubsta/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -877,7 +879,7 @@
                 <img src="icon-192_daily-report.png" alt="作業日報アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">作業日報 v1.0</h3>                  
-                    <p>作業別に作業時間、使用機械等を入力し保存、CSV出力する作業日報アプリ。紙野帳をデジタル化。</p>
+                    <p>スマホを作業日報の電子野帳化します。</p>
                     <a href="https://takada291.github.io/daily-report/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/ndd3d3075c33f" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
                 </div>
@@ -891,10 +893,10 @@
                 <img src="icon-192_daily-report-byAI.png" alt="AI日報アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">AI日報 v2.1</h3>                  
-                    <p>AI解析サイトと連携しGPSログから’手作業・重機・車両’の各作業時間を自動で解析・可視化する実験的ツール群。</p>
+                    <p>スマホで取ったGPSログを解析サイトで作業時間、作業箇所を可視化します。</p>
                     <p>使用する機能：GPS</p>
-                    <p><strong>解析！：</strong>アプリから出力した１日分のGPSログ（CSV）を<a href="https://daily-report-byai-analytics-gihgqlawzhtkprwhvzmbav.streamlit.app/" target="_blank" rel="noopener noreferrer">AI日報 解析ダッシュボード</a>でドラッグドロップしてください。※もし’寝てます’画面が表示されたら青いボタンを押してください。</p>
-                    <p><strong>注意！：</strong>GPS連続取得のため（自動ロックを外し）<strong>常時アプリを画面表示</strong>してください。また使用前に<strong>バッテリーを十分に充電</strong>してください。</p>
+                    <p><strong>解析！：</strong>GPSログを<a href="https://daily-report-byai-analytics-gihgqlawzhtkprwhvzmbav.streamlit.app/" target="_blank" rel="noopener noreferrer">AI日報 解析ダッシュボード</a>でドラッグドロップしてください。※もし’寝てる’画面が表示されたら青いボタンを押してください。</p>
+                    <p><strong>注意！：</strong>GPSログを取るため自動ロックを外し<strong>常にアプリを画面表示</strong>してください。使用前に<strong>バッテリーを十分に充電</strong>してください。</p>
                     <a href="https://takada291.github.io/daily-report-byAI/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/n8ae73182a06e" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
                 </div>
@@ -908,9 +910,9 @@
                 <img src="icon-192_White-board.png" alt="電子黒板アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">電子黒板 v2.0</h3>                  
-                    <p>現場管理写真に施業箇所、内容等を記載し保存する電子黒板アプリ。緯度経度、撮影方向を付加。</p>
+                    <p>スマホで現場写真を撮り小黒板、緯度経度、撮影方向を合成します。</p>
                     <p>使用する機能：カメラ、GPS、電子コンパス</p>
-                    <p><strong>参考！：</strong>写真を撮影した場所を<a href="https://takada291.github.io/earth_jumper/" target="_blank" rel="noopener noreferrer">撮影場所サイト</a>でグーグルアースやグーグルマップ上で確認します。</p>
+                    <p><strong>参考！：</strong>撮影場所や撮影方向を<a href="https://takada291.github.io/earth_jumper/" target="_blank" rel="noopener noreferrer">撮影場所サイト</a>で地図上で確認できます。</p>
                     <a href="https://takada291.github.io/White-board/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/n11eac7965c3d" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
                 </div>
@@ -969,9 +971,9 @@
                 <img src="icon-192_forest-eval.png" alt="立木評価アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">立木評価 v0.2</h3>
-                    <p>AIが林内写真からおおまかな「用材割合」を自動診断。グーグルのティーチャブルマシンで機械学習したモデルを活用しています。</p>
+                    <p>人工林の林内を撮影した写真から用材割合を推定します。</p>
                     <p><strong>使い方：</strong>お使いのブラウザで開き、そのまま使用してください。</p>
-                    <p><strong>注意！：</strong>実験的なツールです。最終的な用材割合の判断は「皆さまの目」でお願いします。</p>
+                    <p><strong>注意！：</strong>実験的なツールですので最終的には専門家の方に判断していただいてください。</p>
                     <p><strong>お願い：</strong>AIの精度を向上するため、ぜひ林内写真の提供をお願いします！<br>※位置情報は事前に消去します。</p>
                     <a href="https://takada291.github.io/forest-eval/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/n25f276c6635b" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -997,7 +999,7 @@
                 <img src="icon-192_wood_layout.png" alt="板の木取アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">板の木取 v1.0</h3>
-                    <p>DIYや木工教室等一枚の板から必要な部材を自動で木取り。任意のサイズで複数指定に対応。結果をPDF、CAD（DXF）出力。</p>
+                    <p>一枚板から木工部材を木取りします。</p>
                     <p><strong>使い方：</strong>お使いのブラウザで開き、そのまま使用してください。</p>
                     <a href="https://takada291.github.io/wood_layout/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/n3072954b8c2b" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1012,10 +1014,10 @@
                 <img src="icon-192_woodwork-byAI.png" alt="AI木工アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
                     <h3 class="app-title">AI木工 v0.3</h3>
-                    <p>作りたいもの・木材の寸法を入力すると’AI親方’が3Dイメージ図・木取り図のラフ案を作成。</p>
+                    <p>AIの親方が木工作品のラフ案をつくります。</p>
                     <p><strong>使い方：</strong>お使いのブラウザで開き、そのまま使用してください。</p>
                     <p><strong>注意！：</strong>AIの使用にあたり’Google Gemini APIキー’（無料版）が必要ですので事前に取得してください。
-                       <br>→<a href="https://j-aic.com/techblog/google-ai-studio-api-free-202511" target="_blank" rel="noopener noreferrer">こちらのサイトがわかりやすいです。</a></p>
+                       <br>→<a href="https://j-aic.com/techblog/google-ai-studio-api-free-202511" target="_blank" rel="noopener noreferrer">こちらのサイト等を参考にしてください。</a></p>
                     <a href="https://takada291.github.io/woodwork-byAI/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     <a href="https://note.com/takada291/n/ned4c78d33d7b" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
                 </div>
@@ -1026,7 +1028,7 @@
             </article>
             
         </section>
-
+        <!--
         <section id="gallery">
             <div class="gallery-container">
                 <h3 class="gallery-title">アプリ画面のイメージ（縦長）</h3>
@@ -1120,7 +1122,7 @@
                 </div>
             </div>
         </section>
-
+        -->
         <section id="advice">
             <h2>現場での使いどころ（ワンポイントアドバイス）</h2>
             <p>とくに’何に使うか分かりづらい’アプリの具体的な活用シーンをアドバイスします。</p>
@@ -1135,7 +1137,7 @@
                         </div>
                     </div>
                     <div class="advice-body">
-                        <p>このスギ林で間伐を計画したいけど’林の混み具合’を現場で測るのは大変...。そんな時、<strong>「AI林冠アプリ」</strong>なら、スマホで’空に向けて写真を撮る’だけで林冠被覆率（＝樹冠疎密度）が一瞬で分かります。</p>
+                        <p>このスギ林で間伐を計画したいけど’林の込み具合’をどうやって測るのかな？...。そんな時、<strong>「AI林冠アプリ」</strong>なら、スマホで枝葉（林冠）を見上げて写真を撮るだけで込み具合（林冠被覆率）が一瞬で分かります。</p>
                     </div>
                 </article>
 
@@ -1148,7 +1150,7 @@
                         </div>
                     </div>
                     <div class="advice-body">
-                        <p>このスギ林で主伐をしたいけど、’高く売れる用材’がどれくらいの割合か判断が難しい...。そんな時、<strong>「立木評価アプリ」</strong>なら、スマホで林内写真を撮るだけで一瞬で用材割合が分かります。※目安の一つにしてください。</p>
+                        <p>このスギ林で主伐をしたいけど’高く売れる丸太’の割合がどれくらいあるのかな？...。そんな時、<strong>「立木評価アプリ」</strong>なら、スマホで林内写真を撮るだけで一瞬で用材割合が分かります。※目安の一つにしてください。</p>
                     </div>
                 </article>
 
@@ -1161,7 +1163,7 @@
                         </div>
                     </div>
                     <div class="advice-body">
-                        <p>この伐採跡地で植林をしたいけど、お日様がいっぱい当たってちゃんと木が育つのか不安...。そんな時、<strong>「AI魚眼アプリ」</strong>なら、スマホで’空に向けて写真を撮る’だけで相対照度が一瞬で分かります。※簡易的な魚眼レンズが必要です。</p>
+                        <p>この伐採跡地で植林をしたいけど太陽がいっぱい当たってちゃんと木が育つのかな？...。そんな時、<strong>「AI魚眼アプリ」</strong>なら、スマホで上空に向けて写真を撮るだけで太陽の当たり具合（相対照度）が一瞬で分かります。※簡易的な魚眼レンズが必要です。</p>
                     </div>
                 </article>
 
@@ -1174,7 +1176,7 @@
                         </div>
                     </div>
                     <div class="advice-body">
-                        <p>日報付けるの面倒くさい、どこまで作業が進んでるか把握しづらい...。そんな時、<strong>「AI日報アプリ」</strong>なら、スマホで１日GPSを取るだけで作業時間や作業場所を一瞬で可視化できます。</p>
+                        <p>現場で’日報付け’るのは大変、事務所で’どこまで作業’したか把握が大変...。そんな時、<strong>「AI日報アプリ」</strong>なら、スマホでGPSログを取るだけで作業時間や作業場所を一瞬で可視化できます。</p>
                     </div>
                 </article>
 
@@ -1187,7 +1189,7 @@
                         </div>
                     </div>
                     <div class="advice-body">
-                        <p>プロット調査で釣竿を振り回すと下層植生や枝葉に引っかかって大変...。そんな時、<strong>「AR釣竿アプリ」</strong>なら、スマホで下層植生や枝葉に引っかかることなく立木本数を管理できます。</p>
+                        <p>プロットの本数調査したいけど’釣竿’を振り回すと下層植生や枝葉に引っかかって大変...。そんな時、<strong>「AR釣竿アプリ」</strong>なら、スマホで下層植生や枝葉に引っかかることなく立木本数を管理できます。</p>
                     </div>
                 </article>
                 <!--
@@ -1387,6 +1389,7 @@
 
 </body>
 </html>
+
 
 
 

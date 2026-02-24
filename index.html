@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スマート林業・林業DXツール集</title>
     <meta name="description" content="森林調査系、GPS地図系、現場作業系、DIY木工系など簡単インストール・無料のWEBアプリ（PWA）を紹介します。">
-    <meta name="keywords" content="毎木調査,プロット調査,樹高,樹冠疎密度,全天空写真,相対照度,開空率,丸太検知,木材検収,林班,小班,森林計画図,平面直角座標,画像認識,素材価格,AI,音声入力,木取り,DIY,木工">
+    <meta name="keywords" content="毎木調査,プロット調査,樹高,樹冠疎密度,全天空写真,相対照度,開空率,丸太検知,木材検収,林班,小班,森林計画図,平面直角座標,画像認識,素材価格,AI,音声入力,木取り,DIY,木工,伐採届出">
     
     <script type="application/ld+json">
       {
@@ -13,7 +13,7 @@
         "@type": "WebPage",
         "name": "スマート林業・林業DXツール集",
         "description": "森林調査系、GPS地図系、現場作業系、DIY木工系など簡単インストール・無料のWEBアプリ（PWA）集",
-        "dateModified": "2026-02-23"
+        "dateModified": "2026-02-24"
       }
     </script>
     
@@ -588,9 +588,7 @@
             <li><a href="https://takada291.github.io/apps-portal/">TOP</a></li>
             <li><a href="#apps-offline">オフライン対応ツール</a></li>
             <li><a href="#apps-online">オンライン専用ツール</a></li>
-            <!--
-            <li><a href="#gallery">アプリ画面のイメージ</a></li>
-            -->
+            <li><a href="#apps-qa">オンラインQAツール</a></li>
             <li><a href="#advice">現場での使いどころ</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#news">更新状況</a></li>
@@ -647,6 +645,12 @@
                         </td>
                     </tr>
                     <tr>
+                        <th>Q＆A系</th>
+                        <td>
+                            <a href="#app-qa-logging">伐採届出</a>
+                        </td>
+                    </tr>
+                    <tr>
                         <th>アプリ連携系</th>
                         <td>
                             <a href="#app-excel-tools">Excel連携ツール</a>
@@ -655,9 +659,7 @@
                 </tbody>
             </table>
             </section>
-            <!--
-            <p>※現場で一番使いそうな’電子黒板アプリ’の使い方をまとめたので参考にしてください。<br>→<a href="manual.pdf" target="_blank">こちらから</a></p>
-            -->
+            
         <section id="apps-offline">
             <h2>オフライン対応ツール</h2>
             <p>電波の届かない山奥でも動作し、現場でのデータ収集を効率化します。</p>
@@ -678,7 +680,7 @@
                 <div class="qr-code">
                     <img src="qr_tree-survey-test.png" alt="立木調査アプリ音声入力版 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                      
             </article>
 
             <article class="app-card" id="app-tree-height">
@@ -694,40 +696,9 @@
                 <div class="qr-code">
                     <img src="qr_tree-height.png" alt="樹高測定アプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                      
             </article>            
-            <!--
-            <article class="app-card" id="app-breast-diameter">
-                <img src="icon-192_Breast-diameter.png" alt="直径測定アイコン" class="app-icon" loading="lazy">
-                <div class="app-info">
-                    <h3 class="app-title">直径測定 v1.1</h3>                  
-                    <p>腕長分等離れた位置から幹の左端・右端を視準した角度から胸高直径を測定するアプリ。</p>
-                    <p>使用する機能：カメラ、電子コンパス</p>
-                    <p><strong>コツ！：</strong>端末を動かさないよう空中で固定して向きだけ左・右へ振ってください。</p>
-                    <a href="https://takada291.github.io/Breast-diameter/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
-                </div>
-                <div class="qr-code">
-                    <img src="qr_Breast-diameter.png" alt="直径測定アプリ QRコード" loading="lazy">
-                    <span class="qr-label">スマホで読取</span>
-                </div>                                    
-            </article>
-            -->
-            <!--
-            <article class="app-card" id="app-canopy-density">
-                <img src="icon-192_canopy-density.png" alt="樹冠疎密アイコン" class="app-icon" loading="lazy">
-                <div class="app-info">
-                    <h3 class="app-title">樹冠疎密 v1.1</h3>                  
-                    <p>プロット内立木との距離、樹冠の左端・右端を視準した角度から樹冠幅、樹冠疎密度を測定するアプリ。</p>
-                    <p>使用する機能：カメラ、電子コンパス</p>
-                    <p><strong>コツ！：</strong>端末を動かさないよう空中で固定して向きだけ左・右へ振ってください。</p>
-                    <a href="https://takada291.github.io/canopy-density/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
-                </div>
-                <div class="qr-code">
-                    <img src="qr_canopy-density.png" alt="樹冠疎密アプリ QRコード" loading="lazy">
-                    <span class="qr-label">スマホで読取</span>
-                </div>                                    
-            </article>
-            -->
+            
             <article class="app-card" id="app-canopy-density-ai">
                 <img src="icon-192_canopy-density-byAI.png" alt="AI林冠アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
@@ -742,7 +713,7 @@
                 <div class="qr-code">
                     <img src="qr_canopy-density-byAI.png" alt="AI林冠アプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                      
             </article>
 
             <article class="app-card" id="app-fisheye-skyview-ai">
@@ -760,7 +731,7 @@
                 <div class="qr-code">
                     <img src="qr_fisheye-skyview-byAI.png" alt="AI魚眼アプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                      
             </article>
 
             <article class="app-card" id="app-circle-plot-byAR">
@@ -776,7 +747,7 @@
                 <div class="qr-code">
                     <img src="qr_circle-plot-byAR.png" alt="AR釣竿アプリ QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                      
             </article>
 
             <article class="app-card" id="app-geo-location">
@@ -860,23 +831,9 @@
                 <div class="qr-code">
                     <img src="qr_timber-measur-doubsta.png" alt="丸太検知アプリ音声入力版 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                      
             </article>
-            <!--
-            <article class="app-card" id="app-log-delivery">
-                <img src="icon_log-delivery.png" alt="山の配送アイコン" class="app-icon" loading="lazy">
-                <div class="app-info">
-                    <h3 class="app-title">山の配送 v1.8</h3>                  
-                    <p>土場丸太の配送管理アプリ。ボタン一つで運送会社等へメール、荷受進捗を地図で可視化。CSVドラッグドロップでPCアプリ管理。</p>
-                    <p>使用する機能：GPS</p>
-                    <a href="https://takada291.github.io/log-delivery/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
-                </div>
-                <div class="qr-code">
-                    <img src="qr_log-delivery.png" alt="山の配送 QRコード" loading="lazy">
-                    <span class="qr-label">スマホで読取</span>
-                </div>                                    
-            </article>
-            -->
+
             <article class="app-card" id="app-daily-report">
                 <img src="icon-192_daily-report.png" alt="作業日報アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
@@ -888,7 +845,7 @@
                 <div class="qr-code">
                     <img src="qr_daily-report.png" alt="作業日報 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                      
             </article>
 
             <article class="app-card" id="app-daily-report-ai">
@@ -905,7 +862,7 @@
                 <div class="qr-code">
                     <img src="qr_daily-report-byAI.png" alt="AI日報 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                      
             </article>
             
             <article class="app-card" id="app-white-board">
@@ -921,7 +878,7 @@
                 <div class="qr-code">
                     <img src="qr_White-board.png" alt="電子黒板 QRコード" loading="lazy">
                     <span class="qr-label">スマホで読取</span>
-                </div>                                    
+                </div>                                      
             </article>
 
             <div class="download-section" id="app-excel-tools">
@@ -1031,101 +988,25 @@
             </article>
             
         </section>
-        <!--
-        <section id="gallery">
-            <div class="gallery-container">
-                <h3 class="gallery-title">アプリ画面のイメージ（縦長）</h3>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="IMG_立木調査.PNG" alt="立木調査 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">立木調査</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_樹高測定.PNG" alt="樹高測定 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">樹高測定</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_AI林冠.PNG" alt="AI林冠 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">AI林冠</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_AI魚眼.PNG" alt="AI魚眼 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">AI魚眼</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_AR釣竿.PNG" alt="AR釣竿 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">AR釣竿</span>
-                    </div>                    
-                    <div class="gallery-item">
-                        <img src="IMG_座標変換.PNG" alt="座標変換 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">座標変換</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_簡易ナビ.PNG" alt="簡易ナビ 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">簡易ナビ</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_路網踏査.PNG" alt="路網踏査 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">路網踏査</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_丸太検知.PNG" alt="丸太検知 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">丸太検知</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_作業日報.PNG" alt="作業日報 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">作業日報</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_AI日報.PNG" alt="AI日報 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">AI日報</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_立木評価.PNG" alt="立木評価 画面" class="gallery-img" loading="lazy">
-                        <span class="gallery-caption">立木評価</span>
-                    </div>                    
-                </div>
-            </div>
 
-            <div class="gallery-container">
-                <h3 class="gallery-title">アプリ画面のイメージ（横長）</h3>
-                <div class="gallery-grid-wide">
-                    <div class="gallery-item">
-                        <img src="IMG_林小班図.png" alt="林小班図 画面" class="gallery-img-wide" loading="lazy">
-                        <span class="gallery-caption">林小班図</span>
+        <section id="apps-qa">
+            <h2>オンラインQAツール</h2>
+            
+            <article class="app-card" id="app-qa-logging">
+                <img src="icon-192_qa-logging.png" alt="伐採届出QAアイコン" class="app-icon" loading="lazy">
+                <div class="app-info">
+                    <h3 class="app-title">伐採届出 QAアシスタント v1.0</h3>
+                    <p>伐採および伐採後の造林の届出等に関する疑問にAIが対話形式でサポートします。</p>
+                    <p><strong>使い方：</strong>お使いのブラウザで開き、質問事項を入力してください。</p>
+                    <a href="https://takada291.github.io/QA-forestry-rules001/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                     </div>
-                    <div class="gallery-item">
-                        <img src="IMG_地図切出.png" alt="地図切出 画面" class="gallery-img-wide" loading="lazy">
-                        <span class="gallery-caption">林小班図（地図切出サイト）</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_AI日報.png" alt="AI日報 画面" class="gallery-img-wide" loading="lazy">
-                        <span class="gallery-caption">AI日報（解析サイト）</span>
-                    </div>                    
-                    <div class="gallery-item">
-                        <img src="IMG_電子黒板.png" alt="電子黒板 画面" class="gallery-img-wide" loading="lazy">
-                        <span class="gallery-caption">電子黒板</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_板の木取.png" alt="板の木取 画面" class="gallery-img-wide" loading="lazy">
-                        <span class="gallery-caption">板の木取</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_AI木工.png" alt="AI木工 画面" class="gallery-img-wide" loading="lazy">
-                        <span class="gallery-caption">AI木工</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_Excel連携ツール.png" alt="Excel連携ツール 画面" class="gallery-img-wide" loading="lazy">
-                        <span class="gallery-caption">Excel連携ツール</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="IMG_Excel連携ツール_写真貼付.png" alt="Excel連携ツール（写真台帳） 画面" class="gallery-img-wide" loading="lazy">
-                        <span class="gallery-caption">Excel連携ツール（写真台帳）</span>
-                    </div>                    
+                <div class="qr-code">
+                    <img src="qr_qa-logging.png" alt="伐採届出QAアプリ QRコード" loading="lazy">
+                    <span class="qr-label">スマホで読取</span>
                 </div>
-            </div>
+            </article>
         </section>
-        -->
+
         <section id="advice">
             <h2>現場での使いどころ（ワンポイントアドバイス）</h2>
             <p>アプリの具体的な活用シーンをアドバイスします。</p>
@@ -1195,20 +1076,6 @@
                         <p>プロットの本数調査したいけど’釣竿’を振り回すと下層植生や枝葉に引っかかって大変...。そんな時、<strong>「AR釣竿アプリ」</strong>なら、スマホで下層植生や枝葉に引っかかることなく立木本数を管理できます。</p>
                     </div>
                 </article>
-                <!--
-                <article class="advice-card">
-                    <div class="advice-header">
-                        <span class="advice-icon">🚚</span>
-                        <div>
-                            <span class="advice-tag">山の配送</span>
-                            <h3 class="advice-title">「流通」をサポート</h3>
-                        </div>
-                    </div>
-                    <div class="advice-body">
-                        <p>土場での出荷待ち、運転手さんへの電話確認が大変...。そんな時、<strong>「山の配送アプリ」</strong>なら、ボタン一つで現在地と材積状況をメール送信。事務所と運送会社で簡単に情報共有できます。</p>
-                    </div>
-                </article>
-                -->
             </div>
         </section>
         
@@ -1233,6 +1100,10 @@
         <section id="news">
             <h2>更新状況</h2>
             <div class="updates">
+                <div class="update-item">
+                    <span class="date">2026.02.24</span>
+                    <span>オンラインQAツールとして「伐採届出 QAアシスタント」を公開。</span>
+                </div>
                 <div class="update-item">
                     <span class="date">2026.02.15</span>
                     <span>地図切出サイトで全国の林班図（民・国）を公開。</span>
@@ -1304,12 +1175,6 @@
                     <span class="date">2026.01.19</span>
                     <span>電卓入力に対応した丸太検知アプリを公開。</span>
                 </div>                
-                <!--
-                <div class="update-item">
-                    <span class="date">2026.01.16</span>
-                    <span>山の配送アプリを公開。</span>
-                </div>                
-                -->
                 <div class="update-item">
                     <span class="date">2026.01.15</span>
                     <span>音声入力に対応した丸太検知アプリを公開。</span>
@@ -1400,4 +1265,3 @@
 
 </body>
 </html>
-

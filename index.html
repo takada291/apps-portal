@@ -1563,18 +1563,29 @@
             // カウンターの数字がサーバーから届いて表示された瞬間に動く監視役
             const observer = new MutationObserver((mutations) => {
                 mutations.forEach((mutation) => {
-                    if (mutation.target.innerText) {
-                        let currentCount = parseInt(mutation.target.innerText);
-                        let fixedCount = currentCount - offset;
-                        if (fixedCount < 0) fixedCount = 0;
-                        mutation.target.innerText = fixedCount;
-                        observer.disconnect();
+                    const rawText = mutation.target.innerText;
+                    if (rawText) {
+                        // Busuanziは1000を超えるとカンマ(,)が入るため、取り除いてから数値化する
+                        let currentCount = parseInt(rawText.replace(/,/g, ''), 10);
+                        
+                        // NaN（数値でない）場合は処理をスキップ
+                        if (!isNaN(currentCount)) {
+                            let fixedCount = currentCount - offset;
+                            if (fixedCount < 0) fixedCount = 0;
+                            
+                            // 再びカンマ付きで表示させたい場合は toLocaleString() を利用することも可能です
+                            // 例: mutation.target.innerText = fixedCount.toLocaleString();
+                            mutation.target.innerText = fixedCount;
+                            
+                            observer.disconnect();
+                        }
                     }
                 });
             });
 
             if(counterSpan) {
-                observer.observe(counterSpan, { childList: true });
+                // オブザーバーの監視対象設定
+                observer.observe(counterSpan, { characterData: true, childList: true, subtree: true });
             }
         </script>        
     </footer>

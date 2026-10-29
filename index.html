@@ -1543,51 +1543,7 @@
     
     <footer>
         <p>&copy; 2026.takada291.スマート林業・林業DXツール集</p>
-        <p style="font-size: 0.7rem;">Created with the help of AI.</p>
-        
-        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">
-            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            
-            <span id="busuanzi_container_site_pv" style="display:none">
-                PV数：<span id="busuanzi_value_site_pv"></span> 回
-            </span>
-            
-        </p>
-
-        <script>
-            // ★PV回数をリセットしたい場合、ここに今現在のPV回数を入れてください
-            const offset = 25; 
-
-            const counterSpan = document.getElementById('busuanzi_value_site_pv');
-            
-            // カウンターの数字がサーバーから届いて表示された瞬間に動く監視役
-            const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    const rawText = mutation.target.innerText;
-                    if (rawText) {
-                        // Busuanziは1000を超えるとカンマ(,)が入るため、取り除いてから数値化する
-                        let currentCount = parseInt(rawText.replace(/,/g, ''), 10);
-                        
-                        // NaN（数値でない）場合は処理をスキップ
-                        if (!isNaN(currentCount)) {
-                            let fixedCount = currentCount - offset;
-                            if (fixedCount < 0) fixedCount = 0;
-                            
-                            // 再びカンマ付きで表示させたい場合は toLocaleString() を利用することも可能です
-                            // 例: mutation.target.innerText = fixedCount.toLocaleString();
-                            mutation.target.innerText = fixedCount;
-                            
-                            observer.disconnect();
-                        }
-                    }
-                });
-            });
-
-            if(counterSpan) {
-                // オブザーバーの監視対象設定
-                observer.observe(counterSpan, { characterData: true, childList: true, subtree: true });
-            }
-        </script>        
+        <p style="font-size: 0.7rem;">Created with the help of AI.</p> 
     </footer>
 
 </body>

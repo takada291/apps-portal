@@ -13,7 +13,7 @@
         "@type": "WebPage",
         "name": "スマート林業・林業DXツール集",
         "description": "森林調査・作図系、GPS地図系、現場作業系、DIY木工系、Q&A系など簡単インストール・無料のWEBアプリ集",
-        "dateModified": "2026-11-09"
+        "dateModified": "2026-11-12"
       }
     </script>
     
@@ -589,9 +589,6 @@
             <li><a href="#apps-offline">オフライン対応ツール</a></li>
             <li><a href="#apps-online">オンライン専用ツール</a></li>
             <li><a href="#apps-qa">オンラインQAツール</a></li>
-            <!--
-            <li><a href="#advice">現場での使いどころ</a></li>
-            -->
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#news">更新状況</a></li>
             <li><a href="#disclaimer">免責事項</a></li>
@@ -624,6 +621,7 @@
                             <a href="#app-stem-taper">幹細り表</a>、
                             <a href="#app-forest-eval">立木評価（＆丸太価格サイト）</a>、
                             <a href="#app-forest-plan">施業提案</a>、
+                            <a href="#app-asses-natural">天然更新</a>、
                             <a href="#app-tree-count_aerial-view">樹頂検知</a>、
                             <a href="#app-microtopo-map">微地形図</a>、
                             <a href="#app-ortho">オルソ化</a>、
@@ -1125,6 +1123,22 @@
                 </div>
             </article>
 
+            <article class="app-card" id="app-asses-natural">
+                <img src="icon_asses-natural-regene.jpg" alt="天然更新アイコン" class="app-icon" loading="lazy">
+                <div class="app-info">
+                    <h3 class="app-title">天然更新 v0.3</h3>
+                    <p>AIが空撮写真と林内写真から天然更新の成否を判定します。</p>
+                    <p><strong>注意！：</strong>AIの使用にあたり’Google Gemini APIキー’（無料版）が必要ですので事前に取得してください。
+                        <br>→<a href="https://note.com/kazu_t/n/n9adffe09bd6b" target="_blank" rel="noopener noreferrer">こちら</a>のサイト等を参考にしてください。</p>
+                    <a href="https://takada291.github.io/assesment-natural-regeneration/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
+                    <a href="https://note.com/takada291/n/nd707049e984b" class="btn" target="_blank" rel="noopener noreferrer">使い方（note）</a>
+                </div>
+                <div class="qr-code">
+                    <img src="qr_asses-natural-regene.png" alt="天然更新アプリ QRコード" loading="lazy">
+                    <span class="qr-label">スマホで読取</span>
+                </div>
+            </article>
+            
             <article class="app-card" id="app-tree-count_aerial-view">
                 <img src="icon-treecount.png" alt="樹頂検知アイコン" class="app-icon" loading="lazy">
                 <div class="app-info">
@@ -1279,96 +1293,6 @@
             </article>
         </section>
 
-        <!--
-        
-        <section id="advice">
-            <h2>現場での使いどころ（ワンポイントアドバイス）</h2>
-            <p>アプリの具体的な活用シーンをアドバイスします。</p>
-            <div class="advice-grid">
-                
-                <article class="advice-card">
-                    <div class="advice-header">
-                        <span class="advice-icon">📸</span>
-                        <div>
-                            <span class="advice-tag">AI林冠</span>
-                            <h3 class="advice-title">「間伐」をサポート</h3>
-                        </div>
-                    </div>
-                    <div class="advice-body">
-                        <p>このスギ林で間伐を計画したいけど’林の込み具合’をどうやって測るのかな？...。そんな時、<strong>「AI林冠アプリ」</strong>なら、スマホで枝葉（林冠）を見上げて写真を撮るだけで込み具合（林冠被覆率）が一瞬で分かります。</p>
-                    </div>
-                </article>
-
-                <article class="advice-card">
-                    <div class="advice-header">
-                        <span class="advice-icon">🌲</span>
-                        <div>
-                            <span class="advice-tag">立木調査</span>
-                            <h3 class="advice-title">「主伐」をサポート</h3>
-                        </div>
-                    </div>
-                    <div class="advice-body">
-                        <p>このスギ林で主伐をしたいけど毎木調査で記入した野帳を事務所へ戻ってパソコンへ入力するのが大変...。そんな時、<strong>「立木調査アプリ」</strong>なら、スマホが電子野帳になるのでパソコン入力が不要です。</p>
-                    </div>
-                </article>
-
-                <article class="advice-card">
-                    <div class="advice-header">
-                        <span class="advice-icon">📸</span>
-                        <div>
-                            <span class="advice-tag">AI魚眼</span>
-                            <h3 class="advice-title">「植林」をサポート</h3>
-                        </div>
-                    </div>
-                    <div class="advice-body">
-                        <p>この伐採跡地で植林をしたいけど太陽がいっぱい当たってちゃんと木が育つのかな？...。そんな時、<strong>「AI魚眼アプリ」</strong>なら、スマホで上空に向けて写真を撮るだけで太陽の当たり具合（相対照度）が一瞬で分かります。</p>
-                    </div>
-                </article>
-
-                <article class="advice-card">
-                    <div class="advice-header">
-                        <span class="advice-icon">📸</span>
-                        <div>
-                            <span class="advice-tag">AI検知</span>
-                            <h3 class="advice-title">「土場」をサポート</h3>
-                        </div>
-                    </div>
-                    <div class="advice-body">
-                        <p>山土場の椪積の材積を把握したいけど丸太本数が多くて検知が大変...。そんな時、<strong>「AI検知アプリ」</strong>なら、スマホで椪積写真を撮るだけで丸太材積が一瞬で分かります。</p>
-                    </div>
-                </article>
-                
-                <article class="advice-card">
-                    <div class="advice-header">
-                        <span class="advice-icon">🌲</span>
-                        <div>
-                            <span class="advice-tag">AR釣竿</span>
-                            <h3 class="advice-title">「管理」をサポート</h3>
-                        </div>
-                    </div>
-                    <div class="advice-body">
-                        <p>プロットの本数調査したいけど’釣竿’を振り回すと下層植生や枝葉に引っかかって大変...。そんな時、<strong>「AR釣竿アプリ」</strong>なら、スマホで下層植生や枝葉に引っかかることなく立木本数を管理できます。</p>
-                    </div>
-                </article>
-                
-                <article class="advice-card">
-                    <div class="advice-header">
-                        <span class="advice-icon">🌲</span>
-                        <div>
-                            <span class="advice-tag">AI日報</span>
-                            <h3 class="advice-title">「進捗」をサポート</h3>
-                        </div>
-                    </div>
-                    <div class="advice-body">
-                        <p>現場で’日報付け’るのは大変、事務所で’どこまで作業’したか把握が大変...。そんな時、<strong>「AI日報アプリ」</strong>なら、スマホでGPSログを取るだけで作業時間や作業場所を一瞬で可視化できます。</p>
-                    </div>
-                </article>
-                
-            </div>
-        </section>
-
-        -->
-        
         <section id="faq">
             <h2>よくある質問（FAQ）</h2>
             <div class="faq-container">
@@ -1390,6 +1314,10 @@
         <section id="news">
             <h2>更新状況</h2>
             <div class="updates">
+                <div class="update-item">
+                    <span class="date">2026.11.12</span>
+                    <span>天然更新アプリを公開。</span>
+                </div>
                 <div class="update-item">
                     <span class="date">2026.11.09</span>
                     <span>現地証明アプリを公開。</span>

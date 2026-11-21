@@ -68,7 +68,7 @@
         header {
             background: var(--header-bg);
             color: var(--primary-color);
-            padding: 1.4rem 1rem 1.2rem;
+            padding: 1.35rem 1rem;
             text-align: center;
             border-bottom: 2px solid #81c784;
         }
@@ -78,13 +78,6 @@
             font-size: 1.75rem;
             letter-spacing: 0.03em;
             text-shadow: 0 1px 1px rgba(255,255,255,0.6);
-        }
-
-        header p {
-            margin: 0.35rem 0 0;
-            font-weight: bold;
-            font-size: 0.95rem;
-            opacity: 0.9;
         }
 
         /* メインコンテナ */
@@ -212,8 +205,8 @@
             color: var(--primary-color);
             border: 1px solid #cce0cf;
             border-radius: 12px;
-            padding: 1px 8px;
-            font-size: 0.75rem;
+            padding: 1px 9px;
+            font-size: 0.76rem;
             cursor: pointer;
             transition: background 0.15s;
         }
@@ -235,7 +228,7 @@
         .tab-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: 5px;
             border-bottom: 3px solid var(--primary-mid);
             padding: 0;
             margin: 0;
@@ -249,15 +242,15 @@
             border: 1px solid #bfd6c3;
             border-bottom: none;
             border-radius: 8px 8px 0 0;
-            padding: 0.62rem 0.85rem;
-            font-size: 0.86rem;
+            padding: 0.65rem 1.05rem;
+            font-size: 0.9rem;
             font-weight: bold;
             cursor: pointer;
             white-space: nowrap;
             transition: background-color 0.2s, color 0.2s;
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.35rem;
         }
 
         .tab-btn:hover {
@@ -312,7 +305,7 @@
             margin: 0.2rem 0;
         }
 
-        .inline-tab-link {
+        .inline-jump-link {
             color: var(--primary-color);
             font-weight: bold;
             text-decoration: underline;
@@ -324,7 +317,7 @@
             font-family: inherit;
         }
 
-        .inline-tab-link:hover {
+        .inline-jump-link:hover {
             color: var(--accent-color);
         }
 
@@ -384,7 +377,7 @@
             border: 1px solid var(--border-color);
             border-radius: var(--radius);
             box-shadow: var(--shadow-sm);
-            padding: 0.95rem 1.1rem;
+            padding: 0.95rem 1.15rem;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -418,7 +411,7 @@
             flex-wrap: wrap;
             align-items: center;
             gap: 0.45rem;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.3rem;
         }
 
         .app-title {
@@ -432,7 +425,7 @@
             display: none;
             font-size: 0.72rem;
             font-weight: bold;
-            padding: 2px 7px;
+            padding: 2px 8px;
             border-radius: 10px;
             white-space: nowrap;
         }
@@ -442,14 +435,15 @@
             display: inline-block;
         }
 
-        .badge-offline { background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
-        .badge-online  { background: #e3f2fd; color: #0d47a1; border: 1px solid #90caf9; }
-        .badge-line    { background: #e8f8ef; color: #048a3b; border: 1px solid #8ae0ac; }
-        .badge-excel   { background: #e8f4f8; color: #0c5460; border: 1px solid #9bd1e5; }
+        .badge-mobile { background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
+        .badge-pc     { background: #e3f2fd; color: #0d47a1; border: 1px solid #90caf9; }
+        .badge-line   { background: #e8f8ef; color: #048a3b; border: 1px solid #8ae0ac; }
+        .badge-excel  { background: #e8f4f8; color: #0c5460; border: 1px solid #9bd1e5; }
 
         .app-desc {
-            margin: 0 0 0.35rem;
+            margin: 0 0 0.4rem;
             font-size: 0.92rem;
+            line-height: 1.55;
             color: var(--text-color);
         }
 
@@ -610,8 +604,14 @@
         }
 
         .download-content p {
-            font-size: 0.88rem;
-            margin: 0 0 0.55rem;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin: 0 0 0.5rem;
+        }
+
+        .download-note {
+            font-size: 0.82rem !important;
+            color: var(--muted-text);
         }
 
         /* 共通の注意点・PWA設定・FAQボックス */
@@ -622,6 +622,7 @@
             padding: 1.2rem 1.4rem;
             box-shadow: var(--shadow-sm);
             margin-top: 1.5rem;
+            scroll-margin-top: 90px;
         }
 
         .info-box h3 {
@@ -642,11 +643,17 @@
             margin-bottom: 0.5rem;
         }
 
+        .pwa-lead {
+            font-size: 0.9rem;
+            margin: 0 0 0.8rem;
+            color: var(--muted-text);
+        }
+
         .pwa-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1rem;
-            margin-top: 0.8rem;
+            margin-top: 0.6rem;
         }
 
         .pwa-os-card {
@@ -685,13 +692,24 @@
             border-left: 3px solid #c8e6c9;
         }
 
-        /* 更新状況 */
-        .updates {
+        /* 更新状況（FAQ他の下部） */
+        .updates-box {
             background: var(--white);
-            padding: 1.2rem 1.4rem;
+            border: 1px solid var(--border-color);
             border-left: 5px solid var(--primary-mid);
             border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 1.2rem 1.4rem;
             box-shadow: var(--shadow-sm);
+            margin-top: 1.5rem;
+            scroll-margin-top: 90px;
+        }
+
+        .updates-box h3 {
+            margin: 0 0 0.8rem;
+            color: var(--primary-color);
+            font-size: 1.08rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.4rem;
         }
 
         .update-item {
@@ -784,8 +802,8 @@
                 display: none;
             }
             .tab-btn {
-                padding: 0.58rem 0.78rem;
-                font-size: 0.83rem;
+                padding: 0.58rem 0.82rem;
+                font-size: 0.85rem;
             }
             .search-area {
                 max-width: 100%;
@@ -833,14 +851,13 @@
 
     <header>
         <h1>スマート林業・林業DXツール集</h1>
-        <p>現場の課題を”生成AI”×”Web技術”で解決！</p>
     </header>
 
     <main class="container">
 
         <!-- イントロ＆横断検索バー -->
         <section class="top-panel">
-            <p class="intro-text">本サイトでは、<strong>スマート林業</strong>の推進を目指し、現場で手軽に使えるWebアプリを公開しています。手元のスマホやタブレットで<strong>林業DX</strong>を体験してください。</p>
+            <p class="intro-text">本サイトでは、<strong>スマート林業</strong>の推進を目指し、現場で手軽に使える<strong>林業アプリ</strong>を公開しています。スマホなどで<strong>林業DX</strong>を体験してください。</p>
 
             <div class="action-bar">
                 <a href="https://note.com/takada291" class="note-btn" target="_blank" rel="noopener noreferrer">
@@ -850,45 +867,38 @@
                 <div class="search-area">
                     <div class="search-box-wrap">
                         <span class="search-label-icon" aria-hidden="true">🔍</span>
-                        <input type="text" id="app-search-input" placeholder="アプリ横断検索（例：検知、立木、GPS、図面）" aria-label="アプリ横断検索">
+                        <input type="text" id="app-search-input" placeholder="アプリ横断検索（例：立木、丸太、検知、GPS、AI）" aria-label="アプリ横断検索">
                         <button type="button" id="search-clear-btn" title="検索をクリア" aria-label="検索をクリア">×</button>
                     </div>
                     <div class="quick-tags">
                         <span>よく検索：</span>
-                        <button type="button" class="quick-tag" data-keyword="検知">検知</button>
                         <button type="button" class="quick-tag" data-keyword="立木">立木</button>
+                        <button type="button" class="quick-tag" data-keyword="丸太">丸太</button>
+                        <button type="button" class="quick-tag" data-keyword="検知">検知</button>
                         <button type="button" class="quick-tag" data-keyword="GPS">GPS</button>
                         <button type="button" class="quick-tag" data-keyword="AI">AI</button>
-                        <button type="button" class="quick-tag" data-keyword="路網">路網</button>
-                        <button type="button" class="quick-tag" data-keyword="Excel">Excel</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- タブナビゲーション -->
+        <!-- タブナビゲーション（6タブ構成） -->
         <div class="tabs-wrapper">
             <div class="tab-bar" role="tablist" aria-label="ポータルカテゴリ">
-                <button type="button" class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-offline">
-                    オフライン(PWA) <span class="tab-count">23</span>
+                <button type="button" class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-mobile">
+                    スマホ等 <span class="tab-count">23</span>
                 </button>
-                <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-online">
-                    オンライン(Web App) <span class="tab-count">15</span>
+                <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-pc">
+                    パソコン <span class="tab-count">15</span>
                 </button>
                 <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-line">
-                    LINE(LIFF) <span class="tab-count">1</span>
+                    LINE <span class="tab-count">1</span>
                 </button>
                 <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-excel">
-                    連携ツール(Excel) <span class="tab-count">2</span>
-                </button>
-                <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-pwa">
-                    PWAの設定
+                    エクセル <span class="tab-count">2</span>
                 </button>
                 <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-faq">
-                    FAQ
-                </button>
-                <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-news">
-                    更新状況
+                    FAQ他
                 </button>
                 <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-disclaimer">
                     免責事項
@@ -905,22 +915,22 @@
             <div id="search-results-list" class="app-list"></div>
         </section>
 
-        <!-- 1. オフライン(PWA) タブ -->
-        <section id="tab-offline" class="tab-panel active" role="tabpanel">
+        <!-- 1. スマホ等（オフラインPWA）タブ -->
+        <section id="tab-mobile" class="tab-panel active" role="tabpanel">
             <div class="tab-intro">
-                <p>電波の届かない山奥でも動作し、現場でのデータ収集を効率化します。</p>
-                <p>なお、<button type="button" class="inline-tab-link" data-jump-tab="tab-pwa">「PWAの設定」タブ</button>を参考にしてアプリをホーム画面へ登録してください。</p>
+                <p>電波の届かない山奥でもオフライン（PWA）で動作し、現場での調査やデータ収集を効率化します。</p>
+                <p>なお、ページ下部の<button type="button" class="inline-jump-link" data-scroll-target="pwa-setup">「PWAの設定（ホーム画面への登録手順）」</button>を参考にしてアプリを登録してください。</p>
             </div>
 
             <div class="app-list">
-                <article class="app-card searchable-item" id="app-tree-survey" data-category="offline" data-keywords="森林調査 毎木調査 プロット調査 電子野帳 音声入力 胸高直径 樹高">
+                <article class="app-card searchable-item" id="app-tree-survey" data-category="mobile" data-keywords="森林調査 毎木調査 プロット調査 電子野帳 音声入力 胸高直径 樹高 オフライン PWA">
                     <img src="icon-192_tree-survey.png" alt="立木調査アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">立木調査 v2.4</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホを毎木調査やプロット調査の電子野帳化します。</p>
+                        <p class="app-desc">毎木調査やプロット調査をスマホで記録できる電子野帳アプリです。音声入力にも対応しているため、野帳やペンを持ち替えずに片手で素早く記録でき、調査後のCSV出力・集計作業を効率化します。</p>
                         <p class="app-meta">使用する機能：音声入力</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/apps-test/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -933,14 +943,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-tree-height" data-category="offline" data-keywords="森林調査 樹高測定 ポール カメラ GPS ジャイロ 撮影場所サイト">
+                <article class="app-card searchable-item" id="app-tree-height" data-category="mobile" data-keywords="森林調査 樹高測定 立木 ポール カメラ GPS ジャイロ 撮影場所サイト オフライン PWA">
                     <img src="icon-192_tree-height.png" alt="樹高測定アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">樹高測定 v1.7</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホとポールで樹高を測定します。</p>
+                        <p class="app-desc">2mポールとスマホのカメラ・ジャイロ機能を使い、離れた位置から手軽に樹高を計測できます。専用の高価な測高器を持たない現場調査や、プロット調査時の補助ツールとして役立ちます。</p>
                         <p class="app-meta">使用する機能：カメラ、GPS、ジャイロ</p>
                         <p class="app-meta"><strong>参考！：</strong>撮影場所を<a href="https://takada291.github.io/earth_jumper/" target="_blank" rel="noopener noreferrer">撮影場所サイト</a>で地図上で確認できます。</p>
                         <div class="app-actions">
@@ -954,14 +964,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-dbh-measure" data-category="offline" data-keywords="森林調査 胸高直径 DBH ポール カメラ 毎木">
+                <article class="app-card searchable-item" id="app-dbh-measure" data-category="mobile" data-keywords="森林調査 胸高直径 DBH 立木 ポール カメラ 毎木 オフライン PWA">
                     <img src="icon-dbh.png" alt="胸高直径アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">胸高直径 v1.0</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホとポールで胸高直径を測定します。</p>
+                        <p class="app-desc">2mポールを基準に画面上のマーカーを合わせるだけで、立木の胸高直径を非接触で測定できます。輪尺や直径巻尺を忘れた時や、林内での簡易的な径級把握に便利です。</p>
                         <p class="app-meta">使用する機能：カメラ</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/dbh-measure/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -974,14 +984,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-canopy-density-ai" data-category="offline" data-keywords="森林調査 AI林冠 樹冠疎密度 間伐計画 カメラ GPS ジャイロ 撮影場所サイト">
+                <article class="app-card searchable-item" id="app-canopy-density-ai" data-category="mobile" data-keywords="森林調査 AI林冠 樹冠疎密度 間伐計画 カメラ GPS ジャイロ 撮影場所サイト オフライン PWA">
                     <img src="icon-192_canopy-density-byAI.png" alt="AI林冠アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">AI林冠 v2.2</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホで下から撮った林冠の写真から間伐計画を判断します。</p>
+                        <p class="app-desc">林内から上空の林冠を撮影するだけで、樹冠の混み具合（疎密度）を自動で判定します。間伐の必要性や時期を客観的な数値で確認したいときの現地判断の目安として活用できます。</p>
                         <p class="app-meta">使用する機能：カメラ、GPS、ジャイロ</p>
                         <p class="app-meta"><strong>参考！：</strong>撮影場所を<a href="https://takada291.github.io/earth_jumper/" target="_blank" rel="noopener noreferrer">撮影場所サイト</a>で地図上で確認できます。</p>
                         <div class="app-actions">
@@ -995,14 +1005,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-fisheye-skyview-ai" data-category="offline" data-keywords="森林調査 AI魚眼 全天空写真 相対照度 開空率 光環境 カメラ GPS ジャイロ 撮影場所サイト">
+                <article class="app-card searchable-item" id="app-fisheye-skyview-ai" data-category="mobile" data-keywords="森林調査 AI魚眼 全天空写真 相対照度 開空率 光環境 カメラ GPS ジャイロ 撮影場所サイト オフライン PWA">
                     <img src="icon-192_fisheye-skyview-byAI.png" alt="AI魚眼アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">AI魚眼 v3.3</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホに付けた魚眼レンズで上空を撮って植林地の光環境を測定します。</p>
+                        <p class="app-desc">スマホ用魚眼レンズで全天空写真を撮影し、開空率や相対照度などの光環境を自動算出します。列状間伐後の林床の明るさ確認や、下層植生・更新木の生育環境調査に役立ちます。</p>
                         <p class="app-meta">使用する機能：カメラ、GPS、ジャイロ</p>
                         <p class="app-meta"><strong>参考！：</strong>撮影場所を<a href="https://takada291.github.io/earth_jumper/" target="_blank" rel="noopener noreferrer">撮影場所サイト</a>で地図上で確認できます。</p>
                         <div class="app-actions">
@@ -1016,14 +1026,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-circle-plot-byAR" data-category="offline" data-keywords="森林調査 AR釣竿 円形プロット 本数調査 カメラ 電子コンパス ジャイロ">
+                <article class="app-card searchable-item" id="app-circle-plot-byAR" data-category="mobile" data-keywords="森林調査 AR釣竿 円形プロット 立木 本数調査 カメラ 電子コンパス ジャイロ オフライン PWA">
                     <img src="icon-192_circle-plot-byAR.png" alt="AR釣竿アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">AR釣竿 v1.6</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">釣竿の替わりにスマホでプロット内の本数を調査します。</p>
+                        <p class="app-desc">釣竿やロープを使わず、スマホのカメラ画面上で円形プロットの範囲を確認しながら立木本数をカウントできます。急斜面や下草が多い現場での標準地調査・本数確認を身軽に行えます。</p>
                         <p class="app-meta">使用する機能：カメラ、電子コンパス、ジャイロ</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/circle-plot-byAR/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1036,14 +1046,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-tree-mapper" data-category="offline" data-keywords="森林調査 立木位置 作図 林内写真 カメラ">
+                <article class="app-card searchable-item" id="app-tree-mapper" data-category="mobile" data-keywords="森林調査 立木位置 作図 林内写真 カメラ オフライン PWA">
                     <img src="icon-192_tree-mapper.png" alt="立木位置アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">立木位置 v1.2</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホで撮った林内写真から立木位置を図示します。</p>
+                        <p class="app-desc">2mポールを基準に撮影した林内写真から、プロット内の立木配置図を自動で作成します。間伐前の選木検討や、標準地内の立木分布を視覚的に記録・共有したい場面に便利です。</p>
                         <p class="app-meta">使用する機能：カメラ</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/tree-mapper/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1056,14 +1066,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-stem-volume" data-category="offline" data-keywords="森林調査 立木材積 プロット調査 胸高直径 樹高 計算 LiDAR 点群">
+                <article class="app-card searchable-item" id="app-stem-volume" data-category="mobile" data-keywords="森林調査 立木材積 プロット調査 胸高直径 樹高 計算 LiDAR 点群 オフライン PWA">
                     <img src="icon_stem-volume.png" alt="立木材積アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">立木材積 v1.5</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">プロット調査（胸高直径と樹高）から立木材積を計算します。</p>
+                        <p class="app-desc">胸高直径と樹高の調査データから、単木および林分全体の立木材積をその場で自動計算します。間伐・主伐前の出材量見積もりや、プロット調査結果の現地集計に役立ちます。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/stem-volume/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                             <a href="https://note.com/takada291/n/n474bca60eef5" class="btn btn-note" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1075,14 +1085,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-stem-taper" data-category="offline" data-keywords="森林調査 幹細り表 細り表 胸高直径 樹高 採材">
+                <article class="app-card searchable-item" id="app-stem-taper" data-category="mobile" data-keywords="森林調査 幹細り表 細り表 立木 丸太 胸高直径 樹高 採材 オフライン PWA">
                     <img src="icon-192_stem-taper.png" alt="幹細り表アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">幹細り表 v1.0</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">胸高直径と樹高から幹の各高さでの直径一覧を表示します。</p>
+                        <p class="app-desc">胸高直径と樹高を入力するだけで、地上からの各高さにおける幹の直径（細り）を一覧表示します。伐採前の採材イメージの検討や、想定される丸太の末口径を確認する場面で使えます。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/stem-taper/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                             <a href="https://note.com/takada291/n/n7aa0f7773bcb" class="btn btn-note" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1094,14 +1104,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-geo-location" data-category="offline" data-keywords="GPS地図 座標変換 平面直角座標 緯度経度 測量">
+                <article class="app-card searchable-item" id="app-geo-location" data-category="mobile" data-keywords="GPS地図 座標変換 平面直角座標 緯度経度 測量 オフライン PWA">
                     <img src="icon-192_geo-location.png" alt="座標変換アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">座標変換 v2.5</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホでGPSの緯度経度を平面直角座標系へ変換します。</p>
+                        <p class="app-desc">スマホのGPSで取得した緯度経度を、GISや測量図面で使う平面直角座標系へリアルタイムに変換します。現地での基準点確認や、座標値の記録・CSV出力が必要な調査業務に便利です。</p>
                         <p class="app-meta">使用する機能：GPS</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/geo-location/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1114,14 +1124,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-simple-navi" data-category="offline" data-keywords="GPS地図 簡易ナビ 緯度経度 電子コンパス 誘導">
+                <article class="app-card searchable-item" id="app-simple-navi" data-category="mobile" data-keywords="GPS地図 簡易ナビ 緯度経度 電子コンパス 誘導 境界杭 オフライン PWA">
                     <img src="icon-192_simple-navi.png" alt="簡易ナビアイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">簡易ナビ v2.4</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホで緯度経度等を入力し電子コンパス連動”矢印”でナビします。</p>
+                        <p class="app-desc">目的地の緯度経度などを登録すると、現在地からの距離と方向を電子コンパス連動の矢印でシンプルに誘導します。目印の少ない山林内で、境界杭や調査プロットの中心点を探し出す際に重宝します。</p>
                         <p class="app-meta">使用する機能：GPS、電子コンパス</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/simple-navi/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1134,14 +1144,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-road-survey" data-category="offline" data-keywords="GPS地図 路網踏査 作業道 GPSログ ラインデータ GIS">
+                <article class="app-card searchable-item" id="app-road-survey" data-category="mobile" data-keywords="GPS地図 路網踏査 作業道 GPSログ ラインデータ GIS オフライン PWA">
                     <img src="icon-192_road-survey.png" alt="路網踏査アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">路網踏査 v1.2</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホでGPSログを取りラインデータで出力しGISに重ねます。</p>
+                        <p class="app-desc">山林内を歩きながらGPSログを記録し、GISソフトにそのまま重ねられるラインデータとして出力できます。作業道の予定ルート踏査や、既設林道の現況確認・図面化に活用できます。</p>
                         <p class="app-meta">使用する機能：GPS</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/road-survey/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1154,14 +1164,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-map-viewer" data-category="offline" data-keywords="GPS地図 林小班図 林班 小班 森林計画図 地理院地図 山林地図 地図切出サイト 地図切出スクリプト QGIS">
+                <article class="app-card searchable-item" id="app-map-viewer" data-category="mobile" data-keywords="GPS地図 林小班図 林班 小班 森林計画図 地理院地図 山林地図 地図切出サイト 地図切出スクリプト QGIS オフライン PWA">
                     <img src="icon_map-viewer.png" alt="林小班図アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">林小班図 v4.7</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">手持ちの森林計画図、地理院地図等をスマホに載せて現地確認します。</p>
+                        <p class="app-desc">お手持ちの森林計画図や地理院地図をスマホに取り込み、圏外の山中でも現在地を確認しながら歩けます。施業地の位置特定や境界・林小班の確認など、日々の現地踏査に幅広く役立ちます。</p>
                         <p class="app-meta">使用する機能：GPS、カメラ</p>
                         <p class="app-meta"><strong>参考！：</strong>衛星画像などを<a href="https://takada291.github.io/map-clip/" target="_blank" rel="noopener noreferrer">地図切出サイト</a>でJPGとして切り出せます。</p>
                         <p class="app-meta"><strong>参考！：</strong>QGISで表示した地図を<a href="https://drive.google.com/uc?export=download&id=1jbKcfkL3pOeOqrB90Dxwb8sa3kJ5DcTa" target="_blank" rel="noopener noreferrer">地図切出スクリプト (py)</a>でJPGとして切り出せます。</p>
@@ -1176,14 +1186,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-simple-survey" data-category="offline" data-keywords="GPS地図 簡易測量 周囲測量 GIS 面積">
+                <article class="app-card searchable-item" id="app-simple-survey" data-category="mobile" data-keywords="GPS地図 簡易測量 周囲測量 GIS 面積 オフライン PWA">
                     <img src="icon-192_simple-survey.png" alt="簡易測量アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">簡易測量 v1.5</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホのGPSで周囲測量しGISデータへ出力します。</p>
+                        <p class="app-desc">対象地の周囲を歩いてGPSで測点を記録し、概算面積の算出とGIS用ポリゴンデータの出力を行います。補助金申請前の下見や、伐採・造林区域のおおまかな面積把握に便利です。</p>
                         <p class="app-meta">使用する機能：GPS</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/simple-survey/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1196,14 +1206,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-forest-border" data-category="offline" data-keywords="GPS地図 AR境界 境界確認 カメラ GPS 電子コンパス">
+                <article class="app-card searchable-item" id="app-forest-border" data-category="mobile" data-keywords="GPS地図 AR境界 境界確認 カメラ GPS 電子コンパス オフライン PWA">
                     <img src="icon_forest-border.png" alt="AR境界アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">AR境界 v2.6</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホで境界等の位置をカメラ上に表示します。</p>
+                        <p class="app-desc">登録した境界点やラインの位置を、スマホのカメラ映像上にAR（拡張現実）で重ねて表示します。所有者との現地立会いや、伐採区域の境界を直感的にイメージ・共有したい場面に役立ちます。</p>
                         <p class="app-meta">使用する機能：カメラ、GPS、電子コンパス</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/forest-border/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1216,14 +1226,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-cadastral-map-viewer" data-category="offline" data-keywords="GPS地図 公図閲覧 登記所備付地図 筆界 現地確認 GPS">
+                <article class="app-card searchable-item" id="app-cadastral-map-viewer" data-category="mobile" data-keywords="GPS地図 公図閲覧 登記所備付地図 筆界 地番 現地確認 GPS オフライン PWA">
                     <img src="icon_cadastral-map-viewer.png" alt="公図閲覧アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">公図閲覧 v1.2</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">登記所備付地図データをスマホに載せて現地確認します。</p>
+                        <p class="app-desc">法務局の登記所備付地図（公図）データをスマホに読み込み、GPSの現在地と重ねて現地で確認できます。地番の位置確認や、森林所有者の確認・境界調査の事前把握に活用できます。</p>
                         <p class="app-meta">使用する機能：GPS</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/cadastral-map-viewer/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1236,14 +1246,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-timber-measurement" data-category="offline" data-keywords="現場作業 丸太検知 木材検収 電子野帳 音声入力 材積">
+                <article class="app-card searchable-item" id="app-timber-measurement" data-category="mobile" data-keywords="現場作業 丸太検知 木材検収 電子野帳 音声入力 材積 土場 オフライン PWA">
                     <img src="icon-192_timber-measur-doubsta.png" alt="丸太検知アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">丸太検知 v2.2</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホを丸太検知の電子野帳化します。</p>
+                        <p class="app-desc">土場での丸太の末口径・長さ・樹種を、音声入力やタップで素早く記録・材積計算できる電子野帳です。紙の野帳からの転記ミスを防ぎ、検収後の集計やCSV出力を大幅に省力化します。</p>
                         <p class="app-meta">使用する機能：音声入力</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/timber-measur-doubsta/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1256,14 +1266,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-timber-measurement-ai" data-category="offline" data-keywords="現場作業 AI検知 AI検収 丸太検知 椪積 材積 画像認識 カメラ GPS 撮影場所サイト">
+                <article class="app-card searchable-item" id="app-timber-measurement-ai" data-category="mobile" data-keywords="現場作業 AI検知 AI検収 丸太検知 椪積 材積 画像認識 カメラ GPS 撮影場所サイト オフライン PWA">
                     <img src="icon-192_timber-measur-byAI.png" alt="AI検知アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">AI検知 v7.1</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">丸太を積んだ椪積写真から材積を推定します。</p>
+                        <p class="app-desc">土場やトラックに積まれた丸太の椪積（はいづみ）写真を撮影するだけで、本数と材積をAIが自動推定します。大量の丸太を短時間で概算検収したい場面や、出荷前のボリューム確認に役立ちます。</p>
                         <p class="app-meta">使用する機能：カメラ、GPS</p>
                         <p class="app-meta"><strong>参考！：</strong>撮影場所を<a href="https://takada291.github.io/earth_jumper/" target="_blank" rel="noopener noreferrer">撮影場所サイト</a>で地図上で確認できます。</p>
                         <div class="app-actions">
@@ -1277,14 +1287,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-timber-layer-volume" data-category="offline" data-keywords="現場作業 層積検尺 椪積 丸太 検知 検収 カメラ">
+                <article class="app-card searchable-item" id="app-timber-layer-volume" data-category="mobile" data-keywords="現場作業 層積検尺 椪積 丸太 検知 検収 バイオマス チップ カメラ オフライン PWA">
                     <img src="icon-192_timber-layer-volume.png" alt="層積検尺アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">層積検尺 v2.4</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">丸太を積んだ椪積写真から層積を推定します。</p>
+                        <p class="app-desc">椪積した丸太の写真を撮影し、画面上で範囲を指定するだけで層積および推定実材積を算出します。バイオマス材やチップ材など、1本ずつ測るのが大変な小径木・大量材の検尺作業を効率化します。</p>
                         <p class="app-meta">使用する機能：カメラ</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/timber-layer-volume/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1297,14 +1307,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-daily-report" data-category="offline" data-keywords="現場作業 作業日報 電子野帳 生産性 労務管理">
+                <article class="app-card searchable-item" id="app-daily-report" data-category="mobile" data-keywords="現場作業 作業日報 電子野帳 生産性 労務管理 オフライン PWA">
                     <img src="icon-192_daily-report.png" alt="作業日報アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">作業日報 v1.0</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホを作業日報の電子野帳化します。</p>
+                        <p class="app-desc">日々の林業作業の内容・時間・人員などをスマホから手軽に記録し、CSVデータとして出力できます。現場からの帰社後に紙の日報を書き直す手間を減らし、生産性管理の基礎データ作成を支援します。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/daily-report/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                             <a href="https://note.com/takada291/n/ndd3d3075c33f" class="btn btn-note" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1316,14 +1326,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-daily-report-ai" data-category="offline" data-keywords="現場作業 AI日報 作業日報 GPSログ 解析サイト ダッシュボード 可視化">
+                <article class="app-card searchable-item" id="app-daily-report-ai" data-category="mobile" data-keywords="現場作業 AI日報 作業日報 GPSログ 解析サイト ダッシュボード 可視化 オフライン PWA">
                     <img src="icon-192_daily-report-byAI.png" alt="AI日報アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">AI日報 v2.1</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホのGPSログから解析サイトで作業時間、作業箇所を可視化します。</p>
+                        <p class="app-desc">作業中にスマホでGPSログを記録し、解析サイトへ読み込むことで作業時間や移動・稼働箇所を自動可視化します。手入力の負担をかけずに、日々の作業実績の振り返りや工程分析に活用できます。</p>
                         <p class="app-meta">使用する機能：GPS</p>
                         <p class="app-meta"><strong>解析！：</strong>GPSログを<a href="https://daily-report-byai-analytics-gihgqlawzhtkprwhvzmbav.streamlit.app/" target="_blank" rel="noopener noreferrer">AI日報 解析ダッシュボード</a>でドラッグドロップしてください。※もし’寝てる’画面が表示されたら青いボタンを押してください。</p>
                         <div class="app-actions">
@@ -1337,14 +1347,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-white-board" data-category="offline" data-keywords="現場作業 電子黒板 小黒板 現場写真 カメラ GPS 電子コンパス 撮影場所サイト">
+                <article class="app-card searchable-item" id="app-white-board" data-category="mobile" data-keywords="現場作業 電子黒板 小黒板 現場写真 検査 カメラ GPS 電子コンパス 撮影場所サイト オフライン PWA">
                     <img src="icon-192_White-board.png" alt="電子黒板アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">電子黒板 v2.5</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">スマホで現場写真を撮り小黒板、緯度経度、撮影方向を合成します。</p>
+                        <p class="app-desc">現場写真の撮影と同時に、工事名などの電子小黒板・緯度経度・撮影方向を自動で焼き込みます。黒板を持ち歩く手間を省き、補助事業の完了検査や現場報告用の写真整理をスムーズにします。</p>
                         <p class="app-meta">使用する機能：カメラ、GPS、電子コンパス</p>
                         <p class="app-meta"><strong>参考！：</strong>撮影場所や撮影方向を<a href="https://takada291.github.io/earth_jumper/" target="_blank" rel="noopener noreferrer">撮影場所サイト</a>で地図上で確認できます。</p>
                         <div class="app-actions">
@@ -1358,14 +1368,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-photo-verification" data-category="offline" data-keywords="現場作業 現地証明 現場写真 QRコード 座標 時刻 カメラ GPS">
+                <article class="app-card searchable-item" id="app-photo-verification" data-category="mobile" data-keywords="現場作業 現地証明 現場写真 QRコード 座標 時刻 カメラ GPS オフライン PWA">
                     <img src="icon_onsite-photo-verification.jpg" alt="現地証明アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">現地証明 v1.6</h3>
-                            <span class="cat-badge badge-offline">オフライン(PWA)</span>
+                            <span class="cat-badge badge-mobile">スマホ等</span>
                         </div>
-                        <p class="app-desc">現場写真にQRコード（座標・時刻）を合成します。</p>
+                        <p class="app-desc">撮影した現場写真に、撮影位置の座標や日時情報を含むQRコードを自動で合成します。伐採届出や補助事業などで「いつ・どこで撮った写真か」を客観的に示したいときの証明資料づくりに便利です。</p>
                         <p class="app-meta">使用する機能：カメラ、GPS</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/onsite-photo-verification/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1379,9 +1389,9 @@
                 </article>
             </div>
 
-            <!-- オフライン(PWA)共通の注意点 -->
+            <!-- スマホ等（PWA）共通の注意点 -->
             <div class="info-box">
-                <h3>【オフライン(PWA)共通の注意点】</h3>
+                <h3>【スマホ等（オフラインPWA）共通の注意点】</h3>
                 <ul>
                     <li>使用直前に圏内で一度起動した状態のままで使用してください。オフライン動作が安定します。</li>
                     <li>保存データは使用後にCSV出力してPC等へ保存した後で消去してください。<br>※スマホ等で確保される保存容量は5MB程です。またブラウザで履歴等消去すると保存データも一緒に消去されます。</li>
@@ -1393,23 +1403,49 @@
                     <li>アプリは自動でアップデートされますが、もしバージョン番号が古いままの場合は一度ショートカットを消去した上で追加し直してください。</li>
                 </ul>
             </div>
+
+            <!-- PWAの設定（スマホ等タブの下部へ統合） -->
+            <div class="info-box" id="pwa-setup">
+                <h3>📱 PWAの設定（ホーム画面への登録手順）</h3>
+                <p class="pwa-lead">オフライン対応アプリは、以下の手順でスマホ・タブレットのホーム画面へ追加してから起動してください。電波の届かない山林内でも通常のアプリのように動作します。（※アイコンが追加されるまで少し時間がかかる場合があります）</p>
+                <div class="pwa-grid">
+                    <div class="pwa-os-card">
+                        <h4>🤖 Android端末（Chrome）</h4>
+                        <ol>
+                            <li>各アプリのリンクを <strong>Chrome</strong> で開く</li>
+                            <li>右上のメニュー（︙）から<strong>「ホーム画面に追加」</strong>をタップ</li>
+                            <li><strong>「インストール」</strong>を選択</li>
+                            <li>ホーム画面に追加されたショートカット（アイコン画像）から起動</li>
+                        </ol>
+                    </div>
+                    <div class="pwa-os-card">
+                        <h4>🍎 iOS端末（iPhone / iPad・Safari）</h4>
+                        <ol>
+                            <li>各アプリのリンクを <strong>Safari</strong> で開く</li>
+                            <li>画面下部の<strong>「共有」</strong>ボタン（□に↑）をタップ</li>
+                            <li>メニュー内の<strong>「ホーム画面に追加」</strong>をタップして「追加」</li>
+                            <li>ホーム画面に追加されたショートカット（アイコン画像）から起動</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- 2. オンライン(Web App) タブ（QAツールを統合） -->
-        <section id="tab-online" class="tab-panel" role="tabpanel">
+        <!-- 2. パソコン（オンラインWeb App）タブ -->
+        <section id="tab-pc" class="tab-panel" role="tabpanel">
             <div class="tab-intro">
-                <p>インターネット接続環境で動作し、主に事務所での計画・作図・AI解析・各種Q&Aなどの業務を効率化します。</p>
+                <p>インターネット接続環境で動作し、主に事務所のパソコンでの計画・作図・AI解析・各種Q&Aなどの業務を効率化します。</p>
             </div>
 
             <div class="app-list">
-                <article class="app-card searchable-item" id="app-forest-eval" data-category="online" data-keywords="森林調査 立木評価 用材割合 AI診断 丸太価格サイト 素材価格 予測">
+                <article class="app-card searchable-item" id="app-forest-eval" data-category="pc" data-keywords="森林調査 立木評価 用材割合 AI診断 丸太価格サイト 素材価格 予測 オンライン WebApp">
                     <img src="icon-192_forest-eval.png" alt="立木評価アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">立木評価 v0.2</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">人工林の林内を撮影した写真から用材割合を推定します。※実験的なツールですので最終的には専門家の判断を仰いでください。</p>
+                        <p class="app-desc">人工林の林内写真から建築用材として使える割合（用材率）をAIで推定する実験的ツールです。主伐前の林分価値のおおまかな把握や、施業方針を検討する際の参考資料としてご活用ください。（※最終判断は専門家にご確認ください）</p>
                         <p class="app-meta"><strong>参考！：</strong>丸太価格、AIによる今後の予測を<a href="https://takada291.github.io/logprices-forecast/" target="_blank" rel="noopener noreferrer">こちらで</a>ご閲覧いただけます。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/forest-eval/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1432,14 +1468,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-forest-plan" data-category="online" data-keywords="森林調査 施業提案 人工林 AI Gemini API">
+                <article class="app-card searchable-item" id="app-forest-plan" data-category="pc" data-keywords="森林調査 施業提案 人工林 間伐 主伐 AI Gemini API オンライン WebApp">
                     <img src="icon_forest-plan.png" alt="施業提案アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">施業提案 v2.9</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">AIが人工林の施業を提案します。</p>
+                        <p class="app-desc">林齢や現地の状況・写真をもとに、AIが人工林に適した間伐や主伐などの施業方針を提案します。森林所有者への説明資料づくりや、施業プランを組み立てる際のたたき台として役立ちます。</p>
                         <p class="api-note"><strong>注意：</strong>Google Gemini APIキー（無料版）が必要です（<a href="https://note.com/kazu_t/n/n9adffe09bd6b" target="_blank" rel="noopener noreferrer">取得参考サイト</a>）</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/forest-plan/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1452,14 +1488,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-asses-natural" data-category="online" data-keywords="森林調査 天然更新 空撮写真 林内写真 AI 画像認識 Gemini API">
+                <article class="app-card searchable-item" id="app-asses-natural" data-category="pc" data-keywords="森林調査 天然更新 空撮写真 ドローン 林内写真 AI 画像認識 Gemini API オンライン WebApp">
                     <img src="icon_asses-natural-regene.jpg" alt="天然更新アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">天然更新 v0.6</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">AIが空撮写真と林内写真から天然更新の成否を判定します。</p>
+                        <p class="app-desc">皆伐跡地などの空撮写真と林内写真から、高木性樹種の生育状況を読み取り天然更新の成否をAIが判定します。再造林地や天然更新完了確認の事前チェック・省力化に活用できます。</p>
                         <p class="api-note"><strong>注意：</strong>Google Gemini APIキー（無料版）が必要です（<a href="https://note.com/kazu_t/n/n9adffe09bd6b" target="_blank" rel="noopener noreferrer">取得参考サイト</a>）</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/assesment-natural-regeneration/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1472,14 +1508,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-tree-identification" data-category="online" data-keywords="森林調査 樹種同定 葉 枝 木 AI 画像認識 Gemini API">
+                <article class="app-card searchable-item" id="app-tree-identification" data-category="pc" data-keywords="森林調査 樹種同定 立木 広葉樹 葉 枝 木 AI 画像認識 Gemini API オンライン WebApp">
                     <img src="icon_tree-identification.jpg" alt="樹種同定アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">樹種同定 v0.2</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">AIが葉や枝、木全体の写真から樹種を同定します。</p>
+                        <p class="app-desc">撮影した葉・枝・樹皮・木全体の写真から、AIが候補となる樹種名と見分け方のポイントを提示します。広葉樹の調査や天然更新地の稚樹確認など、図鑑だけでは迷う樹種の判別サポートに便利です。</p>
                         <p class="api-note"><strong>注意：</strong>Google Gemini APIキー（無料版）が必要です（<a href="https://note.com/kazu_t/n/n9adffe09bd6b" target="_blank" rel="noopener noreferrer">取得参考サイト</a>）</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/tree-identification/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1492,14 +1528,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-tree-count_aerial-view" data-category="online" data-keywords="森林調査 樹頂検知 空撮写真 ドローン スギ 本数カウント AI 画像認識">
+                <article class="app-card searchable-item" id="app-tree-count_aerial-view" data-category="pc" data-keywords="森林調査 樹頂検知 立木 空撮写真 ドローン スギ 本数カウント AI 画像認識 オンライン WebApp">
                     <img src="icon-treecount.png" alt="樹頂検知アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">樹頂検知 v2.7</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">空撮写真からスギ（樹頂）を認識し立木本数をカウントします。</p>
+                        <p class="app-desc">ドローン等で撮影した森林の空撮写真からスギの樹頂点をAIが自動認識し、立木本数をカウントします。人手では膨大な時間がかかる広範囲の本数把握や、間伐前後の本数密度確認に役立ちます。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/tree-count_aerial-view/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                             <a href="https://note.com/takada291/n/nd2189c7b284e" class="btn btn-note" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1511,14 +1547,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-microtopo-map" data-category="online" data-keywords="森林調査 作図 微地形図 標高データ 地図 赤色立体">
+                <article class="app-card searchable-item" id="app-microtopo-map" data-category="pc" data-keywords="森林調査 作図 微地形図 標高データ 地図 赤色立体 路網 オンライン WebApp">
                     <img src="icon_microtopo-map.jpg" alt="微地形図アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">微地形図 v1.9</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">標高データから微地形図を作成します。</p>
+                        <p class="app-desc">標高データをもとに、尾根や谷、崩壊地形の凹凸がくっきり浮かび上がる微地形図をブラウザ上で作成します。作業道のルート選定や、林地の危険箇所・微細な地形変化を机上で読み解く際に便利です。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/microtopo-map/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                             <a href="https://note.com/takada291/n/n0be82e7f1665" class="btn btn-note" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1530,14 +1566,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-ortho" data-category="online" data-keywords="森林調査 作図 オルソ化 空撮写真 ドローン GIS">
+                <article class="app-card searchable-item" id="app-ortho" data-category="pc" data-keywords="森林調査 作図 オルソ化 空撮写真 ドローン GIS オンライン WebApp">
                     <img src="icon-ortho.jpg" alt="オルソ化アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">オルソ化 v1.0</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">真上から撮影した空撮写真を簡易的にオルソ化します。</p>
+                        <p class="app-desc">ドローンで真上から撮影した単写真を、位置合わせを行って簡易オルソ画像（ワールドファイル付き）に変換します。高価な専用ソフトを使わずに、最新の現場写真をGISへ重ねて確認したい場面に役立ちます。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/orthophoto-byaerialphoto/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                             <a href="https://note.com/takada291/n/n61f9455f1a62" class="btn btn-note" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1549,14 +1585,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-cros-view" data-category="online" data-keywords="森林調査 作図 横断面図 作業道 CAD 横断図">
+                <article class="app-card searchable-item" id="app-cros-view" data-category="pc" data-keywords="森林調査 作図 横断面図 作業道 CAD 横断図 路網 オンライン WebApp">
                     <img src="image_cros-view.jpg" alt="横断面図アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">横断面図 v2.2</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">簡易的に作業道の横断図をCAD風に作図します。</p>
+                        <p class="app-desc">斜面の勾配や幅員などの数値を入力するだけで、作業道の横断面図と切土・盛土バランスをCAD風に自動作図します。現場計画の事前検討や、簡易的な設計図面・説明資料を素早く作りたいときに便利です。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/drawing-cros-view/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                             <a href="https://note.com/takada291/n/nc08bc2696c4a" class="btn btn-note" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1568,14 +1604,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-cros-view-byai" data-category="online" data-keywords="森林調査 作図 AI横断 横断面図 ポール横断野帳 CAD AI Gemini API">
+                <article class="app-card searchable-item" id="app-cros-view-byai" data-category="pc" data-keywords="森林調査 作図 AI横断 横断面図 ポール横断野帳 CAD 路網 AI Gemini API オンライン WebApp">
                     <img src="icon_cros-view-byai.png" alt="AI横断アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">AI横断 v1.2</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">ポール横断野帳をAIが読み取って横断図を作図します。</p>
+                        <p class="app-desc">現場で手書きしたポール横断野帳の写真をAIが自動で読み取り、作業道の横断面図へ変換・作図します。帰社後の面倒な野帳からの数値転記や作図作業を大幅に短縮したい場面に最適です。</p>
                         <p class="api-note"><strong>注意：</strong>Google Gemini APIキー（無料版）が必要です（<a href="https://note.com/kazu_t/n/n9adffe09bd6b" target="_blank" rel="noopener noreferrer">取得参考サイト</a>）</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/drawing-cros-view-byai/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1588,14 +1624,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-road-plan" data-category="online" data-keywords="森林調査 作図 路網計画 作業道 計画線形 勾配 地図">
+                <article class="app-card searchable-item" id="app-road-plan" data-category="pc" data-keywords="森林調査 作図 路網計画 作業道 計画線形 勾配 地図 オンライン WebApp">
                     <img src="icon_road-planning.png" alt="路網計画アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">路網計画 v1.4</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">簡易的に作業道の計画線形を作図します。</p>
+                        <p class="app-desc">標高データを見ながら地図上でルートをクリックするだけで、縦断勾配を計算しつつ作業道の計画線形を作図します。現地踏査前の机上ルート検討や、A4図面への出力・共有に役立ちます。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/road-planning/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                             <a href="https://note.com/takada291/n/na72d6930d851" class="btn btn-note" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1607,14 +1643,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-skyline-plan" data-category="online" data-keywords="森林調査 作図 架線計画 集材 たわみ 地上高 KML">
+                <article class="app-card searchable-item" id="app-skyline-plan" data-category="pc" data-keywords="森林調査 作図 架線計画 集材 たわみ 地上高 KML オンライン WebApp">
                     <img src="icon_skyline-plan.png" alt="架線計画アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">架線計画 v0.2</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">簡易的にたわみと地上高から架線を計画します。</p>
+                        <p class="app-desc">地形断面をもとに索張り時のたわみや地上高・中間サポート位置を計算し、簡易的な架線集材計画を作成します。KML出力にも対応しており、Google Earth等での事前シミュレーションに便利です。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/skyline-plan/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                             <a href="https://note.com/takada291/n/n2f854e330c6e" class="btn btn-note" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1626,14 +1662,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-flood-map" data-category="online" data-keywords="森林調査 作図 浸水地図 衛星データ 水域 災害 AI Gemini API">
+                <article class="app-card searchable-item" id="app-flood-map" data-category="pc" data-keywords="森林調査 作図 浸水地図 衛星データ 水域 災害 AI Gemini API オンライン WebApp">
                     <img src="icon_flood-mapping.png" alt="浸水地図アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">浸水地図 v2.8</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">衛星データから水域の変化を可視化します。</p>
+                        <p class="app-desc">衛星画像データをもとに、豪雨や台風前後における水域の広がり・浸水範囲の変化を地図上で可視化します。林道や流域周辺での災害状況の広域把握や、防災・減災の検討資料づくりに役立ちます。</p>
                         <p class="api-note"><strong>注意：</strong>Google Gemini APIキー（無料版）が必要です（<a href="https://note.com/kazu_t/n/n9adffe09bd6b" target="_blank" rel="noopener noreferrer">取得参考サイト</a>）</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/flood-mapping/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1646,14 +1682,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-wood-layout" data-category="online" data-keywords="DIY木工 板の木取 木取り 木工 部材 一枚板">
+                <article class="app-card searchable-item" id="app-wood-layout" data-category="pc" data-keywords="DIY木工 板の木取 木取り 木工 部材 一枚板 オンライン WebApp">
                     <img src="icon-192_wood_layout.png" alt="板の木取アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">板の木取 v1.0</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">一枚板から木工部材を木取りします。</p>
+                        <p class="app-desc">板材のサイズと必要なパーツ寸法を入力すると、端材が少なくなる効率的なカット配置（木取り図）を自動計算します。DIYや木工教室の事前準備で、材料のムダを減らし購入枚数を見積もる際に便利です。</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/wood_layout/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
                             <a href="https://note.com/takada291/n/n3072954b8c2b" class="btn btn-note" target="_blank" rel="noopener noreferrer">使い方（note）</a>
@@ -1665,14 +1701,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-woodwork-ai" data-category="online" data-keywords="DIY木工 AI木工 木工作品 ラフ案 AI Gemini API">
+                <article class="app-card searchable-item" id="app-woodwork-ai" data-category="pc" data-keywords="DIY木工 AI木工 木工作品 ラフ案 AI Gemini API オンライン WebApp">
                     <img src="icon-192_woodwork-byAI.png" alt="AI木工アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">AI木工 v1.5</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">AIの親方が木工作品のラフ案をつくります。</p>
+                        <p class="app-desc">作りたい家具や小物のイメージを伝えると、AIの親方が木工作品のラフデザインや製作のヒントを提案します。地域材を使ったクラフト企画のアイデア出しや、DIYの構想を膨らませたいときに楽しめます。</p>
                         <p class="api-note"><strong>注意：</strong>Google Gemini APIキー（無料版）が必要です（<a href="https://note.com/kazu_t/n/n9adffe09bd6b" target="_blank" rel="noopener noreferrer">取得参考サイト</a>）</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/woodwork-byAI/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1685,14 +1721,14 @@
                     </div>
                 </article>
 
-                <article class="app-card searchable-item" id="app-qa-logging" data-category="online" data-keywords="Q&A QA 伐採届出 QAアシスタント 造林 質問 AI Gemini API">
+                <article class="app-card searchable-item" id="app-qa-logging" data-category="pc" data-keywords="Q&A QA 伐採届出 QAアシスタント 造林 質問 AI Gemini API オンライン WebApp">
                     <img src="icon-192_QA-forestry-rules001.png" alt="伐採届出QAアイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">伐採届出 QAアシスタント v2.2</h3>
-                            <span class="cat-badge badge-online">オンライン(Web App)</span>
+                            <span class="cat-badge badge-pc">パソコン</span>
                         </div>
-                        <p class="app-desc">'伐採および伐採後の造林の届出等'に関する質問にAIがお答えします。</p>
+                        <p class="app-desc">「伐採および伐採後の造林の届出制度」に関する疑問に対し、関係資料を踏まえてAIが分かりやすく回答します。手続きの要否や必要書類を素早く確認したい林業事業者・自治体担当者の調べ物に役立ちます。</p>
                         <p class="api-note"><strong>注意：</strong>Google Gemini APIキー（無料版）が必要です（<a href="https://note.com/kazu_t/n/n9adffe09bd6b" target="_blank" rel="noopener noreferrer">取得参考サイト</a>）</p>
                         <div class="app-actions">
                             <a href="https://takada291.github.io/QA-forestry-rules001/" class="btn" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1707,7 +1743,7 @@
             </div>
         </section>
 
-        <!-- 3. LINE(LIFF) タブ -->
+        <!-- 3. LINE（LIFF）タブ -->
         <section id="tab-line" class="tab-panel" role="tabpanel">
             <div class="tab-intro">
                 <p>LINE上でそのまま起動し、トークやグループでの情報共有を手軽に行えるLIFFアプリです。</p>
@@ -1715,14 +1751,14 @@
             </div>
 
             <div class="app-list">
-                <article class="app-card searchable-item" id="app-wildlife-liff" data-category="line" data-keywords="現場作業 LINE LIFF 害獣目撃 クマ 熊 シカ 鹿 鳥獣 目撃情報 共有">
+                <article class="app-card searchable-item" id="app-wildlife-liff" data-category="line" data-keywords="現場作業 LINE LIFF 害獣目撃 クマ 熊 シカ 鹿 鳥獣 目撃情報 共有 GPS">
                     <img src="icon_wildlife-liff.jpg" alt="害獣目撃アイコン" class="app-icon" loading="lazy">
                     <div class="app-info">
                         <div class="app-header-line">
                             <h3 class="app-title">害獣目撃</h3>
-                            <span class="cat-badge badge-line">LINE(LIFF)</span>
+                            <span class="cat-badge badge-line">LINE</span>
                         </div>
-                        <p class="app-desc">LINEでクマやシカなどの目撃情報を共有します。</p>
+                        <p class="app-desc">LINE上からそのまま起動し、クマやシカなどの目撃場所・日時・状況をトークやグループへ即座に共有できます。林業現場での安全確保や、地域・作業班内での迅速な鳥獣出没情報の伝達に役立ちます。</p>
                         <p class="app-meta"><strong>注意！：</strong>LINEをお使いの端末で使用してください。</p>
                         <div class="app-actions">
                             <a href="https://liff.line.me/2012658366-kUqT8znj" class="btn btn-line" target="_blank" rel="noopener noreferrer">アプリを開く</a>
@@ -1737,7 +1773,7 @@
             </div>
         </section>
 
-        <!-- 4. 連携ツール(Excel) タブ -->
+        <!-- 4. エクセル（連携ツール）タブ -->
         <section id="tab-excel" class="tab-panel" role="tabpanel">
             <div class="tab-intro">
                 <p>現場アプリで記録したCSVデータや写真を、事務所のPC（Excel）で一括集計・台帳化するためのマクロ付きツールです。</p>
@@ -1749,10 +1785,10 @@
                     <div class="download-content">
                         <div class="app-header-line">
                             <span class="download-title">【PC用】Excel連携ツール No1（CSV一括取込）</span>
-                            <span class="cat-badge badge-excel">連携ツール(Excel)</span>
+                            <span class="cat-badge badge-excel">エクセル</span>
                         </div>
-                        <p>各アプリ（立木調査、座標変換、丸太検知、作業日報）から出力したCSVファイルをボタン一つでシートへ読み込みます。帳票の元データとしてお使いください！</p>
-                        <p>※ダウンロード後、右クリックで「プロパティ」→「全般」→「許可する」にチェック。</p>
+                        <p>立木調査・座標変換・丸太検知・作業日報アプリから出力したCSVファイルを、ボタン一つでExcelシートへ一括取り込みます。現場データの集計や、各種帳票・報告書の元データ作成を効率化します。</p>
+                        <p class="download-note">※ダウンロード後、右クリックで「プロパティ」→「全般」→「許可する」にチェック。</p>
                         <a href="https://drive.google.com/uc?export=download&id=1JVIpizwfwr4x4aLt5xfpLq29YpuQOBRx" class="btn">連携ツールをダウンロード (xlsm)</a>
                     </div>
                 </div>
@@ -1762,58 +1798,17 @@
                     <div class="download-content">
                         <div class="app-header-line">
                             <span class="download-title">【PC用】Excel連携ツール No2（写真台帳作成）</span>
-                            <span class="cat-badge badge-excel">連携ツール(Excel)</span>
+                            <span class="cat-badge badge-excel">エクセル</span>
                         </div>
-                        <p>電子黒板アプリで撮影した写真や各アプリでスクショした画像をボタン一つでシートへ自動挿入します。写真台帳としてお使いください！</p>
-                        <p>※ダウンロード後、右クリックで「プロパティ」→「全般」→「許可する」にチェック。</p>
+                        <p>電子黒板アプリで撮影した現場写真や、各アプリのスクリーンショットをボタン一つでExcelシートへ自動レイアウトします。補助事業や施業報告で提出する写真台帳の作成時間を大幅に短縮できます。</p>
+                        <p class="download-note">※ダウンロード後、右クリックで「プロパティ」→「全般」→「許可する」にチェック。</p>
                         <a href="https://drive.google.com/uc?export=download&id=1wihez2qhPFSzjqnN-LdAtVQ_H-NNLl7R" class="btn">連携ツールをダウンロード (xlsm)</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. PWAの設定 タブ -->
-        <section id="tab-pwa" class="tab-panel" role="tabpanel">
-            <div class="tab-intro">
-                <p><strong>オフライン(PWA)対応アプリ</strong>は、以下の手順でスマホ・タブレットのホーム画面へ追加してから起動してください。電波の届かない山林内でも通常のアプリのように動作します。</p>
-                <p>※アイコンがホーム画面に追加されるまで少し時間がかかる場合があります。</p>
-            </div>
-
-            <div class="info-box" style="margin-top: 0;">
-                <h3>📱 ホーム画面への登録手順</h3>
-                <div class="pwa-grid">
-                    <div class="pwa-os-card">
-                        <h4>🤖 Android端末（Chrome）</h4>
-                        <ol>
-                            <li>各アプリのリンクを <strong>Chrome</strong> で開く</li>
-                            <li>右上のメニュー（︙）から<strong>「ホーム画面に追加」</strong>をタップ</li>
-                            <li><strong>「インストール」</strong>を選択</li>
-                            <li>ホーム画面に追加されたショートカット（アイコン画像）から起動</li>
-                        </ol>
-                    </div>
-                    <div class="pwa-os-card">
-                        <h4>🍎 iOS端末（iPhone / iPad・Safari）</h4>
-                        <ol>
-                            <li>各アプリのリンクを <strong>Safari</strong> で開く</li>
-                            <li>画面下部の<strong>「共有」</strong>ボタン（□に↑）をタップ</li>
-                            <li>メニュー内の<strong>「ホーム画面に追加」</strong>をタップして「追加」</li>
-                            <li>ホーム画面に追加されたショートカット（アイコン画像）から起動</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-box">
-                <h3>💡 安定動作・アップデートのポイント</h3>
-                <ul>
-                    <li><strong>山に入る前に一度起動：</strong>使用直前に電波の届く圏内で一度起動した状態のままで現場へ持参すると、オフライン動作が安定します。</li>
-                    <li><strong>バージョン更新について：</strong>アプリは自動でアップデートされますが、もしバージョン番号が古いままの場合は、一度ホーム画面のショートカットを消去した上で追加し直してください。</li>
-                    <li><strong>保存データの管理：</strong>ブラウザの履歴やサイトデータを消去するとアプリ内の保存データも消えます。使用後はCSV出力等でPCへ保存した後にデータを消去してください。</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- 6. FAQ タブ -->
+        <!-- 5. FAQ他（FAQ＋更新状況）タブ -->
         <section id="tab-faq" class="tab-panel" role="tabpanel">
             <div class="info-box" style="margin-top: 0;">
                 <h3>よくある質問（FAQ）</h3>
@@ -1830,11 +1825,10 @@
                     <p class="faq-answer">入力したデータはブラウザ内のローカルストレージにのみ保存され外部サーバーに送信されることはありません。なお立木評価アプリで林内写真の提供に同意いただいた場合を除きます。</p>
                 </div>
             </div>
-        </section>
 
-        <!-- 7. 更新状況 タブ -->
-        <section id="tab-news" class="tab-panel" role="tabpanel">
-            <div class="updates">
+            <!-- 更新状況（FAQ他タブの下部へ統合） -->
+            <div class="updates-box" id="news-section">
+                <h3>更新状況</h3>
                 <div class="update-item">
                     <span class="date">2026.11.21</span>
                     <span>ポータルサイトをリニューアル（タブ表示・アプリ横断検索に対応）。</span>
@@ -2014,7 +2008,7 @@
             </div>
         </section>
 
-        <!-- 8. 免責事項 タブ -->
+        <!-- 6. 免責事項 タブ -->
         <section id="tab-disclaimer" class="tab-panel" role="tabpanel">
             <div class="disclaimer-section">
                 <h3 class="disclaimer-title">⚠️ 免責事項・ライセンス（ご利用前に必ずお読みください）</h3>
@@ -2063,9 +2057,9 @@
             const searchResultsList = document.getElementById('search-results-list');
             const searchableItems = Array.from(document.querySelectorAll('.searchable-item'));
             const quickTags = document.querySelectorAll('.quick-tag');
-            const jumpLinks = document.querySelectorAll('[data-jump-tab]');
+            const scrollLinks = document.querySelectorAll('[data-scroll-target]');
 
-            let currentTabId = 'tab-offline';
+            let currentTabId = 'tab-mobile';
 
             // 文字列の正規化（全角→半角・小文字化）
             function normalizeText(str) {
@@ -2075,7 +2069,6 @@
             // タブ切り替え
             function activateTab(tabId, scrollToTop = false) {
                 currentTabId = tabId;
-                // 検索モードを解除
                 searchPanel.style.display = 'none';
                 searchResultsList.innerHTML = '';
 
@@ -2110,7 +2103,6 @@
                 // スペース区切りAND検索に対応
                 const terms = normalized.split(/\s+/).filter(Boolean);
 
-                // タブパネルをすべて一時非表示
                 tabPanels.forEach(panel => panel.classList.remove('active'));
                 tabButtons.forEach(btn => {
                     btn.classList.remove('active');
@@ -2129,7 +2121,7 @@
                     if (matched) {
                         matchCount++;
                         const clone = item.cloneNode(true);
-                        clone.removeAttribute('id'); // 重複ID防止
+                        clone.removeAttribute('id');
                         searchResultsList.appendChild(clone);
                     }
                 });
@@ -2139,7 +2131,7 @@
 
                 if (matchCount === 0) {
                     searchResultsList.innerHTML =
-                        '<div class="no-results-box">該当するアプリが見つかりませんでした。別のキーワード（例：立木、検知、GPS、AI など）でお試しください。</div>';
+                        '<div class="no-results-box">該当するアプリが見つかりませんでした。別のキーワード（例：立木、丸太、検知、GPS、AI など）でお試しください。</div>';
                 }
 
                 searchPanel.style.display = 'block';
@@ -2160,12 +2152,13 @@
                 });
             });
 
-            // 本文中のタブ移動リンク（「PWAの設定」タブなど）
-            jumpLinks.forEach(link => {
+            // ページ内セクションへのスクロールリンク（「PWAの設定」など）
+            scrollLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    searchInput.value = '';
-                    clearBtn.style.display = 'none';
-                    activateTab(link.dataset.jumpTab, true);
+                    const targetEl = document.getElementById(link.dataset.scrollTarget);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 });
             });
 
@@ -2196,23 +2189,34 @@
                 });
             });
 
-            // 外部からのハッシュ付きURL（#app-xxx や #faq 等）に対応
+            // 外部からのハッシュ付きURL（#app-xxx や旧ID等）に対応
             function handleHashNavigation() {
                 const hash = window.location.hash.replace('#', '');
                 if (!hash) return;
 
-                // 旧セクションIDとの互換マッピング
                 const legacyMap = {
-                    'apps-offline': 'tab-offline',
-                    'apps-online': 'tab-online',
-                    'apps-qa': 'tab-online',
-                    'faq': 'tab-faq',
-                    'news': 'tab-news',
-                    'disclaimer': 'tab-disclaimer'
+                    'apps-offline': { tab: 'tab-mobile' },
+                    'tab-offline':  { tab: 'tab-mobile' },
+                    'tab-pwa':      { tab: 'tab-mobile', target: 'pwa-setup' },
+                    'apps-online':  { tab: 'tab-pc' },
+                    'apps-qa':      { tab: 'tab-pc' },
+                    'tab-online':   { tab: 'tab-pc' },
+                    'faq':          { tab: 'tab-faq' },
+                    'news':         { tab: 'tab-faq', target: 'news-section' },
+                    'tab-news':     { tab: 'tab-faq', target: 'news-section' },
+                    'disclaimer':   { tab: 'tab-disclaimer' }
                 };
 
                 if (legacyMap[hash]) {
-                    activateTab(legacyMap[hash]);
+                    activateTab(legacyMap[hash].tab);
+                    if (legacyMap[hash].target) {
+                        const subEl = document.getElementById(legacyMap[hash].target);
+                        if (subEl) {
+                            setTimeout(() => {
+                                subEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 80);
+                        }
+                    }
                     return;
                 }
 
